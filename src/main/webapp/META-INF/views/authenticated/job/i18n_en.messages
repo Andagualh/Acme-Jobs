@@ -1,0 +1,18 @@
+authenticated.job.list.label.reference = Reference
+authenticated.job.list.label.deadline = Deadline
+authenticated.job.list.label.title = Title
+
+authenticated.job.form.label.reference = Reference
+authenticated.job.form.label.status = Status
+authenticated.job.form.label.title = Title
+authenticated.job.form.label.deadline = Deadline
+authenticated.job.form.label.salary = Salary
+authenticated.job.form.label.moreInfo = More Info
+authenticated.job.form.label.description = Description
+
+authenticated.job.descriptor = <h4>Descriptor:</h4>
+authenticated.job.form.label.descriptor = Description
+
+authenticated.job.form.button.duties = Duties
+authenticated.job.form.button.auditRecord = Audit Records
+authenticated.job.form.button.return = Return

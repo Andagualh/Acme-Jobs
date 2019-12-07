@@ -1,0 +1,24 @@
+administrator.company-records.list.label.name = Nombre de la compañia
+administrator.company-records.list.label.sector = Sector
+administrator.company-records.list.label.CEOname = Nombre del CEO
+administrator.company-records.list.label.description = Descripción
+administrator.company-records.list.label.web = Sitio web
+administrator.company-records.list.label.phone = Teléfono de contacto
+administrator.company-records.list.label.email = Email
+administrator.company-records.list.label.incorporated = Incorporado
+administrator.company-records.list.label.stars = Estrellas
+
+administrator.company-records.form.label.name = Nombre de la compañia
+administrator.company-records.form.label.sector = Sector
+administrator.company-records.form.label.CEOname = Nombre del CEO
+administrator.company-records.form.label.description = Descripción
+administrator.company-records.form.label.web = Sitio web
+administrator.company-records.form.label.phone = Teléfono de contacto
+administrator.company-records.form.label.email = Email
+administrator.company-records.form.label.incorporated = Incorporado
+administrator.company-records.form.label.stars = Estrellas
+
+administrator.company-records.form.button.delete = Eliminar
+administrator.form.button.update = Actualiza
+administrator.form.button.create = Crear
+administrator.company-records.form.button.return = Volver

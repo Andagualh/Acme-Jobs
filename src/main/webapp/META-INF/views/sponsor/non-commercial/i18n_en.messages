@@ -1,0 +1,15 @@
+sponsor.non-commercial.list.label.banner = Banner
+sponsor.non-commercial.list.label.slogan = Slogan
+sponsor.non-commercial.list.label.url = Url
+sponsor.non-commercial.list.label.jingle = Jingle
+
+sponsor.non-commercial.form.label.banner = Banner
+sponsor.non-commercial.form.label.slogan = Slogan
+sponsor.non-commercial.form.label.url = Url
+sponsor.non-commercial.form.label.jingle = Jingle
+
+sponsor.non-commercial.form.button.update = Update
+sponsor.non-commercial.form.button.delete = Delete
+sponsor.non-commercial.form.button.create = Create
+
+sponsor.non-commercial.form.button.return= Return

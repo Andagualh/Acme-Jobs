@@ -1,0 +1,15 @@
+authenticated.message-thread.list.label.title = Title
+authenticated.message-thread.list.label.creationMoment = Creation Moment
+authenticated.message-thread.list.label.users = Users
+
+authenticated.message-thread.form.label.title = Title
+authenticated.message-thread.form.label.creationMoment = Creation Moment
+
+authenticated.message-thread.messages = <h4>Messages:</h4>
+authenticated.message.title = Title:
+authenticated.message.creationMoment = Creation Moment:
+authenticated.message.tags = Tags:
+authenticated.message.body = Body:
+
+authenticated.message-thread.list.button.messages = Messages
+authenticated.message-thread.form.button.return = Return

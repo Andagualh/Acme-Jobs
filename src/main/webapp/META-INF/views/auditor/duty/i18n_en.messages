@@ -1,0 +1,10 @@
+auditor.duty.list.label.reference = Job Reference
+auditor.duty.list.label.title = Title
+auditor.duty.list.label.description = Description
+auditor.duty.list.label.percent = Percent
+
+auditor.duty.form.label.title = Title
+auditor.duty.form.label.description = Description
+auditor.duty.form.label.percent = Percent
+
+auditor.duty.form.button.return = Return

@@ -1,0 +1,15 @@
+sponsor.non-commercial.list.label.banner = Pancarta
+sponsor.non-commercial.list.label.slogan = Slogan
+sponsor.non-commercial.list.label.url = Url
+sponsor.non-commercial.list.label.jingle = Jingle
+
+sponsor.non-commercial.form.label.banner = Pancarta
+sponsor.non-commercial.form.label.slogan = Slogan
+sponsor.non-commercial.form.label.url = Url
+sponsor.non-commercial.form.label.jingle = Jingle
+
+sponsor.non-commercial.form.button.update = Actualizar
+sponsor.non-commercial.form.button.delete = Eliminar
+sponsor.non-commercial.form.button.create = Crear
+
+sponsor.non-commercial.form.button.return= Volver

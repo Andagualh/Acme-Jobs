@@ -1,0 +1,13 @@
+authenticated.audit-record.list.label.reference = Job Reference
+authenticated.audit-record.list.label.title = Title
+authenticated.audit-record.list.label.status = Status
+authenticated.audit-record.list.label.body = Body
+authenticated.audit-record.list.label.creationMoment = 	Creation Moment
+
+authenticated.audit-record.form.label.title = Title
+authenticated.audit-record.form.label.status = Status
+authenticated.audit-record.form.label.body = Body
+authenticated.audit-record.form.label.creationMoment = Creation Moment
+
+
+authenticated.audit-record.form.button.return = Return

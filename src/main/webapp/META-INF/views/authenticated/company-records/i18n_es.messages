@@ -1,0 +1,21 @@
+authenticated.company-records.list.label.name = Nombre de la compañia
+authenticated.company-records.list.label.sector = Sector
+authenticated.company-records.list.label.CEOname = Nombre del CEO
+authenticated.company-records.list.label.description = Descripción
+authenticated.company-records.list.label.web = Sitio web
+authenticated.company-records.list.label.phone = Teléfono de contacto
+authenticated.company-records.list.label.email = Email
+authenticated.company-records.list.label.incorporated = Incorporado
+authenticated.company-records.list.label.stars = Estrellas
+
+authenticated.company-records.form.label.name = Nombre de la compañia
+authenticated.company-records.form.label.sector = Sector
+authenticated.company-records.form.label.CEOname = Nombre del CEO
+authenticated.company-records.form.label.description = Descripción
+authenticated.company-records.form.label.web = Sitio web
+authenticated.company-records.form.label.phone = Teléfono de contacto
+authenticated.company-records.form.label.email = Email
+authenticated.company-records.form.label.incorporated = Incorporado
+authenticated.company-records.form.label.stars = Estrellas
+
+authenticated.company-records.form.button.return = Volver

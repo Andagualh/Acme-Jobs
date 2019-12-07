@@ -1,0 +1,10 @@
+employer.duty.list.label.reference = Referencia del Trabajo
+employer.duty.list.label.title = Título
+employer.duty.list.label.description = Descripción
+employer.duty.list.label.percent = Porcentaje
+
+employer.duty.form.label.title = Título
+employer.duty.form.label.description = Descripción
+employer.duty.form.label.percent = Porcentaje
+
+employer.duty.form.button.return = Volver

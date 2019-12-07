@@ -1,0 +1,20 @@
+provider.request.list.label.title = Título
+provider.request.list.label.creationMoment = Momento de creación
+provider.request.list.label.deadLine = Fecha límite
+provider.request.list.label.text = Texto
+provider.request.list.label.reward = Recompensa
+provider.request.list.label.ticker = Ticker
+
+provider.request.form.label.title = Título
+provider.request.form.label.creationMoment = Momento de creación
+provider.request.form.label.deadLine = Fecha límite
+provider.request.form.label.text = Texto
+provider.request.form.label.reward = Recompensa
+provider.request.form.label.ticker = Ticker
+
+provider.request.form.button.create = Crear
+provider.request.form.button.return = Volver
+provider.request.form.label.isCreated = Confirmar
+
+provider.user-account.error.must-accept = Debes aceptar la creación.
+provider.user-account.error.deadline = La fecha límite debe ser al menos 7 días más tarde.

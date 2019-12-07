@@ -1,0 +1,25 @@
+# i18n_es.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+administrator.spamlist.list.label.spamwordslist = Lista de Palabras Spam
+administrator.spamlist.label.threshold = Umbral
+
+administrator.spamlist.form.label.spamwordslist = Lista de Palabras Spam
+administrator.spamlist.form.label.threshold = Umbral
+administrator.spamlist.form.label.newSpamword = Nueva palabra de Spam
+administrator.spamlist.form.label.deleteSpamword = Elimina una palabra de Spam
+
+administrator.spamlist.form.button.update = Actualizar
+administrator.spamlist.form.button.return = Volver
+
+administrator.spamlist.form.error.duplicated = Esta palabra de spam ya existe
+administrator.spamlist.form.error.no-exist = Esta palabra de spam no existe
+administrator.spamlist.form.error.same = Escribiste la misma palabra
+administrator.spamlist.form.error.nothing = No has escrito nada

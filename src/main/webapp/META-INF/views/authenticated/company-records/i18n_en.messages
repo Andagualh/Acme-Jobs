@@ -1,0 +1,31 @@
+# i18n_en.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+authenticated.company-records.list.label.name = Company name
+authenticated.company-records.list.label.sector = Sector
+authenticated.company-records.list.label.CEOname = CEO's name
+authenticated.company-records.list.label.description = Description
+authenticated.company-records.list.label.web = Web site
+authenticated.company-records.list.label.phone = Contact phone
+authenticated.company-records.list.label.email = Email
+authenticated.company-records.list.label.incorporated = Incorporated
+authenticated.company-records.list.label.stars = Stars
+
+authenticated.company-records.form.label.name = Company name
+authenticated.company-records.form.label.sector = Sector
+authenticated.company-records.form.label.CEOname = CEO's name
+authenticated.company-records.form.label.description = Description
+authenticated.company-records.form.label.web = Web site
+authenticated.company-records.form.label.phone = Contact phone
+authenticated.company-records.form.label.email = Email
+authenticated.company-records.form.label.incorporated = Incorporated
+authenticated.company-records.form.label.stars = Stars
+
+authenticated.company-records.form.button.return = Return

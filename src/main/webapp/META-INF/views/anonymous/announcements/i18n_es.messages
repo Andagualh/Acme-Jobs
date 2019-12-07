@@ -1,0 +1,8 @@
+anonymous.announcements.list.label.title = Título
+anonymous.announcements.list.label.creationdate = Fecha de creación 
+
+anonymous.announcements.form.label.title = Título:
+anonymous.announcements.form.label.creationdate = Fecha de creación:
+anonymous.announcements.form.label.addinfo = Información Adicional:
+anonymous.announcements.form.label.text = Descripción:
+anonymous.announcements.form.button.return = Volver:

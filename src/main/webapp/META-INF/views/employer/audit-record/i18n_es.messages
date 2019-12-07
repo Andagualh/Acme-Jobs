@@ -1,0 +1,12 @@
+employer.audit-record.list.label.reference = Referencia del Trabajo
+employer.audit-record.list.label.title = Título
+employer.audit-record.list.label.status = Estado
+employer.audit-record.list.label.body = Cuerpo
+employer.audit-record.list.label.creationMoment = Momento de Creación
+
+employer.audit-record.form.label.title = Título
+employer.audit-record.form.label.status = Estado
+employer.audit-record.form.label.body = Cuerpo
+employer.audit-record.form.label.creationMoment = Momento de Creación
+
+employer.job.form.button.return = Volver

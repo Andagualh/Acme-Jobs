@@ -1,0 +1,12 @@
+employer.application.form.label.reference = Número de Referencia:
+employer.application.form.label.creationmoment = Fecha de Creación:
+employer.application.form.label.statement = Declaración:
+employer.application.form.label.status = Estado:
+employer.application.form.label.skill = Habilidades:
+employer.application.form.label.qualification = Cualificaciones:
+
+employer.application.list.label.ref = Número de Referencia
+employer.application.list.label.creationmoment = Momento de Creacion
+employer.application.list.label.status = Estado
+
+employer.application.form.button.return = Volver

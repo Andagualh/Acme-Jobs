@@ -1,0 +1,11 @@
+auditor.audit-record.list.label.title = Título
+auditor.audit-record.list.label.status = Estado
+auditor.audit-record.list.label.body = Cuerpo
+auditor.audit-record.list.label.creationMoment = Momento de Creación
+
+auditor.audit-record.form.label.title = Título
+auditor.audit-record.form.label.status = Estado
+auditor.audit-record.form.label.body = Cuerpo
+auditor.audit-record.form.label.creationMoment = Momento de Creación
+
+auditor.audit-record.form.button.return = Volver

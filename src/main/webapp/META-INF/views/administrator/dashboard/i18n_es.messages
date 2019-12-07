@@ -1,0 +1,31 @@
+# i18n_en.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+administrator.dashboard.form.title.company = <h2>Panel de Indicadores</h2>
+
+administrator.dashboard.form.totalAnnounencents = Anuncios totales
+administrator.dashboard.form.totalInvestor = Registros de inversiones totales
+administrator.dashboard.form.totalCompany = Registros de compañía totales
+administrator.dashboard.form.title.application-status = Panel de listado
+
+administrator.dashboard.form.minimumRequest = Mínima solicitud
+administrator.dashboard.form.maximumRequest = Máxima solicitud
+administrator.dashboard.form.averageRequest = Promedio de solicitud
+administrator.dashboard.form.desviationRequest = Desviación estándar de solicitud
+administrator.dashboard.form.minimumOffers = Oferta mínima
+administrator.dashboard.form.maximumOffers = Oferta máxima
+administrator.dashboard.form.averageOffers = Promedio de ofertas
+administrator.dashboard.form.desviationOffers = Desviación estándar de ofertas
+administrator.dashboard.form.averageJobsPerEmployer = Promedio de trabajos por empleadores
+administrator.dashboard.form.averageApplicationPerWorker = Promedio de aplicaciones por trabajadores
+administrator.dashboard.form.averageNumberOfApplicationPerEmployer = Promedio de aplicaciones por employer
+administrator.dashboard.form.averageApplicationPerWorker = Promedia de aplicaciones por trabajadores
+administrator.dashboard.form.title.jobs = <h4>Trabajos:</h4>
+administrator.dashboard.form.title.applications = <h4>Solicitudes:</h4>

@@ -1,0 +1,12 @@
+worker.job.list.label.reference = Referencia
+worker.job.list.label.deadline = Fecha de fin
+worker.job.list.label.title = Título
+
+worker.offer.form.label.reference = Referencia
+worker.offer.form.label.title = Título
+worker.offer.form.label.deadline = Fecha de Fin
+worker.offer.form.label.salary = Salario
+worker.offer.form.label.moreInfo = Más información
+worker.offer.form.label.description = Descripción
+
+worker.offer.form.button.return = Volver

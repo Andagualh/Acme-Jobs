@@ -1,0 +1,13 @@
+administrator.announcements.list.label.title = Title
+administrator.announcements.list.label.creationdate = Creation Date
+administrator.announcements.list.label.create = Create
+
+administrator.announcements.form.label.title = Title:
+administrator.announcements.form.label.creationdate = Creation Date:
+administrator.announcements.form.label.addinfo = Additional Info:
+administrator.announcements.form.label.text = Description:
+administrator.announcements.form.button.return = Return
+administrator.announcements.form.button.create = Create
+administrator.announcements.form.label.creationdate = Creation Date
+administrator.announcements.form.button.update = Update
+administrator.announcements.form.button.delete = Delete

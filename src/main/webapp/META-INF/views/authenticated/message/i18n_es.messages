@@ -1,0 +1,5 @@
+authenticated.message.list.label.title = Título
+authenticated.message.list.label.creationMoment = Momento de creación
+authenticated.message.list.label.body = Cuerpo
+
+authenticated.message.form.button.return = Volver

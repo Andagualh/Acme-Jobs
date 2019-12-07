@@ -1,0 +1,8 @@
+authenticated.announcements.list.label.title = Title
+authenticated.announcements.list.label.creationdate = Creation Date
+
+authenticated.announcements.form.label.title = Title:
+authenticated.announcements.form.label.creationdate = Creation Date:
+authenticated.announcements.form.label.addinfo = Additional Info:
+authenticated.announcements.form.label.text = Description:
+authenticated.announcements.form.button.return = Return

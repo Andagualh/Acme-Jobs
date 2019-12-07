@@ -1,0 +1,15 @@
+administrator.commercial.list.label.banner = Pancarta
+administrator.commercial.list.label.slogan = Slogan
+administrator.commercial.list.label.url = Url
+administrator.commercial.list.label.card = card
+
+administrator.commercial.form.label.banner = Pancarta
+administrator.commercial.form.label.slogan = Slogan
+administrator.commercial.form.label.url = Url
+administrator.commercial.form.label.card = Tarjeta de Crédito
+
+administrator.commercial.form.button.update = Actualizar
+administrator.commercial.form.button.delete = Eliminar
+administrator.commercial.form.button.create = Crear
+
+administrator.commercial.form.button.return= Volver

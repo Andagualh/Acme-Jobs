@@ -1,0 +1,8 @@
+authenticated.announcements.list.label.title = Título
+authenticated.announcements.list.label.creationdate = Fecha de creación 
+
+authenticated.announcements.form.label.title = Título:
+authenticated.announcements.form.label.creationdate = Fecha de creación:
+authenticated.announcements.form.label.addinfo = Información Adicional:
+authenticated.announcements.form.label.text = Descripción:
+authenticated.announcements.form.button.return = Volver:

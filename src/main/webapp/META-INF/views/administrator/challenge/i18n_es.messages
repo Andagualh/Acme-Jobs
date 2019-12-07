@@ -1,0 +1,33 @@
+# i18n_es.messages
+#
+# Copyright (c) 2019 Rafael Corchuelo.
+#
+# In keeping with the traditional purpose of furthering education and research, it is
+# the policy of the copyright owner to permit non-commercial use and redistribution of
+# this software. It has been tested carefully, but it is not guaranteed for any particular
+# purposes.  The copyright owner does not offer any warranties or representations, nor do
+# they accept any liabilities with respect to them.
+
+administrator.challenge.form.label.title = Titulo
+administrator.challenge.form.label.deadline = Fecha limite
+administrator.challenge.form.label.description = Descripcion
+administrator.challenge.form.label.gold = Oro
+administrator.challenge.form.label.silver = Plata
+administrator.challenge.form.label.bronze = Bronce
+administrator.challenge.form.label.goldreward = Recompensa de Oro
+administrator.challenge.form.label.silverreward = Recompensa de Plata
+administrator.challenge.form.label.bronzereward = Recompensa de Bronce
+
+administrator.challenge.list.label.title = Titulo
+administrator.challenge.list.label.deadline = Fecha limite
+administrator.challenge.list.label.description = Descripcion
+administrator.challenge.list.label.gold = Oro
+administrator.challenge.list.label.silver = Plata
+administrator.challenge.list.label.bronze = Bronce
+administrator.challenge.list.label.goldreward = Recompensa de Oro
+administrator.challenge.list.label.silverreward = Recompensa de Plata
+administrator.challenge.list.label.bronzereward = Recompensa de Bronce
+administrator.challenge.form.button.delete = Borrar
+administrator.challenge.form.button.create = Crear
+administrator.challenge.form.button.update = Actualizar
+administrator.challenge.form.button.return = Volver
