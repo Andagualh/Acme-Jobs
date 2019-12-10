@@ -8,6 +8,5 @@
     <acme:list-column code="administrator.commercial.list.label.banner" path="banner" width="20%"/>
     <acme:list-column code="administrator.commercial.list.label.slogan" path="slogan" width="40%"/>      
     <acme:list-column code="administrator.commercial.list.label.url" path="url" width="40%"/>     
-    <acme:list-column code="administrator.commercial.list.label.card" path="card" width="40%"/>      
 	
 </acme:list>

@@ -1,12 +1,20 @@
 administrator.commercial.list.label.banner = Banner
 administrator.commercial.list.label.slogan = Slogan
 administrator.commercial.list.label.url = Url
-administrator.commercial.list.label.card = card
 
 administrator.commercial.form.label.banner = Banner
 administrator.commercial.form.label.slogan = Slogan
 administrator.commercial.form.label.url = Url
-administrator.commercial.form.label.card = Credit Card
+administrator.commercial.form.credit-card = <h4>Credit 	Card:</h4>
+administrator.commercial.form.label.ownerName = Owner Name
+administrator.commercial.form.label.number = Number
+administrator.commercial.form.label.deadline = Dead Line
+administrator.commercial.form.label.cvv = CVV
+administrator.commercial.form.button.card = Credit Card
+
+administrator.commercial.form.error.number = The number must have 15 digits
+administrator.commercial.form.error.cvv = The CVV must have 3 digits
+administrator.commercial.form.error.deadline = The Date mush be MM/yyyy
 
 administrator.commercial.form.button.update = Update
 administrator.commercial.form.button.delete = Delete

@@ -1282,7 +1282,7 @@
 		<property name="auditor" ref="auditor1Auditor"/>
 		</bean>
 
-	<!-- Banners -->
+	<!-- Non Commercial Banners -->
 	<bean id="banner01" class="acme.entities.nonCommercial.NonCommercial">
 		<property name="banner" value="https://i.pinimg.com/474x/0d/02/9d/0d029d10452ecea33f9409e91c1ea64a.jpg" />
 		<property name="slogan" value="Life is about small things." />
@@ -1307,15 +1307,39 @@
 		<property name="sponsor" ref="sponsor2Sponsor"/>
 <!-- 		<property name="finalMode" value="false"/>
  -->	</bean>
+ 
+ <!-- Credit Cards -->
+	<bean id="card01" class="acme.entities.creditCard.CreditCard" >
+		<property name="ownerName" value="Paco Pérez Sosa" />
+		<property name="number" value="5541147884694773" />
+		<property name="deadline" value="01/2021" />
+		<property name="cvv" value="123" />
+		<property name="commercial" ref="banner04" />
+	</bean>
+	
+	<bean id="card02" class="acme.entities.creditCard.CreditCard" >
+		<property name="ownerName" value="Francisco Javier de los Santos" />
+		<property name="number" value="5496675056390627" />
+		<property name="deadline" value="01/2021" />
+		<property name="cvv" value="738" />
+		<property name="commercial" ref="banner05" />
+	</bean>
+	
+	<bean id="card03" class="acme.entities.creditCard.CreditCard" >
+		<property name="ownerName" value="Pablo Sánchez Martín" />
+		<property name="number" value="5159262819350277" />
+		<property name="deadline" value="01/2021" />
+		<property name="cvv" value="453" />
+		<property name="commercial" ref="banner06" />
+	</bean>
+	
+	<!-- Commercial Banners -->
 
 	<bean id="banner04" class="acme.entities.commercial.Commercial">
 		<property name="banner" value="https://i.pinimg.com/474x/0d/02/9d/0d029d10452ecea33f9409e91c1ea64a.jpg" />
 		<property name="slogan" value="Life is about small things." />
 		<property name="url" value="https://www.pinterest.com" />
-		<property name="ownerName" value="Juan Palomo" />
-		<property name="expireDate" value="08/23" />
-		<property name="ccv" value="874" />
-		<property name="card" value="5541147884694773" />
+		<property name="card" ref="card01" />
 		<property name="sponsor" ref="sponsor2Sponsor"/>
 <!-- 		<property name="finalMode" value="false"/> -->
 		
@@ -1325,10 +1349,7 @@
 		<property name="banner" value="https://i.pinimg.com/474x/0d/02/9d/0d029d10452ecea33f9409e91c1ea64a.jpg" />
 		<property name="slogan" value="Life is about small things." />
 		<property name="url" value="https://www.pinterest.com" />
-		<property name="ownerName" value="Cecilio Águila" />
-		<property name="expireDate" value="09/22" />
-		<property name="ccv" value="573" />
-		<property name="card" value="5496675056390627" />
+		<property name="card" ref="card02" />
 		<property name="sponsor" ref="sponsor1Sponsor"/>
 <!-- 		<property name="finalMode" value="false"/> -->
 	</bean>
@@ -1337,10 +1358,7 @@
 		<property name="banner" value="https://i.pinimg.com/474x/0d/02/9d/0d029d10452ecea33f9409e91c1ea64a.jpg" />
 		<property name="slogan" value="Life is about small things." />
 		<property name="url" value="https://www.pinterest.com" />
-		<property name="ownerName" value="María Lacasa" />
-		<property name="expireDate" value="10/21" />
-		<property name="ccv" value="402" />
-		<property name="card" value="5422301936093054" />
+		<property name="card" ref="card03" />
 		<property name="sponsor" ref="sponsor2Sponsor"/>	
 		<!-- <property name="finalMode" value="false"/> -->
 	</bean>

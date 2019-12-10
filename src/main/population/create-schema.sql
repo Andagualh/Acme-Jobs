@@ -97,13 +97,9 @@
        `id` integer not null,
         `version` integer not null,
         `banner` varchar(255),
-        `card` varchar(255),
-        `ccv` integer,
-        `expire_date` varchar(255),
-        `owner_name` varchar(255),
         `slogan` varchar(255),
         `url` varchar(255),
-        `sponsor_id` integer not null,
+        `sponsor_id` integer,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -128,6 +124,17 @@
         `user_account_id` integer,
         `company` varchar(255),
         `sector` varchar(255),
+        primary key (`id`)
+    ) engine=InnoDB;
+
+    create table `credit_card` (
+       `id` integer not null,
+        `version` integer not null,
+        `cvv` varchar(255),
+        `deadline` varchar(255),
+        `number` varchar(255),
+        `owner_name` varchar(255),
+        `commercial_id` integer,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -307,9 +314,6 @@
     alter table `application` 
        add constraint UK_sqi7i8b9wxmiu57ftr95ssexh unique (`ref`);
 
-    alter table `commercial` 
-       add constraint UK_anxnx0l37gwx03ticl1nttf1n unique (`ccv`);
-
     alter table `descriptor` 
        add constraint UK_4iw18njo4d0q8gvnhe04vmctw unique (`job_id`);
 
@@ -379,6 +383,11 @@ create index IDX2insomc4a40jprju8tmgcvmig on `spamword` (`spamword`);
        add constraint FK_6cyha9f1wpj0dpbxrrjddrqed 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
+
+    alter table `credit_card` 
+       add constraint `FKs2mubwxp2bt1yiltbw4pa8u51` 
+       foreign key (`commercial_id`) 
+       references `commercial` (`id`);
 
     alter table `descriptor` 
        add constraint `FKgfulfilmwi4hhaquiu7fr5g0g` 
