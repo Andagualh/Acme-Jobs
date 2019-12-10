@@ -8,6 +8,7 @@
 	<acme:form-textbox code="administrator.commercial.form.label.url" path="url"/>
 	
 	<acme:check-access test="${command == 'create'}">
+		<acme:message code="administrator.commercial.form.credit-card" />
 		<acme:form-textbox code="administrator.commercial.form.label.ownerName" path="ownerName"/>
 		<acme:form-textbox code="administrator.commercial.form.label.number" path="number"/>
 		<acme:form-textbox code="administrator.commercial.form.label.deadline" path="deadline"/>
