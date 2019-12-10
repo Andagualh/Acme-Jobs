@@ -18,7 +18,7 @@
 
 <tiles-definitions>
 
-	<definition name="employer/descriptor/form" extends="master">
+	<definition name="employer/descriptor/show" extends="master">
 		<put-attribute name="body" type="template" value="../employer/descriptor/form.jsp" />
 	</definition>
 	

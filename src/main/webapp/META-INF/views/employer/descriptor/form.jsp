@@ -17,7 +17,7 @@
 
 <acme:form readonly="false">
 	<acme:message code="employer.job.descriptor" />
-	<acme:form-textarea readonly="false" code="employer.job.form.label.description" path="description" />
+	<acme:form-textarea readonly="false" code="employer.descriptor.form.label.description" path="description" />
 	
-	<acme:form-return code="employer.descripcion.form.button.return" />
+	<acme:form-return code="employer.descriptor.form.button.return" />
 </acme:form>
