@@ -109,9 +109,9 @@ master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
 master.menu.user-account.employer = Employer data
-master.menu.user-account.become-employer = Became Employer
+master.menu.user-account.become-employer = Become an employer
 master.menu.user-account.worker = Worker data
-master.menu.user-account.become-worker = Became Worker
+master.menu.user-account.become-worker = Become a Worker
 
 # master.menu.authenticated ####################################################
 
