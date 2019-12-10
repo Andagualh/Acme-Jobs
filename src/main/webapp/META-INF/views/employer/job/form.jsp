@@ -24,11 +24,17 @@
 	<acme:form-money code="employer.job.form.label.salary" path="salary" />
 	<acme:form-url code="employer.job.form.label.moreInfo" path="moreInfo" />
 	<acme:form-textarea code="employer.job.form.label.description" path="description" />
-	
-	<acme:message code="employer.job.descriptor"/>
-	<acme:form-textarea readonly="true" code="employer.job.form.label.descriptor" path="descriptor" />
-	
-	<acme:form-submit method="get" code="employer.job.form.button.duties" action="/employer/duty/list?id=${descriptorId}&ref=${reference}"/>
-	<acme:form-submit method="get" code="employer.job.form.button.auditRecord" action="/employer/audit-record/list?id=${id}&ref=${reference}"/>
+
+
+	<acme:form-submit test="${command == 'show'}" code="employer.job.form.button.update" action="/employer/job/update" />
+	<acme:form-submit test="${command == 'update'}" code="employer.job.form.button.update" action="/employer/job/update" />
+
+	<acme:form-submit method="get" code="employer.job.form.button.descriptor"
+		action="/employer/descriptor/show?id=${descriptorId}" />
+	<acme:form-submit method="get" code="employer.job.form.button.duties"
+		action="/employer/duty/list?id=${descriptorId}&ref=${reference}" />
+	<acme:form-submit method="get" code="employer.job.form.button.auditRecord"
+		action="/employer/audit-record/list?id=${id}&ref=${reference}" />
+
 	<acme:form-return code="employer.job.form.button.return" />
 </acme:form>

@@ -25,6 +25,9 @@ public class EmployerJobController extends AbstractController<Employer, Job> {
 	@Autowired
 	private EmployerJobListMineService	listMineService;
 
+	@Autowired
+	private EmployerJobUpdateService	updateService;
+
 
 	//Costructor -----------------------------------------
 
@@ -32,6 +35,7 @@ public class EmployerJobController extends AbstractController<Employer, Job> {
 	private void initialise() {
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 		super.addCustomCommand(CustomCommand.LIST_MINE, BasicCommand.LIST, this.listMineService);
+		super.addBasicCommand(BasicCommand.UPDATE, this.updateService);
 	}
 
 }
