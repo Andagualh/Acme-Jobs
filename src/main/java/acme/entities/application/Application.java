@@ -53,6 +53,8 @@ public class Application extends DomainEntity {
 
 	private boolean				finalMode;
 
+	private String				justification;
+
 	//Relationships
 	@NotNull
 	@Valid

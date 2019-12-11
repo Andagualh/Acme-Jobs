@@ -4,6 +4,7 @@ worker.application.form.label.statement = Statement:
 worker.application.form.label.status = Status:
 worker.application.form.label.skill = Skills:
 worker.application.form.label.qualification = Qualifications:
+worker.application.form.label.justification = Justification:
 
 worker.application.list.label.ref = Reference Number
 worker.application.list.label.creationmoment = Creation Moment
