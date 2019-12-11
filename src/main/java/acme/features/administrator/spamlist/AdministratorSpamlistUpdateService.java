@@ -46,7 +46,7 @@ public class AdministratorSpamlistUpdateService implements AbstractUpdateService
 		StringBuilder buffer;
 		Collection<Spamword> spamwords;
 
-		request.unbind(entity, model, "threshold");
+		request.unbind(entity, model, "idiom", "threshold");
 
 		spamwords = this.repository.findManySpamwordsById(entity.getId());
 		buffer = new StringBuilder();

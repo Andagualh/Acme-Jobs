@@ -257,6 +257,7 @@
     create table `spamlist` (
        `id` integer not null,
         `version` integer not null,
+        `idiom` varchar(255),
         primary key (`id`)
     ) engine=InnoDB;
 

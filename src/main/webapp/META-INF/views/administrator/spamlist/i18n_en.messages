@@ -8,9 +8,11 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
+administrator.spamlist.list.label.idiom = Idiom
 administrator.spamlist.list.label.spamwordslist = Spam Word List
 administrator.spamlist.label.threshold = Threshold
 
+administrator.spamlist.form.label.idiom = Idiom
 administrator.spamlist.form.label.spamwordslist = Spam Word List
 administrator.spamlist.form.label.threshold = Threshold
 administrator.spamlist.form.label.newSpamword = New Spamword

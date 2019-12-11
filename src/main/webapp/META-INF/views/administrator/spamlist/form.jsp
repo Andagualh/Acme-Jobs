@@ -16,6 +16,7 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form>
+	<acme:form-textbox code="administrator.spamlist.form.label.idiom" path="idiom" readonly="true"/>
 	<acme:form-textbox code="administrator.spamlist.form.label.spamwordslist" path="spamwordslist" readonly="true"/>
 	<acme:form-textbox code="administrator.spamlist.form.label.threshold" path="threshold" readonly="true"/>
 	

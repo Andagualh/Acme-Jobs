@@ -27,6 +27,9 @@ administrator.challenge.list.label.bronze = Bronce
 administrator.challenge.list.label.goldreward = Recompensa de Oro
 administrator.challenge.list.label.silverreward = Recompensa de Plata
 administrator.challenge.list.label.bronzereward = Recompensa de Bronce
+
+acme.validation.spamlist = Este Desafio ha sido considerado spam
+
 administrator.challenge.form.button.delete = Borrar
 administrator.challenge.form.button.create = Crear
 administrator.challenge.form.button.update = Actualizar
