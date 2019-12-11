@@ -963,7 +963,7 @@
 	<bean name="job7" class = "acme.entities.job.Job">
 		<property name="reference" value="EMPB-JOBG"/>
 		<property name="status" value="DRAFT"/>
-		<property name="title" value="Pagination test Job"/>
+		<property name="title" value="Job 7"/>
 		<property name="deadline" value="2020/12/11 23:59"/>
 		<property name="salary" value="€ 50,000.00"/>
 		<property name="description" value="Este Job es para comprobar paginacion"/>
@@ -1130,7 +1130,7 @@
 				<ref bean="duty12" />
 			</list>
 		</property>
-		<property name="job"><ref bean="job4" /></property>
+		<property name="job"><ref bean="job7" /></property>
 	</bean>
 	
 	<bean name="descriptor5" class = "acme.entities.descriptor.Descriptor">
