@@ -72,10 +72,11 @@ public class EmployerApplicationsUpdateService implements AbstractUpdateService<
 		assert errors != null;
 
 		Boolean isRejected;
-		isRejected = request.getModel().getAttribute("status").toString() == "REJECTED" && request.getModel().getAttribute("justification").toString().isEmpty();
+
+		isRejected = request.getModel().getAttribute("status").equals("REJECTED") && request.getModel().getAttribute("justification").toString().isEmpty();
 
 		if (!errors.hasErrors("status")) {
-			errors.state(request, isRejected, "justification", "acme.validation.justification");
+			errors.state(request, !isRejected, "justification", "acme.validation.justification");
 		}
 	}
 
