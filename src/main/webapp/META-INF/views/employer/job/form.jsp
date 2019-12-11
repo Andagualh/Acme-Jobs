@@ -32,7 +32,7 @@
 	 action="/employer/job/update" />
 
 	<acme:form-submit method="get" code="employer.job.form.button.descriptor"
-		action="/employer/descriptor/show?id=${descriptorId}" />
+		action="/employer/descriptor/list?id=${descriptorId}" />
 	<acme:form-submit method="get" code="employer.job.form.button.duties"
 		action="/employer/duty/list?id=${descriptorId}&ref=${reference}" />
 	<acme:form-submit method="get" code="employer.job.form.button.auditRecord"

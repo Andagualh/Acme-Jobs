@@ -1,3 +1,5 @@
-employer.job.form.label.description = Description
+employer.descriptor.form.label.description = Description
+employer.descriptor.list.label.descriptor = Descriptor
 
-employer.descripctor.form.button.return = Return
+employer.descriptor.list.button.return = Return
+employer.descriptor.form.button.return = Return

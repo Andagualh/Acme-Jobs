@@ -8,12 +8,11 @@ import acme.entities.descriptor.Descriptor;
 import acme.entities.roles.Employer;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Authenticated;
 import acme.framework.entities.Principal;
 import acme.framework.services.AbstractShowService;
 
 @Service
-public class EmployerDescriptorShowService implements AbstractShowService<Authenticated, Descriptor> {
+public class EmployerDescriptorShowService implements AbstractShowService<Employer, Descriptor> {
 
 	@Autowired
 	EmployerDescriptorRepository repository;
@@ -45,6 +44,7 @@ public class EmployerDescriptorShowService implements AbstractShowService<Authen
 		assert model != null;
 
 		request.unbind(entity, model, "description");
+
 	}
 
 	@Override

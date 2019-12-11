@@ -1,3 +1,7 @@
-employer.job.form.label.description = Descripción
+employer.descriptor.form.label.description = Descripción
+
+employer.descriptor.list.label.descriptor = Descriptor
+
+employer.descriptor.list.button.return = Volver
 
 employer.descriptor.form.button.return = Volver

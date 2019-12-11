@@ -8,18 +8,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import acme.entities.descriptor.Descriptor;
+import acme.entities.roles.Employer;
 import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
-import acme.framework.entities.Authenticated;
 
 @Controller
 @RequestMapping("/employer/descriptor/")
-public class EmployerDescriptorController extends AbstractController<Authenticated, Descriptor> {
+public class EmployerDescriptorController extends AbstractController<Employer, Descriptor> {
 
 	//Internal State -------------------------------------
 
 	@Autowired
-	private EmployerDescriptorShowService showService;
+	private EmployerDescriptorShowService	showService;
+
+	@Autowired
+	private EmployerDescriptorListService	listService;
 
 
 	//Costructor -----------------------------------------
@@ -27,6 +30,7 @@ public class EmployerDescriptorController extends AbstractController<Authenticat
 	@PostConstruct
 	private void initialise() {
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
+		super.addBasicCommand(BasicCommand.LIST, this.listService);
 	}
 
 }
