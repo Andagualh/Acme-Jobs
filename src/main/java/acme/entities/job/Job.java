@@ -80,12 +80,10 @@ public class Job extends DomainEntity {
 	@ManyToOne(optional = false)
 	private Employer				employer;
 
-	@NotNull
 	@Valid
 	@OneToMany(mappedBy = "job")
 	private Collection<Application>	application;
 
-	@NotNull
 	@Valid
 	@OneToMany(mappedBy = "job")
 	private Collection<AuditRecord>	auditRecord;

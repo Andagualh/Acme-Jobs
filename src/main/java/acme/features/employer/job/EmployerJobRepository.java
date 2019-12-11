@@ -6,6 +6,8 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.entities.application.Application;
+import acme.entities.descriptor.Descriptor;
 import acme.entities.duty.Duty;
 import acme.entities.job.Job;
 import acme.framework.repositories.AbstractRepository;
@@ -20,6 +22,12 @@ public interface EmployerJobRepository extends AbstractRepository {
 	Collection<Job> findManyByEmployerId(int employerid);
 
 	@Query("select d from Duty d where d.descriptor.id = ?1")
-	Collection<Duty> findManyDutiesById(int id);
+	Collection<Duty> findManyDutiesByDescriptorId(int id);
+
+	@Query("select a from Application a where a.job.id = ?1")
+	Collection<Application> findManyApplicationsByJobId(int id);
+
+	@Query("select d from Descriptor d where d.job.id = ?1")
+	Descriptor findDescriptorByJobId(int id);
 
 }

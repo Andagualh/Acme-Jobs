@@ -30,5 +30,14 @@
 	
 	<acme:form-submit method="get" code="employer.job.form.button.duties" action="/employer/duty/list?id=${descriptorId}&ref=${reference}"/>
 	<acme:form-submit method="get" code="employer.job.form.button.auditRecord" action="/employer/audit-record/list?id=${id}&ref=${reference}"/>
+	
+	<acme:menu-separator />
+	
+	<acme:form-submit 
+	code="employer.job.form.button.delete"
+	action="/employer/job/delete" />
+	
+	<acme:menu-separator />
+	
 	<acme:form-return code="employer.job.form.button.return" />
 </acme:form>
