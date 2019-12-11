@@ -1,12 +1,23 @@
 administrator.commercial.list.label.banner = Pancarta
 administrator.commercial.list.label.slogan = Slogan
 administrator.commercial.list.label.url = Url
-administrator.commercial.list.label.card = card
 
 administrator.commercial.form.label.banner = Pancarta
 administrator.commercial.form.label.slogan = Slogan
 administrator.commercial.form.label.url = Url
-administrator.commercial.form.label.card = Tarjeta de Crédito
+administrator.commercial.form.credit-card = <h4>Tarjeta de Crédito:</h4>
+administrator.commercial.form.label.ownerName = Nombre del Propietario
+administrator.commercial.form.label.number = Número
+administrator.commercial.form.label.deadline = Fecha de Vencimiento
+administrator.commercial.form.label.cvv = CVV
+administrator.commercial.form.button.card = Tarjeta de Crédito
+
+administrator.commercial.form.error.number = El número debe tener 15 dígitos
+administrator.commercial.form.error.cvv = El CVV debe tener 3 dígitos
+administrator.commercial.form.error.deadline = La fecha debe ser MM/yyyy
+administrator.commercial.form.error.month = El mes debe estar entre 01 y 12
+administrator.commercial.form.error.numberInvalid = El número es invalido
+administrator.commercial.form.error.invalidStart = La tarjeta de crédito debe empezar con 4(Visa), 5(MasterCard), 3(American Express) o 6(Discover)
 
 administrator.commercial.form.button.update = Actualizar
 administrator.commercial.form.button.delete = Eliminar

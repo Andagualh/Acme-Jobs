@@ -30,7 +30,11 @@ public class AdministratorCommercialShowService implements AbstractShowService<A
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "banner", "slogan", "url", "card");
+		request.unbind(entity, model, "banner", "slogan", "url");
+
+		if (entity.getCard() != null) {
+			model.setAttribute("cardId", entity.getCard().getId());
+		}
 	}
 
 	@Override

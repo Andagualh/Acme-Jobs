@@ -40,7 +40,7 @@ public class AdministratorCommercialDeleteService implements AbstractDeleteServi
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "banner", "slogan", "url", "card");
+		request.unbind(entity, model, "banner", "slogan", "url");
 	}
 
 	@Override

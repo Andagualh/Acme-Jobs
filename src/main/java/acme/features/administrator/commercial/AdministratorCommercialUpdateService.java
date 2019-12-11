@@ -45,7 +45,7 @@ public class AdministratorCommercialUpdateService implements AbstractUpdateServi
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "banner", "slogan", "url", "card");
+		request.unbind(entity, model, "banner", "slogan", "url");
 
 	}
 
