@@ -74,7 +74,7 @@ public class AdministratorCommercialCreateService implements AbstractCreateServi
 		String deadline = request.getModel().getString("deadline");
 		String cvv = request.getModel().getString("cvv");
 
-		//A credit card number must have between 13 and 16 digits. It must start with:
+		//A credit card number must have between 13 and 16 digits.
 		if (!errors.hasErrors("number")) {
 			errors.state(request, number.length() <= 16 && number.length() >= 13, "number", "administrator.commercial.form.error.number", number);
 		}
