@@ -14,6 +14,7 @@ employer.job.form.label.description = Descripción
 employer.job.form.label.descriptor = Descriptor
 
 employer.job.form.button.descriptor = Datos de descriptor
+employer.job.form.button.create = Crear trabajo
 employer.job.form.button.update = Actualiza trabajo
 employer.job.form.button.duties = Tareas
 employer.job.form.button.auditRecord = Registros de auditorías

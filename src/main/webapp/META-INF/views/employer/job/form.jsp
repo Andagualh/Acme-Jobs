@@ -26,16 +26,19 @@
 	<acme:form-textarea code="employer.job.form.label.description" path="description" />
 
 
-	<acme:form-submit test="${command == 'show'}" code="employer.job.form.button.update"
-	 action="/employer/job/update" />
-	<acme:form-submit test="${command == 'update'}" code="employer.job.form.button.update"
-	 action="/employer/job/update" />
+	<acme:form-submit test="${command == 'show'}" code="employer.job.form.button.update" 
+		action="/employer/job/update" />
+	<acme:form-submit test="${command == 'update'}" code="employer.job.form.button.update" 
+		action="/employer/job/update" />
 
-	<acme:form-submit method="get" code="employer.job.form.button.descriptor"
+	<acme:form-submit test="${command == 'create'}" code="employer.job.form.button.create" 
+		action="/employer/job/create" />
+	
+	<acme:form-submit test="${command != 'create' }" method="get" code="employer.job.form.button.descriptor" 
 		action="/employer/descriptor/list?id=${descriptorId}" />
-	<acme:form-submit method="get" code="employer.job.form.button.duties"
+	<acme:form-submit test="${command != 'create' }" method="get" code="employer.job.form.button.duties"
 		action="/employer/duty/list?id=${descriptorId}&ref=${reference}" />
-	<acme:form-submit method="get" code="employer.job.form.button.auditRecord"
+	<acme:form-submit test="${command != 'create' }" method="get" code="employer.job.form.button.auditRecord"
 		action="/employer/audit-record/list?id=${id}&ref=${reference}" />
 
 	<acme:form-return code="employer.job.form.button.return" />
