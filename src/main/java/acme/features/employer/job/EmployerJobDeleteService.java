@@ -82,7 +82,12 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 		int jobId = request.getModel().getInteger("id");
 
 		Collection<Application> linkedApplications = this.repository.findManyApplicationsByJobId(jobId);
-		while (linkedApplications.size() == 0) {
+		while (linkedApplications.size() == 0 || linkedApplications == null) {
+
+			Collection<AuditRecord> linkedAudits = this.repository.findAuditRecordsByJobId(jobId);
+			for (AuditRecord au : linkedAudits) {
+				this.repository.delete(au);
+			}
 
 			Descriptor d = this.repository.findDescriptorByJobId(jobId);
 
@@ -92,11 +97,6 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 			}
 
 			this.repository.delete(d);
-
-			Collection<AuditRecord> linkedAudits = this.repository.findAuditRecordsByJobId(jobId);
-			for (AuditRecord au : linkedAudits) {
-				this.repository.delete(au);
-			}
 
 			this.repository.delete(entity);
 
