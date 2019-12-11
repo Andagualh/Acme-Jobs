@@ -71,7 +71,9 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 		assert request != null;
 		assert entity != null;
 
-		this.repository.save(entity);
+		if (entity.isFinalMode() == true) {
+			this.repository.save(entity);
+		}
 	}
 
 }
