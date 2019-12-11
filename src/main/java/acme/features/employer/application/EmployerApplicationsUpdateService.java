@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import acme.entities.application.Application;
 import acme.entities.roles.Employer;
 import acme.framework.components.Errors;
-import acme.framework.components.HttpMethod;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.services.AbstractUpdateService;
@@ -42,14 +41,11 @@ public class EmployerApplicationsUpdateService implements AbstractUpdateService<
 		assert entity != null;
 		assert model != null;
 
-		if (request.isMethod(HttpMethod.GET)) {
-			model.setAttribute("status", "PENDING");
-		} else {
-			request.transfer(model, "status");
-		}
+		request.unbind(entity, model, "status", "justification");
+		String oldstatus;
+		oldstatus = entity.getStatus();
 
-		request.unbind(entity, model, "ref", "creationMoment", "status", "statement", "skill", "qualification", "justification");
-
+		model.setAttribute("oldstatus", oldstatus);
 	}
 
 	@Override
