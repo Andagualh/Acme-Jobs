@@ -27,6 +27,7 @@ administrator.challenge.list.label.bronze = bronze
 administrator.challenge.list.label.goldreward = Gold Reward
 administrator.challenge.list.label.silverreward = Silver Reward
 administrator.challenge.list.label.bronzereward = Bronze Reward
+
 administrator.challenge.form.button.delete = Delete
 administrator.challenge.form.button.create = Create
 administrator.challenge.form.button.update = Update
