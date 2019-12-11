@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.application.Application;
 import acme.entities.auditRecord.AuditRecord;
-import acme.entities.descriptor.Descriptor;
 import acme.entities.duty.Duty;
 import acme.entities.job.Job;
 import acme.entities.roles.Employer;
@@ -50,7 +49,6 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 		request.unbind(entity, model, "salary", "moreInfo", "description", "finalMode");
 
 		model.setAttribute("descriptor", entity.getDescriptor().getDescription());
-
 		model.setAttribute("descriptorId", entity.getDescriptor().getId());
 	}
 
@@ -80,24 +78,20 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 		assert entity != null;
 
 		int jobId = request.getModel().getInteger("id");
+		int descriptorId = this.repository.findDescriptorByJobId(jobId).getId();
 
 		Collection<Application> linkedApplications = this.repository.findManyApplicationsByJobId(jobId);
-		while (linkedApplications.size() == 0 || linkedApplications == null) {
+		while (linkedApplications.size() == 0) {
 
 			Collection<AuditRecord> linkedAudits = this.repository.findAuditRecordsByJobId(jobId);
 			for (AuditRecord au : linkedAudits) {
 				this.repository.delete(au);
 			}
-
-			Descriptor d = this.repository.findDescriptorByJobId(jobId);
-
-			Collection<Duty> linkedDuties = this.repository.findManyDutiesByDescriptorId(d.getId());
+			Collection<Duty> linkedDuties = this.repository.findManyDutiesByDescriptorId(descriptorId);
 			for (Duty duty : linkedDuties) {
 				this.repository.delete(duty);
 			}
-
-			this.repository.delete(d);
-
+			this.repository.delete(entity.getDescriptor());
 			this.repository.delete(entity);
 
 		}

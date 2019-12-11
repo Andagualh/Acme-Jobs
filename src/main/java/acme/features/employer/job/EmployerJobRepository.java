@@ -22,7 +22,7 @@ public interface EmployerJobRepository extends AbstractRepository {
 	@Query("select j from Job j where j.employer.id = ?1")
 	Collection<Job> findManyByEmployerId(int employerid);
 
-	@Query("select d from Duty d where d.descriptor.id = ?1")
+	@Query("select du from Duty du where du.descriptor.id = ?1")
 	Collection<Duty> findManyDutiesByDescriptorId(int id);
 
 	@Query("select a from Application a where a.job.id = ?1")
@@ -33,7 +33,4 @@ public interface EmployerJobRepository extends AbstractRepository {
 
 	@Query("select ar from AuditRecord ar where ar.job.id = ?1")
 	Collection<AuditRecord> findAuditRecordsByJobId(int id);
-
-	@Query("select du from Duty du where du.id = ?1")
-	Duty findOneDutyById(int id);
 }
