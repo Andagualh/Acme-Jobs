@@ -1,12 +1,20 @@
 employer.application.form.label.reference = Reference Number:
 employer.application.form.label.creationmoment = Creation Moment:
 employer.application.form.label.statement = Statement:
-employer.application.form.label.status = Status:
+employer.application.form.label.status2 = Current status:
+employer.application.form.label.status = Change status:
+employer.application.form.label.acepted = Accepted
+employer.application.form.label.rejected = Rejected
+employer.application.form.label.pending = Pending
 employer.application.form.label.skill = Skills:
 employer.application.form.label.qualification = Qualifications:
+employer.application.form.label.justification = Justification:
 
 employer.application.list.label.ref = Reference Number
 employer.application.list.label.creationmoment = Creation Moment
 employer.application.list.label.status = Status
 
 employer.application.form.button.return = Return
+employer.application.form.button.update = Update
+
+acme.validation.justification = You must add a justification in order to reject the application

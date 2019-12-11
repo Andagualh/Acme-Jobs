@@ -19,10 +19,11 @@
 	<acme:form-textbox code="employer.application.form.label.reference" path="ref" />
 	<acme:form-moment code="employer.application.form.label.creationmoment" path="creationMoment" />
 	<acme:form-textbox code="employer.application.form.label.statement" path="statement"/>
+	<acme:form-textbox readonly="true" code="employer.application.form.label.status2" path="status"/>
 	<acme:form-select code="employer.application.form.label.status" path="status">
-	<acme:form-option code="employer.application.form.label.acepted" value="ACCEPTED"/>
+	<acme:form-option code="employer.application.form.label.acepted" value="PENDING"/>
 	<acme:form-option code="employer.application.form.label.rejected" value="REJECTED"/>
-	<acme:form-option code="employer.application.form.label.pending" value="PENDING"/>
+	<acme:form-option code="employer.application.form.label.pending" value="ACCEPTED"/>
 	</acme:form-select>
 	<acme:form-textbox code="employer.application.form.label.skill" path="skill"/>
 	<acme:form-textbox code="employer.application.form.label.qualification" path="qualification"/>
