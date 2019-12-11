@@ -1,7 +1,7 @@
 employer.application.form.label.reference = Reference Number:
 employer.application.form.label.creationmoment = Creation Moment:
 employer.application.form.label.statement = Statement:
-employer.application.form.label.status2 = Current status:
+employer.application.form.label.oldstatus = Current status:
 employer.application.form.label.status = Change status:
 employer.application.form.label.accepted = Accepted
 employer.application.form.label.rejected = Rejected

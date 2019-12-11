@@ -42,10 +42,7 @@ public class EmployerApplicationsUpdateService implements AbstractUpdateService<
 		assert model != null;
 
 		request.unbind(entity, model, "status", "justification");
-		String oldstatus;
-		oldstatus = entity.getStatus();
 
-		model.setAttribute("oldstatus", oldstatus);
 	}
 
 	@Override

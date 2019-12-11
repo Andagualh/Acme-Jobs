@@ -22,7 +22,7 @@
 	<acme:form-textbox code="worker.application.form.label.status" path="status"/>
 	<acme:form-textbox code="worker.application.form.label.skill" path="skill"/>
 	<acme:form-textbox code="worker.application.form.label.qualification" path="qualification"/>
-	
+	<acme:form-textbox code="worker.application.form.label.justification" path="justification"/>
 	
 
 	<acme:form-return code="worker.application.form.button.return" />

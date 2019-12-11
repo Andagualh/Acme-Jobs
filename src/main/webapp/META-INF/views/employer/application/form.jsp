@@ -17,9 +17,9 @@
 
 <acme:form readonly="false">
 	<acme:form-textbox readonly="true" code="employer.application.form.label.reference" path="ref" />
-	<acme:form-moment readonly="true" code="employer.application.form.label.creationmoment" path="creationMoment" />
+	<acme:form-moment  readonly="true" code="employer.application.form.label.creationmoment" path="creationMoment" />
 	<acme:form-textbox readonly="true" code="employer.application.form.label.statement" path="statement"/>
-	<acme:form-textbox readonly="true" code="employer.application.form.label.status2" path="oldstatus"/>
+	<acme:form-textbox readonly="true" code="employer.application.form.label.oldstatus" path="oldstatus"/>
 	<acme:form-select code="employer.application.form.label.status" path="status">
 	<acme:form-option code="employer.application.form.label.pending" value="PENDING"/>
 	<acme:form-option code="employer.application.form.label.rejected" value="REJECTED"/>
@@ -27,7 +27,7 @@
 	</acme:form-select>
 	<acme:form-textbox readonly="true" code="employer.application.form.label.skill" path="skill"/>
 	<acme:form-textbox readonly="true" code="employer.application.form.label.qualification" path="qualification"/>
-	<acme:form-textarea code="employer.application.form.label.justification" path="justification"/>
+	<acme:form-textbox  code="employer.application.form.label.justification" path="justification"/>
 	<acme:form-submit test="${command == 'show'}"
 	code="employer.application.form.button.update"
 	action="/employer/application/update"/>
