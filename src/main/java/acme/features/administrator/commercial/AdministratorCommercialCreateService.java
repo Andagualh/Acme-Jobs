@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import acme.entities.commercial.Commercial;
 import acme.entities.creditCard.CreditCard;
 import acme.framework.components.Errors;
+import acme.framework.components.HttpMethod;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Administrator;
@@ -43,6 +44,12 @@ public class AdministratorCommercialCreateService implements AbstractCreateServi
 		assert entity != null;
 		assert model != null;
 
+		if (request.isMethod(HttpMethod.GET)) {
+			model.setAttribute("number", "");
+		} else {
+			request.transfer(model, "status");
+		}
+
 		request.unbind(entity, model, "banner", "slogan", "url");
 	}
 
@@ -68,7 +75,6 @@ public class AdministratorCommercialCreateService implements AbstractCreateServi
 		if (!errors.hasErrors("number")) {
 			errors.state(request, number.length() == 16, "number", "administrator.commercial.form.error.number", number);
 		}
-
 		if (!errors.hasErrors("cvv")) {
 			errors.state(request, cvv.length() == 3, "cvv", "administrator.commercial.form.error.cvv", cvv);
 		}
