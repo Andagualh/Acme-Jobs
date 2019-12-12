@@ -1,6 +1,8 @@
 
 package acme.entities.offers;
 
+import java.beans.Transient;
+import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -15,6 +17,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 
+import acme.entities.spamlist.Spamlist;
+import acme.entities.spamlist.Spamword;
 import acme.framework.datatypes.Money;
 import acme.framework.entities.DomainEntity;
 import lombok.Getter;
@@ -52,5 +56,27 @@ public class Offer extends DomainEntity {
 	@Column(unique = true)
 	@Pattern(regexp = "O[A-Z]{4}\\-[0-9]{5}")
 	private String				ticker;
+
+
+	@Transient
+	public Boolean spam(final Spamlist sl) {
+
+		String fullText = this.title + " " + this.description;
+
+		Collection<Spamword> spamwords = sl.getSpamwordslist();
+		String[] splitedFullText = fullText.split(" ");
+
+		Double numSpamWords = 0.;
+
+		for (Spamword sw : spamwords) {
+			for (String s : splitedFullText) {
+				if (s.toLowerCase().equals(sw.getSpamword())) {
+					numSpamWords++;
+				}
+			}
+		}
+
+		return numSpamWords / splitedFullText.length > sl.getThreshold();
+	}
 
 }

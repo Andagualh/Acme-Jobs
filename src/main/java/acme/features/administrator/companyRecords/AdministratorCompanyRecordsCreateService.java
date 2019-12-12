@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.companyRecords.CompanyRecords;
+import acme.entities.spamlist.Spamlist;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -61,6 +62,14 @@ public class AdministratorCompanyRecordsCreateService implements AbstractCreateS
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
+		Spamlist SpEN = this.repository.findEN("EN");
+		Spamlist SpES = this.repository.findES("ES");
+
+		if (!errors.hasErrors()) {
+			errors.state(request, !entity.spam(SpEN) || !entity.spam(SpES), "name", "acme.validation.spamlist");
+		}
+
 	}
 
 	@Override

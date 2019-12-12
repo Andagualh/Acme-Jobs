@@ -6,12 +6,15 @@ import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Transient;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import acme.entities.duty.Duty;
 import acme.entities.job.Job;
+import acme.entities.spamlist.Spamlist;
+import acme.entities.spamlist.Spamword;
 import acme.framework.entities.DomainEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -31,7 +34,6 @@ public class Descriptor extends DomainEntity {
 	@NotBlank
 	private String				description;
 
-	//	fetch = FetchType.EAGER
 	@NotNull
 	@Valid
 	@OneToMany(mappedBy = "descriptor")
@@ -42,5 +44,27 @@ public class Descriptor extends DomainEntity {
 	@Valid
 	@OneToOne(optional = false)
 	private Job					job;
+
+
+	@Transient
+	public Boolean spam(final Spamlist sl) {
+
+		String fullText = this.description;
+
+		Collection<Spamword> spamwords = sl.getSpamwordslist();
+		String[] splitedFullText = fullText.split(" ");
+
+		Double numSpamWords = 0.;
+
+		for (Spamword sw : spamwords) {
+			for (String s : splitedFullText) {
+				if (s.toLowerCase().equals(sw.getSpamword())) {
+					numSpamWords++;
+				}
+			}
+		}
+
+		return numSpamWords / splitedFullText.length > sl.getThreshold();
+	}
 
 }

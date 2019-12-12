@@ -82,6 +82,7 @@ public class AdministratorChallengeCreateService implements AbstractCreateServic
 		if (!errors.hasErrors()) {
 			errors.state(request, !entity.spam(SpEN) || !entity.spam(SpES), "title", "acme.validation.spamlist");
 		}
+
 	}
 
 	@Override

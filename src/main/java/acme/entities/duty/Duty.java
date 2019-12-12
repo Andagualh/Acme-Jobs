@@ -2,6 +2,7 @@
 package acme.entities.duty;
 
 import java.beans.Transient;
+import java.util.Collection;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -12,6 +13,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import acme.entities.descriptor.Descriptor;
+import acme.entities.spamlist.Spamlist;
+import acme.entities.spamlist.Spamword;
 import acme.framework.entities.DomainEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -75,5 +78,27 @@ public class Duty extends DomainEntity {
 	@Valid
 	@ManyToOne(optional = false)
 	private Descriptor descriptor;
+
+
+	@Transient
+	public Boolean spam(final Spamlist sl) {
+
+		String fullText = this.description + " " + this.title;
+
+		Collection<Spamword> spamwords = sl.getSpamwordslist();
+		String[] splitedFullText = fullText.split(" ");
+
+		Double numSpamWords = 0.;
+
+		for (Spamword sw : spamwords) {
+			for (String s : splitedFullText) {
+				if (s.toLowerCase().equals(sw.getSpamword())) {
+					numSpamWords++;
+				}
+			}
+		}
+
+		return numSpamWords / splitedFullText.length > sl.getThreshold();
+	}
 
 }

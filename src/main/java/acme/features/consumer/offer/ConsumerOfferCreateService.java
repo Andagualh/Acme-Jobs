@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.offers.Offer;
 import acme.entities.roles.Consumer;
+import acme.entities.spamlist.Spamlist;
 import acme.framework.components.Errors;
 import acme.framework.components.HttpMethod;
 import acme.framework.components.Model;
@@ -74,6 +75,9 @@ public class ConsumerOfferCreateService implements AbstractCreateService<Consume
 		Date minimumDeadLine;
 		String ticker = entity.getTicker();
 
+		Spamlist SpEN = this.repository.findEN("EN");
+		Spamlist SpES = this.repository.findES("ES");
+
 		if (!errors.hasErrors("deadline")) {
 			calendar = new GregorianCalendar();
 			calendar.add(Calendar.DAY_OF_MONTH, 7);
@@ -86,6 +90,10 @@ public class ConsumerOfferCreateService implements AbstractCreateService<Consume
 		if (!errors.hasErrors("ticker")) {
 			isDuplicated = this.repository.findOneByTicker(ticker) == null;
 			errors.state(request, isDuplicated, "ticker", "acme.validation.ticker");
+		}
+
+		if (!errors.hasErrors()) {
+			errors.state(request, !entity.spam(SpEN) || !entity.spam(SpES), "title", "acme.validation.spamlist");
 		}
 
 		isAccepted = request.getModel().getBoolean("accept");

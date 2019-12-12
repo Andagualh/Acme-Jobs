@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.nonCommercial.NonCommercial;
+import acme.entities.spamlist.Spamlist;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -57,6 +58,14 @@ public class AdministratorNonCommercialCreateService implements AbstractCreateSe
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
+		Spamlist SpEN = this.repository.findEN("EN");
+		Spamlist SpES = this.repository.findES("ES");
+
+		if (!errors.hasErrors()) {
+			errors.state(request, !entity.spam(SpEN) || !entity.spam(SpES), "slogan", "acme.validation.spamlist");
+		}
+
 	}
 
 	@Override
