@@ -35,9 +35,8 @@
 		action="/employer/job/create" />
 	
 	<acme:form-submit test="${command != 'create' }" method="get" code="employer.job.form.button.descriptor" 
-		action="/employer/descriptor/list?id=${descriptorId}" />
-	<acme:form-submit test="${command != 'create' }" method="get" code="employer.job.form.button.duties"
-		action="/employer/duty/list?id=${descriptorId}&ref=${reference}" />
+		action="/employer/descriptor/list?id=${id}" />
+	
 	<acme:form-submit test="${command != 'create' }" method="get" code="employer.job.form.button.auditRecord"
 		action="/employer/audit-record/list?id=${id}&ref=${reference}" />
 

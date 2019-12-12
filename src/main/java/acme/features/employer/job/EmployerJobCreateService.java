@@ -9,6 +9,7 @@ import acme.entities.roles.Employer;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
+import acme.framework.entities.Principal;
 import acme.framework.services.AbstractCreateService;
 
 @Service
@@ -41,6 +42,7 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 
 		request.unbind(entity, model, "reference", "status", "title", "deadline");
 		request.unbind(entity, model, "salary", "moreInfo", "description");
+
 	}
 
 	@Override
@@ -62,6 +64,11 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 	public void create(final Request<Job> request, final Job entity) {
 
 		entity.setFinalMode(false);
+		Principal principal = request.getPrincipal();
+		int employerId = principal.getActiveRoleId();
+
+		Employer e = this.repository.findEmployerById(employerId);
+		entity.setEmployer(e);
 
 		this.repository.save(entity);
 

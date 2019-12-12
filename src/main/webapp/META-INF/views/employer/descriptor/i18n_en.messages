@@ -1,6 +1,7 @@
 employer.descriptor.form.label.description = Description
 employer.descriptor.list.label.descriptor = Descriptor
 
+employer.descriptor.form.button.create = Create Descriptor
 employer.descriptor.form.button.update = Update
 
 employer.descriptor.list.button.return = Return

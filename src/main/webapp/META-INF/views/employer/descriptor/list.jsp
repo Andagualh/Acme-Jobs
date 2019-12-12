@@ -21,4 +21,9 @@
 
 </acme:list>
 
+<acme:form>
+	<acme:form-submit test="${isEmpty}" method="get" code="employer.descriptor.form.button.create"
+			action="/employer/descriptor/create" />
+</acme:form>
+
 <acme:form-return code="employer.job.form.button.return" />

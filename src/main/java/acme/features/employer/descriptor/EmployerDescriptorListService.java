@@ -32,7 +32,13 @@ public class EmployerDescriptorListService implements AbstractListService<Employ
 		assert entity != null;
 		assert model != null;
 
+		boolean isEmpty;
+		String jobId = request.getServletRequest().getParameter("id");
+
+		isEmpty = this.repository.findOneeDescriptorById(Integer.parseInt(jobId)) == null;
+
 		request.unbind(entity, model, "description");
+		model.setAttribute("isEmpty", isEmpty);
 		model.setAttribute("id", request.getServletRequest().getParameter("id"));
 	}
 

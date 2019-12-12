@@ -27,6 +27,9 @@ public class EmployerDescriptorController extends AbstractController<Employer, D
 	@Autowired
 	private EmployerDescriptorUpdateService	updateService;
 
+	@Autowired
+	private EmployerDescriptorCreateService	createService;
+
 
 	//Costructor -----------------------------------------
 
@@ -35,6 +38,7 @@ public class EmployerDescriptorController extends AbstractController<Employer, D
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 		super.addBasicCommand(BasicCommand.LIST, this.listService);
 		super.addBasicCommand(BasicCommand.UPDATE, this.updateService);
+		super.addBasicCommand(BasicCommand.CREATE, this.createService);
 	}
 
 }
