@@ -72,15 +72,15 @@ public class Challenge extends DomainEntity {
 			numSpamWords = numSpamWords + this.numDeSpamwords(fullText, spamword, 0.);
 		}
 
-		return numSpamWords > sl.getThreshold();
+		return numSpamWords / 100 > sl.getThreshold();
 	}
 
-	private Double numDeSpamwords(final String fullText, final String spamword, Double u) {
+	private Double numDeSpamwords(final String fullText, final String spamword, final Double u) {
 		if (!fullText.contains(spamword)) {
 			return u;
 		} else {
 			Integer a = fullText.indexOf(spamword);
-			return this.numDeSpamwords(fullText.substring(a), spamword, u++);
+			return this.numDeSpamwords(fullText.substring(a + 1), spamword, u + 1);
 		}
 	}
 
