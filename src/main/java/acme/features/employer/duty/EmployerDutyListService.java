@@ -45,7 +45,7 @@ public class EmployerDutyListService implements AbstractListService<Employer, Du
 
 		String descriptorId = request.getServletRequest().getParameter("id");
 
-		result = this.repository.findManyByJobId(Integer.parseInt(descriptorId));
+		result = this.repository.findManyByDescriptorId(Integer.parseInt(descriptorId));
 
 		return result;
 	}

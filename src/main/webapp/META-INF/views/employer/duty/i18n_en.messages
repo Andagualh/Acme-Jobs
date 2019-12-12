@@ -6,5 +6,10 @@ employer.duty.list.label.percent = Percent
 employer.duty.form.label.title = Title
 employer.duty.form.label.description = Description
 employer.duty.form.label.percent = Percent
+employer.duty.form.label.daysToComplete = Days To Complete
+
+acme.validation.percent = The Percent can´t be more than 100%
+
+employer.duty.form.button.create = Create Duty
 
 employer.duty.form.button.return = Return
