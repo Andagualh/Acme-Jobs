@@ -21,7 +21,6 @@
 	<acme:form-textbox readonly="true" code="employer.application.form.label.statement" path="statement"/>
 	<acme:form-textbox readonly="true" code="employer.application.form.label.oldstatus" path="oldstatus"/>
 	<acme:form-select code="employer.application.form.label.status" path="status">
-	<acme:form-option code="employer.application.form.label.pending" value="PENDING"/>
 	<acme:form-option code="employer.application.form.label.rejected" value="REJECTED"/>
 	<acme:form-option code="employer.application.form.label.accepted" value="ACCEPTED"/>
 	</acme:form-select>
