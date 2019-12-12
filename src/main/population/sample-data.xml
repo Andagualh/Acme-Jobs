@@ -1158,7 +1158,7 @@
 	<bean id="duty2" class="acme.entities.duty.Duty">
 		<property name="title" value="A Simple Title" />
 		<property name="description" value="A simple Description" />
-		<property name="daysToComplete" value="5" />
+		<property name="daysToComplete" value="2" />
 		<property name="descriptor" ref="descriptor1" />
 	</bean>
 	
