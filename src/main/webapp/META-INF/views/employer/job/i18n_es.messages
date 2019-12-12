@@ -13,6 +13,9 @@ employer.job.descriptor = <h4>Descriptor:</h4>
 employer.job.form.label.description = Descripción
 employer.job.form.label.descriptor = Descriptor
 
+employer.job.form.button.update = Actualizar trabajo
+employer.job.form.button.create = Crear Job
+
 employer.job.form.button.duties = Tareas
 employer.job.form.button.auditRecord = Registros de auditorías
 employer.job.form.button.return = Volver

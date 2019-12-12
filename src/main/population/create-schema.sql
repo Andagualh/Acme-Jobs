@@ -143,7 +143,7 @@
        `id` integer not null,
         `version` integer not null,
         `description` varchar(255),
-        `job_id` integer not null,
+        `job_id` integer,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -188,6 +188,7 @@
         `salary_currency` varchar(255),
         `status` varchar(255),
         `title` varchar(255),
+        `descriptor_id` integer,
         `employer_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;
@@ -315,9 +316,6 @@
     alter table `application` 
        add constraint UK_sqi7i8b9wxmiu57ftr95ssexh unique (`ref`);
 
-    alter table `descriptor` 
-       add constraint UK_4iw18njo4d0q8gvnhe04vmctw unique (`job_id`);
-
     alter table `job` 
        add constraint UK_7jmfdvs0b0jx7i33qxgv22h7b unique (`reference`);
 create index IDXq2o9psuqfuqmq59f0sq57x9uf on `offer` (`deadline`);
@@ -404,6 +402,11 @@ create index IDX2insomc4a40jprju8tmgcvmig on `spamword` (`spamword`);
        add constraint FK_na4dfobmeuxkwf6p75abmb2tr 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
+
+    alter table `job` 
+       add constraint `FKfqwyynnbcsq0htxho3vchpd2u` 
+       foreign key (`descriptor_id`) 
+       references `descriptor` (`id`);
 
     alter table `job` 
        add constraint `FK3rxjf8uh6fh2u990pe8i2at0e` 

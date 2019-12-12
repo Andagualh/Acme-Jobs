@@ -6,9 +6,6 @@ import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 import acme.entities.duty.Duty;
 import acme.entities.job.Job;
@@ -27,20 +24,14 @@ public class Descriptor extends DomainEntity {
 	private static final long	serialVersionUID	= 1L;
 
 	//Atributes----------------------------------------------
-	@NotNull
-	@NotBlank
 	private String				description;
 
 	//	fetch = FetchType.EAGER
-	@NotNull
-	@Valid
 	@OneToMany(mappedBy = "descriptor")
 	private Collection<Duty>	duty;
 
 	//RelationShips
-	@NotNull
-	@Valid
-	@OneToOne(optional = false)
+	@OneToOne(optional = true)
 	private Job					job;
 
 }
