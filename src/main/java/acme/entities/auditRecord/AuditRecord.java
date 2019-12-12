@@ -64,19 +64,24 @@ public class AuditRecord extends DomainEntity {
 		String fullText = this.title + " " + this.body;
 
 		Collection<Spamword> spamwords = sl.getSpamwordslist();
-		String[] splitedFullText = fullText.split(" ");
 
 		Double numSpamWords = 0.;
 
 		for (Spamword sw : spamwords) {
-			for (String s : splitedFullText) {
-				if (s.toLowerCase().equals(sw.getSpamword())) {
-					numSpamWords++;
-				}
-			}
+			String spamword = sw.getSpamword();
+			numSpamWords = numSpamWords + this.numDeSpamwords(fullText, spamword, 0.);
 		}
 
-		return numSpamWords / splitedFullText.length > sl.getThreshold();
+		return numSpamWords / 100 > sl.getThreshold();
+	}
+
+	private Double numDeSpamwords(final String fullText, final String spamword, final Double u) {
+		if (!fullText.contains(spamword)) {
+			return u;
+		} else {
+			Integer a = fullText.indexOf(spamword);
+			return this.numDeSpamwords(fullText.substring(a + 1), spamword, u + 1);
+		}
 	}
 
 }

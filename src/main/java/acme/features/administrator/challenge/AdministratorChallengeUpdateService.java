@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.challenge.Challenge;
+import acme.entities.spamlist.Spamlist;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -66,6 +67,8 @@ public class AdministratorChallengeUpdateService implements AbstractUpdateServic
 
 		Calendar calendar;
 		Date minimumDeadLine;
+		Spamlist SpEN = this.repository.findEN("EN");
+		Spamlist SpES = this.repository.findES("ES");
 
 		if (!errors.hasErrors("deadline")) {
 			calendar = new GregorianCalendar();
@@ -75,6 +78,11 @@ public class AdministratorChallengeUpdateService implements AbstractUpdateServic
 				errors.state(request, entity.getDeadline().after(minimumDeadLine), "deadline", "acme.validation.deadline");
 			}
 		}
+
+		if (!errors.hasErrors()) {
+			errors.state(request, !entity.spam(SpEN) || !entity.spam(SpES), "title", "acme.validation.spamlist");
+		}
+
 	}
 
 	@Override
