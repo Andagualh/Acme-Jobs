@@ -24,6 +24,9 @@
 	<acme:form-textbox code="worker.application.form.label.qualification" path="qualification"/>
 	<acme:form-textbox code="worker.application.form.label.justification" path="justification"/>
 	
+	<acme:form-submit test="${command == 'create'}"
+	code="worker.application.form.button.create"
+	action="/worker/application/create"/>
 
 	<acme:form-return code="worker.application.form.button.return" />
 </acme:form>

@@ -15,4 +15,5 @@ authenticated.job.form.label.descriptor = Description
 
 authenticated.job.form.button.duties = Duties
 authenticated.job.form.button.auditRecord = Audit Records
+authenticated.job.form.button.application = Apply
 authenticated.job.form.button.return = Return
