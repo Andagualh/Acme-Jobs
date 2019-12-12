@@ -33,7 +33,7 @@ public class EmployerDutyShowService implements AbstractShowService<Authenticate
 		duty = this.repository.findOneJobById(appId);
 		employer = duty.getDescriptor().getJob().getEmployer();
 		principal = request.getPrincipal();
-		result = duty.getDescriptor().getJob().isFinalMode() || !duty.getDescriptor().getJob().isFinalMode() && employer.getUserAccount().getId() == principal.getAccountId();
+		result = duty.getDescriptor().getJob().finalMode() || !duty.getDescriptor().getJob().finalMode() && employer.getUserAccount().getId() == principal.getAccountId();
 
 		return result;
 	}

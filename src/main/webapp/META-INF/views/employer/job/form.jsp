@@ -28,8 +28,10 @@
 	<acme:message code="employer.job.descriptor" />
 	<acme:form-textarea code="employer.job.form.label.descriptor" path="descriptor" />
 
-	<acme:form-submit test="${command == 'show'}" code="employer.job.form.button.update" action="/employer/job/update" />
-	<acme:form-submit test="${command == 'update'}" code="employer.job.form.button.update" action="/employer/job/update" />
+	<acme:check-access test="${!finalMode}">
+		<acme:form-submit test="${command == 'show'}" code="employer.job.form.button.update" action="/employer/job/update" />
+		<acme:form-submit test="${command == 'update'}" code="employer.job.form.button.update" action="/employer/job/update" />
+	</acme:check-access>
 
 	<acme:form-submit test="${command == 'create'}" code="employer.job.form.button.create" action="/employer/job/create" />
 

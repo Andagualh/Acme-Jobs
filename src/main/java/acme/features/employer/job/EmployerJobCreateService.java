@@ -69,6 +69,9 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 	@Override
 	public void create(final Request<Job> request, final Job entity) {
 
+		assert request != null;
+		assert entity != null;
+
 		String description = request.getModel().getString("descriptor");
 		if (description == "" || description == null) {
 			entity.setDescriptor(null);
@@ -76,7 +79,6 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 			Descriptor desc = new Descriptor();
 			desc.setDescription(description);
 			desc.setJob(entity);
-			entity.setFinalMode(false);
 			entity.setDescriptor(desc);
 			this.repository.save(desc);
 

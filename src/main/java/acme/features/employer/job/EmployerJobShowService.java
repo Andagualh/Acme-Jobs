@@ -32,7 +32,7 @@ public class EmployerJobShowService implements AbstractShowService<Employer, Job
 		job = this.repository.findOneJobById(jobId);
 		employer = job.getEmployer();
 		principal = request.getPrincipal();
-		result = job.isFinalMode() || !job.isFinalMode() && employer.getUserAccount().getId() == principal.getAccountId();
+		result = job.finalMode() || !job.finalMode() && employer.getUserAccount().getId() == principal.getAccountId();
 
 		return result;
 	}
@@ -44,10 +44,10 @@ public class EmployerJobShowService implements AbstractShowService<Employer, Job
 		assert model != null;
 
 		request.unbind(entity, model, "reference", "status", "title", "deadline");
-		request.unbind(entity, model, "salary", "moreInfo", "description", "finalMode");
+		request.unbind(entity, model, "salary", "moreInfo", "description");
 
 		model.setAttribute("descriptor", entity.getDescriptor().getDescription());
-
+		model.setAttribute("finalMode", entity.finalMode());
 		model.setAttribute("descriptorId", entity.getDescriptor().getId());
 	}
 

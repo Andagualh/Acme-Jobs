@@ -845,7 +845,7 @@
 		<property name="salary" value="€ 15,000.00"/>
 		<property name="description" value="Hola que tal"/>
 		<property name="moreInfo" value="https://www.example.com"/>
-		<property name="finalMode" value="true"/>
+		<property name="finalMode" value="false"/>
 		<property name="descriptor" ref="descriptor2" />
 		<property name="employer" ref="employer1Employer"/>
 		<property name="application">

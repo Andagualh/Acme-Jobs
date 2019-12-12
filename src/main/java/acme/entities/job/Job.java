@@ -1,6 +1,7 @@
 
 package acme.entities.job;
 
+import java.beans.Transient;
 import java.util.Collection;
 import java.util.Date;
 
@@ -22,6 +23,7 @@ import org.hibernate.validator.constraints.URL;
 import acme.entities.application.Application;
 import acme.entities.auditRecord.AuditRecord;
 import acme.entities.descriptor.Descriptor;
+import acme.entities.duty.Duty;
 import acme.entities.roles.Employer;
 import acme.framework.datatypes.Money;
 import acme.framework.entities.DomainEntity;
@@ -70,8 +72,6 @@ public class Job extends DomainEntity {
 	@OneToOne(optional = true)
 	private Descriptor				descriptor;
 
-	private boolean					finalMode;
-
 	//RelationShips
 	@ManyToOne(optional = false)
 	private Employer				employer;
@@ -81,4 +81,19 @@ public class Job extends DomainEntity {
 
 	@OneToMany(mappedBy = "job")
 	private Collection<AuditRecord>	auditRecord;
+
+
+	@Transient
+	public boolean finalMode() {
+		boolean res = true;
+		Integer sum = 0;
+		for (Duty d : this.descriptor.getDuty()) {
+			String s = d.getPercent();
+			s = s.replace("%", "");
+			Integer a = Integer.parseInt(s);
+			sum = sum + a;
+		}
+		res = this.descriptor != null && sum == 100;
+		return res;
+	}
 }

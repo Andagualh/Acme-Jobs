@@ -12,6 +12,7 @@ employer.job.form.label.moreInfo = More Info
 employer.job.descriptor = <h4>Descriptor:</h4>
 employer.job.form.label.description = Description
 employer.job.form.label.descriptor = Descriptor
+employer.job.form.label.finalMode = Final Mode
 
 employer.job.form.button.update = Update Job
 employer.job.form.button.create = Create Job 
