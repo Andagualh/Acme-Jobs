@@ -49,6 +49,11 @@ public class EmployerJobShowService implements AbstractShowService<Employer, Job
 		model.setAttribute("descriptor", entity.getDescriptor().getDescription());
 		model.setAttribute("finalMode", entity.finalMode());
 		model.setAttribute("descriptorId", entity.getDescriptor().getId());
+
+		Integer duties = this.repository.findDutiesByJobId(entity.getId());
+
+		model.setAttribute("duties", duties);
+
 	}
 
 	@Override

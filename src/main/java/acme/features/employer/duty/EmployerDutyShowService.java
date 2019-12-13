@@ -8,12 +8,11 @@ import acme.entities.duty.Duty;
 import acme.entities.roles.Employer;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.entities.Authenticated;
 import acme.framework.entities.Principal;
 import acme.framework.services.AbstractShowService;
 
 @Service
-public class EmployerDutyShowService implements AbstractShowService<Authenticated, Duty> {
+public class EmployerDutyShowService implements AbstractShowService<Employer, Duty> {
 
 	@Autowired
 	EmployerDutyRepository repository;
