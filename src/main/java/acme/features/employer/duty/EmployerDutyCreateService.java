@@ -69,17 +69,21 @@ public class EmployerDutyCreateService implements AbstractCreateService<Employer
 		assert entity != null;
 		assert errors != null;
 
-		Integer percent = Integer.parseInt(entity.getPercent().replace("%", ""));
-
 		String descriptorId = request.getServletRequest().getParameter("id");
 
 		Collection<Duty> duties = this.repository.findManyByDescriptorId(Integer.parseInt(descriptorId));
 
-		for (Duty d : duties) {
-			percent = percent + Integer.parseInt(d.getPercent().replace("%", ""));
+		Integer percent = 0;
+
+		if (duties.size() != 0) {
+			percent = Integer.parseInt(entity.getPercent().replace("%", ""));
+
+			for (Duty d : duties) {
+				percent = percent + Integer.parseInt(d.getPercent().replace("%", ""));
+			}
 		}
 
-		if (!errors.hasErrors("deadline")) {
+		if (!errors.hasErrors("daysToComplete")) {
 			errors.state(request, percent <= 100, "daysToComplete", "acme.validation.percent");
 		}
 
