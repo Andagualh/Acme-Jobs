@@ -9,5 +9,6 @@ worker.application.form.label.justification = Justificación:
 worker.application.list.label.ref = Número de Referencia
 worker.application.list.label.creationmoment = Momento de Creacion
 worker.application.list.label.status = Estado
+worker.application.form.button.create = Crear
 
 worker.application.form.button.return = Volver

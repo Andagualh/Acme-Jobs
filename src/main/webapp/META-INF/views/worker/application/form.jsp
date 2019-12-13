@@ -17,13 +17,20 @@
 
 <acme:form readonly="false">
 	<acme:form-textbox code="worker.application.form.label.reference" path="ref" />
+	<jstl:if test="${command != 'create'}">
 	<acme:form-moment code="worker.application.form.label.creationmoment" path="creationMoment" />
-	<acme:form-textbox code="worker.application.form.label.statement" path="statement"/>
 	<acme:form-textbox code="worker.application.form.label.status" path="status"/>
+	<jstl:if test="${status != 'PENDING' }">
+	<acme:form-textbox code="worker.application.form.label.justification" path="justification"/>
+	</jstl:if>
+	</jstl:if>
+	<acme:form-textbox code="worker.application.form.label.statement" path="statement"/>
 	<acme:form-textbox code="worker.application.form.label.skill" path="skill"/>
 	<acme:form-textbox code="worker.application.form.label.qualification" path="qualification"/>
-	<acme:form-textbox code="worker.application.form.label.justification" path="justification"/>
 	
+	<acme:form-submit test="${command == 'create'}"
+	code="worker.application.form.button.create"
+	action="/worker/application/create"/>
 
 	<acme:form-return code="worker.application.form.button.return" />
 </acme:form>
