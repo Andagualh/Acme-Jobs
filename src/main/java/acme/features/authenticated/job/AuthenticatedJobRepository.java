@@ -22,4 +22,6 @@ public interface AuthenticatedJobRepository extends AbstractRepository {
 	@Query("select d from Duty d where d.descriptor.id = ?1")
 	Collection<Duty> findManyDutiesById(int id);
 
+	@Query("select j from Job j where now()<=j.deadline and j.status='PUBLISHED'")
+	Collection<Job> findManyPublished();
 }

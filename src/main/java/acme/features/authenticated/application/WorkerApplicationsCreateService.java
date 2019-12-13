@@ -23,8 +23,18 @@ public class WorkerApplicationsCreateService implements AbstractCreateService<Wo
 
 	@Override
 	public boolean authorise(final Request<Application> request) {
+		boolean res = false;
 		assert request != null;
-		return true;
+		Job job;
+
+		String jobid = request.getServletRequest().getParameter("id");
+
+		job = this.repository.findOneJobById(Integer.parseInt(jobid));
+		if (job.getStatus().equals("PUBLISHED")) {
+			res = true;
+		}
+
+		return res;
 	}
 
 	@Override
@@ -43,7 +53,7 @@ public class WorkerApplicationsCreateService implements AbstractCreateService<Wo
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "ref", "status", "statement", "skill", "qualification", "justification");
+		request.unbind(entity, model, "ref", "status", "statement", "skill", "qualification");
 
 		model.setAttribute("id", request.getServletRequest().getParameter("id"));
 	}
@@ -72,6 +82,8 @@ public class WorkerApplicationsCreateService implements AbstractCreateService<Wo
 
 		moment = new Date(System.currentTimeMillis() - 1);
 		result.setCreationMoment(moment);
+
+		result.setJustification("");
 
 		return result;
 	}
