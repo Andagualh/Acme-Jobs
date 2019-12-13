@@ -43,7 +43,7 @@ public class WorkerApplicationsCreateService implements AbstractCreateService<Wo
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "ref", "creationMoment", "status", "statement", "skill", "qualification", "justification");
+		request.unbind(entity, model, "ref", "status", "statement", "skill", "qualification", "justification");
 
 		model.setAttribute("id", request.getServletRequest().getParameter("id"));
 	}
@@ -65,6 +65,13 @@ public class WorkerApplicationsCreateService implements AbstractCreateService<Wo
 
 		job = this.repository.findOneJobById(Integer.parseInt(jobid));
 		result.setJob(job);
+
+		result.setStatus("PENDING");
+
+		Date moment;
+
+		moment = new Date(System.currentTimeMillis() - 1);
+		result.setCreationMoment(moment);
 
 		return result;
 	}

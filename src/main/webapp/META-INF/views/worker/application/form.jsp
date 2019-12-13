@@ -17,9 +17,11 @@
 
 <acme:form readonly="false">
 	<acme:form-textbox code="worker.application.form.label.reference" path="ref" />
+	<jstl:if test="${command != 'create'}">
 	<acme:form-moment code="worker.application.form.label.creationmoment" path="creationMoment" />
-	<acme:form-textbox code="worker.application.form.label.statement" path="statement"/>
 	<acme:form-textbox code="worker.application.form.label.status" path="status"/>
+	</jstl:if>
+	<acme:form-textbox code="worker.application.form.label.statement" path="statement"/>
 	<acme:form-textbox code="worker.application.form.label.skill" path="skill"/>
 	<acme:form-textbox code="worker.application.form.label.qualification" path="qualification"/>
 	<acme:form-textbox code="worker.application.form.label.justification" path="justification"/>
