@@ -44,22 +44,22 @@ public class Duty extends DomainEntity {
 
 		switch (this.daysToComplete) {
 		case 1:
-			result = "15%";
+			result = "10%";
 			break;
 		case 2:
-			result = "30%";
+			result = "20%";
 			break;
 		case 3:
 			result = "40%";
 			break;
 		case 4:
-			result = "60%";
+			result = "50%";
 			break;
 		case 5:
-			result = "70%";
+			result = "60%";
 			break;
 		case 6:
-			result = "85%";
+			result = "80%";
 			break;
 		case 7:
 			result = "100%";
