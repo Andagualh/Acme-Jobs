@@ -18,7 +18,15 @@
 
 <acme:form readonly="false">
 	<acme:form-textbox code="employer.job.form.label.reference" path="reference" />
-	<acme:form-textbox code="employer.job.form.label.status" path="status" />
+	<acme:check-access test="${command != 'create'}">
+		<acme:form-textbox readonly="true" code="employer.application.form.label.oldstatus" path="oldstatus"/>
+		<acme:check-access test="${!finalMode}">
+			<acme:form-select code="employer.application.form.label.status" path="status">
+				<acme:form-option code="employer.application.form.label.draft" value="DRAFT"/>
+				<acme:form-option code="employer.application.form.label.published" value="PUBLISHED"/>
+			</acme:form-select>
+		</acme:check-access>
+	</acme:check-access>
 	<acme:form-textbox code="employer.job.form.label.title" path="title" />
 	<acme:form-moment code="employer.job.form.label.deadline" path="deadline" />
 	<acme:form-money code="employer.job.form.label.salary" path="salary" />

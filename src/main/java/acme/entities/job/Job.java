@@ -93,7 +93,7 @@ public class Job extends DomainEntity {
 			Integer a = Integer.parseInt(s);
 			sum = sum + a;
 		}
-		res = this.descriptor != null && sum == 100;
+		res = this.descriptor != null && sum == 100 && this.status.equals("PUBLISHED");
 		return res;
 	}
 }

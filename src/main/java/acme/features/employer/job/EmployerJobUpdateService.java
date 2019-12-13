@@ -48,8 +48,6 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 		assert entity != null;
 		assert model != null;
 
-		//String description = entity.getDescriptor().getDescription();
-
 		request.unbind(entity, model, "reference", "status", "title", "deadline");
 		request.unbind(entity, model, "salary", "moreInfo", "description", "finalMode");
 	}
@@ -71,9 +69,6 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 		assert entity != null;
 		assert errors != null;
 
-		//		if (request.getModel().getBoolean("finalMode")) {
-		//			errors.state(request, !request.getModel().getBoolean("finalMode"), "finalMode", "acme.validation.finalMode");
-		//		}
 	}
 
 	@Override
@@ -81,25 +76,16 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 		assert request != null;
 		assert entity != null;
 
-		Descriptor oldDescriptor = entity.getDescriptor();
-		if (oldDescriptor != null) {
-			oldDescriptor.setJob(null);
-			this.repository.save(oldDescriptor);
-		}
+		Descriptor descriptor;
 
 		String description = request.getModel().getString("descriptor");
-		if (description == "" || description == null) {
-			entity.setDescriptor(null);
-		} else {
 
-			Descriptor desc = new Descriptor();
-			desc.setDescription(description);
-			desc.setJob(entity);
-			entity.setDescriptor(desc);
-			this.repository.save(desc);
+		descriptor = entity.getDescriptor();
 
-		}
+		descriptor.setDescription(description);
+
+		this.repository.save(descriptor);
+
 		this.repository.save(entity);
-
 	}
 }

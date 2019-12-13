@@ -54,6 +54,9 @@ public class EmployerJobShowService implements AbstractShowService<Employer, Job
 
 		model.setAttribute("duties", duties);
 
+		model.setAttribute("oldstatus", entity.getStatus());
+
+		model.setAttribute("finalMode", entity.finalMode());
 	}
 
 	@Override

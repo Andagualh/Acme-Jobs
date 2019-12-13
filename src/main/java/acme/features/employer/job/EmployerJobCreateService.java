@@ -41,7 +41,7 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "reference", "status", "title", "deadline");
+		request.unbind(entity, model, "reference", "title", "deadline");
 		request.unbind(entity, model, "salary", "moreInfo", "description");
 
 	}
@@ -56,6 +56,7 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 		result = new Job();
 		result.setEmployer(e);
 		result.setApplication(null);
+		result.setStatus("DRAFT");
 		return result;
 	}
 

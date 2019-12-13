@@ -3,11 +3,14 @@ employer.job.list.label.deadline = Fecha de fin
 employer.job.list.label.title = Título
 
 employer.job.form.label.reference = Referencia
+employer.application.form.label.oldstatus = Estado Antiguo
 employer.job.form.label.status = Estado
 employer.job.form.label.title = Título
 employer.job.form.label.deadline = Fecha de Fin
 employer.job.form.label.salary = Salario
 employer.job.form.label.moreInfo = Más información
+employer.application.form.label.draft = DRAFT
+employer.application.form.label.published = PUBLISHED
 
 employer.job.descriptor = <h4>Descriptor:</h4>
 employer.job.form.label.description = Descripción
