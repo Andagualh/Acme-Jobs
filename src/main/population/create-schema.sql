@@ -181,7 +181,6 @@
         `version` integer not null,
         `deadline` datetime(6),
         `description` varchar(255),
-        `final_mode` bit not null,
         `more_info` varchar(255),
         `reference` varchar(255),
         `salary_amount` double precision,

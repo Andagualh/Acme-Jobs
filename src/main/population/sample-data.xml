@@ -820,7 +820,6 @@
 		<property name="salary" value="€ 20,000.00"/>
 		<property name="description" value="Hola que tal"/>
 		<property name="moreInfo" value="https://www.example.com"/>
-		<property name="finalMode" value="true"/>
 		<property name="application">
 			<list>
 			<ref bean="application3"/>
@@ -845,7 +844,6 @@
 		<property name="salary" value="€ 15,000.00"/>
 		<property name="description" value="Hola que tal"/>
 		<property name="moreInfo" value="https://www.example.com"/>
-		<property name="finalMode" value="false"/>
 		<property name="descriptor" ref="descriptor2" />
 		<property name="employer" ref="employer1Employer"/>
 		<property name="application">
@@ -870,7 +868,6 @@
 		<property name="salary" value="€ 20,000.00"/>
 		<property name="description" value="Hola que tal"/>
 		<property name="moreInfo" value="https://www.example.com"/>
-		<property name="finalMode" value="true"/>
 		<property name="descriptor" ref="descriptor3" />
 		<property name="employer" ref="employer3Employer"/>
 		<property name="application">
@@ -895,7 +892,6 @@
 		<property name="salary" value="€ 20,000.00"/>
 		<property name="description" value="Hola que tal"/>
 		<property name="moreInfo" value="https://www.example.com"/>
-		<property name="finalMode" value="true"/>
 		<property name="descriptor" ref="descriptor4" />
 		<property name="employer" ref="employer4Employer"/>
 		<property name="application">
@@ -920,7 +916,6 @@
 		<property name="salary" value="€ 20,000.00"/>
 		<property name="description" value="Hola que tal"/>
 		<property name="moreInfo" value="https://www.example.com"/>
-		<property name="finalMode" value="true"/>
 		<property name="descriptor" ref="descriptor5" />
 		<property name="employer" ref="employer5Employer"/>
 		<property name="application">
@@ -945,7 +940,6 @@
 		<property name="salary" value="€ 50,000.00"/>
 		<property name="description" value="Este Job no debería mostrarse"/>
 		<property name="moreInfo" value="https://www.example.com"/>
-		<property name="finalMode" value="true"/>
 		<property name="descriptor" ref="descriptor5" />
 		<property name="employer" ref="employer5Employer"/>
 		<property name="application">
@@ -970,7 +964,6 @@
 		<property name="salary" value="€ 50,000.00"/>
 		<property name="description" value="Este Job es para comprobar paginacion"/>
 		<property name="moreInfo" value="https://www.example.com"/>
-		<property name="finalMode" value="true"/>
 		<property name="descriptor" ref="descriptor4" />
 		<property name="employer" ref="employer2Employer"/>
 		<property name="application">
