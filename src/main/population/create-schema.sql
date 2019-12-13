@@ -311,6 +311,9 @@
     ) engine=InnoDB;
 
     insert into `hibernate_sequence` values ( 1 );
+create index IDX5tgkkxnpohjsc4p10bs80cpme on `application` (`ref` asc);
+create index IDX2q2747fhp099wkn3j2yt05fhs on `application` (`status` asc);
+create index IDX618is0hf6jk8mhi0qeume2hqw on `application` (`creation_moment` desc);
 
     alter table `application` 
        add constraint UK_sqi7i8b9wxmiu57ftr95ssexh unique (`ref`);
