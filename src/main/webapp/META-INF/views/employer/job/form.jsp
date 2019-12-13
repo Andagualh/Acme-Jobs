@@ -44,7 +44,7 @@
 	</acme:check-access>
 	
 	<acme:check-access test="${duties == 0 || !finalMode}">
-		<acme:form-submit test="${command != 'create'}" code="employer.job.form.button.create-duty"
+		<acme:form-submit test="${command != 'create'}" method="get" code="employer.job.form.button.create-duty"
 		action="/employer/duty/create?id=${descriptorId}" />
 	</acme:check-access>
 	
