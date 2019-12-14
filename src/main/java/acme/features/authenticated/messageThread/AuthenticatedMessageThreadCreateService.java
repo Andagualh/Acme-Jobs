@@ -1,11 +1,14 @@
 
 package acme.features.authenticated.messageThread;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.message.Message;
 import acme.entities.messageThread.MessageThread;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
@@ -63,9 +66,16 @@ public class AuthenticatedMessageThreadCreateService implements AbstractCreateSe
 	@Override
 	public void create(final Request<MessageThread> request, final MessageThread entity) {
 		Date moment;
+		Collection<Authenticated> users;
+		Collection<Message> messages;
+
+		users = new ArrayList<Authenticated>();
+		messages = new ArrayList<Message>();
 
 		moment = new Date(System.currentTimeMillis() - 1);
 		entity.setCreationMoment(moment);
+		entity.setUsers(users);
+		entity.setMessage(messages);
 
 		this.repository.save(entity);
 	}

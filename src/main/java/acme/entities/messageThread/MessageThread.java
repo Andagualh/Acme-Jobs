@@ -36,7 +36,6 @@ public class MessageThread extends DomainEntity {
 	@ManyToMany
 	private Collection<Authenticated>	users;
 
-	@NotNull
 	@Valid
 	@OneToMany(mappedBy = "thread")
 	private Collection<Message>			message;
