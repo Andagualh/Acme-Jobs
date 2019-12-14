@@ -70,15 +70,13 @@ public class Job extends DomainEntity {
 	@URL
 	private String					moreInfo;
 
-
-	@OneToOne(optional = true)
+	@OneToOne(mappedBy = "job")
 
 	private Descriptor				descriptor;
 
 	//RelationShips
 	@ManyToOne(optional = false)
 	private Employer				employer;
-
 
 	@OneToMany(mappedBy = "job")
 	private Collection<Application>	application;

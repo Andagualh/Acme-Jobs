@@ -30,4 +30,5 @@ employer.job.form.button.delete = Delete Job
 employer.job.form.button.return = Return
 
 employer.job.form.button.create-duty = Create Duty
+acme.validation.yesapps = Can't delete a job with dependant Applications
 

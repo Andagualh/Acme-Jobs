@@ -58,11 +58,8 @@
 		action="/employer/duty/create?id=${descriptorId}" />
 	</acme:check-access>
 	
-
-	<acme:form-submit method="get" code="employer.job.form.button.duties" action="/employer/duty/list?id=${descriptorId}&ref=${reference}"/>
-	<acme:form-submit method="get" code="employer.job.form.button.auditRecord" action="/employer/audit-record/list?id=${id}&ref=${reference}"/>
 	<!-- Delete -->
-	<acme:form-submit test="${command == 'show'}" code = "employer.job.form.button.delete" action="/employer/job/delete"/>
+	<acme:form-submit test="${command == 'show' || command == 'update'}" code = "employer.job.form.button.delete" action="/employer/job/delete"/>
 	<acme:form-submit test="${command == 'delete'}" code="employer.job.form.button.delete" action="/employer/job/delete"/>
 
 	<!-- Audit Records -->

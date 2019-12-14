@@ -187,7 +187,6 @@
         `salary_currency` varchar(255),
         `status` varchar(255),
         `title` varchar(255),
-        `descriptor_id` integer,
         `employer_id` integer not null,
         primary key (`id`)
     ) engine=InnoDB;
@@ -404,11 +403,6 @@ create index IDX2insomc4a40jprju8tmgcvmig on `spamword` (`spamword`);
        add constraint FK_na4dfobmeuxkwf6p75abmb2tr 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
-
-    alter table `job` 
-       add constraint `FKfqwyynnbcsq0htxho3vchpd2u` 
-       foreign key (`descriptor_id`) 
-       references `descriptor` (`id`);
 
     alter table `job` 
        add constraint `FK3rxjf8uh6fh2u990pe8i2at0e` 

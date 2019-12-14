@@ -28,5 +28,6 @@ employer.job.form.button.auditRecord = Registros de auditorías
 
 employer.job.form.button.delete = Borrar trabajo
 employer.job.form.button.return = Volver
+acme.validation.yesapps = No se puede borrar un trabajo con solicitudes dependientes.
 
 employer.job.form.button.create-duty = Crear Tarea
