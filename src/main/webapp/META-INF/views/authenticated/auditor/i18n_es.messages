@@ -1,0 +1,7 @@
+authenticated.auditor.form.label.qualifications = Firma
+authenticated.auditor.form.label.skills = Declaración
+
+authenticated.auditor.form.label.create = Registrar
+authenticated.auditor.form.label.update = Actualizar
+
+authenticated.auditor.form.button.return = Volver

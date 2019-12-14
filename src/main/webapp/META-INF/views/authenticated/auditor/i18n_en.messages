@@ -1,0 +1,7 @@
+authenticated.auditor.form.label.qualifications = Firm
+authenticated.auditor.form.label.skills = Statement
+
+authenticated.auditor.form.label.create = Register
+authenticated.auditor.form.label.update = Update
+
+authenticated.auditor.form.button.return = Return
