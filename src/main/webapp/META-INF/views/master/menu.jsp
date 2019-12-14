@@ -76,9 +76,13 @@
 			<acme:menu-suboption code="master.menu.employer.favourite-link" action="http://www.example.com/"/>
 			<acme:menu-suboption code="master.menu.employer.job.list" action="/employer/job/list_mine"/>
 			<acme:menu-suboption code="master.menu.employer.application.list" action="/employer/application/list_mine"/>
+
 			<acme:menu-suboption code="master.menu.employer.application.list-ref" action="/employer/application/list_ref"/>
 			<acme:menu-suboption code="master.menu.employer.application.list-status" action="/employer/application/list_status"/>
 			<acme:menu-suboption code="master.menu.employer.application.list-creationmoment" action="/employer/application/list_creationmoment"/>
+
+			<acme:menu-suboption code="master.menu.employer.job.create" action="/employer/job/create"/>
+			
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.worker" access="hasRole('Worker')">

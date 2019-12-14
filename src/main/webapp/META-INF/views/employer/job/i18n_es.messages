@@ -3,17 +3,30 @@ employer.job.list.label.deadline = Fecha de fin
 employer.job.list.label.title = Título
 
 employer.job.form.label.reference = Referencia
+employer.application.form.label.oldstatus = Estado Antiguo
 employer.job.form.label.status = Estado
 employer.job.form.label.title = Título
 employer.job.form.label.deadline = Fecha de Fin
 employer.job.form.label.salary = Salario
 employer.job.form.label.moreInfo = Más información
+employer.application.form.label.draft = DRAFT
+employer.application.form.label.published = PUBLISHED
+
+employer.job.descriptor.blank = No debe ser vacio
+employer.job.status = Para cambiar el trabajo al estado de publicado este debe tener un descriptor y el porcentaje de las tareas al 100%
 
 employer.job.descriptor = <h4>Descriptor:</h4>
 employer.job.form.label.description = Descripción
-employer.job.form.label.descriptor = Descriptor
+employer.job.form.label.descriptor = Descripción
+employer.job.form.label.finalMode = Final Mode
+
+employer.job.form.button.update = Actualizar trabajo
+employer.job.form.button.create = Crear Job
 
 employer.job.form.button.duties = Tareas
 employer.job.form.button.auditRecord = Registros de auditorías
+
 employer.job.form.button.delete = Borrar trabajo
 employer.job.form.button.return = Volver
+
+employer.job.form.button.create-duty = Crear Tarea

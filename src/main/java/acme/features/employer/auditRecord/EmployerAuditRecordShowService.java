@@ -32,7 +32,7 @@ public class EmployerAuditRecordShowService implements AbstractShowService<Emplo
 		audit = this.repository.findOneJobById(appId);
 		employer = audit.getJob().getEmployer();
 		principal = request.getPrincipal();
-		result = audit.getJob().isFinalMode() || !audit.getJob().isFinalMode() && employer.getUserAccount().getId() == principal.getAccountId();
+		result = audit.getJob().finalMode() || !audit.getJob().finalMode() && employer.getUserAccount().getId() == principal.getAccountId();
 
 		return result;
 	}

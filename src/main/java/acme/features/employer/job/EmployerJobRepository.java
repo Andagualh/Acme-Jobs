@@ -12,6 +12,7 @@ import org.springframework.stereotype.Repository;
 import acme.entities.application.Application;
 import acme.entities.duty.Duty;
 import acme.entities.job.Job;
+import acme.entities.roles.Employer;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
@@ -41,5 +42,12 @@ public interface EmployerJobRepository extends AbstractRepository {
 	@Modifying
 	@Query("delete from AuditRecord a where a.job.id = ?1")
 	void deleteAudit(int id);
+
+	@Query("select e from Employer e where e.id = ?1")
+	Employer findEmployerById(int employerId);
+
+	@Query("select count(d) from Duty d where d.descriptor.job.id = ?1")
+	Integer findDutiesByJobId(int id);
+
 
 }

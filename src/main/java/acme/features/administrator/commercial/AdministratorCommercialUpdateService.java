@@ -65,7 +65,6 @@ public class AdministratorCommercialUpdateService implements AbstractUpdateServi
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-
 	}
 
 	@Override

@@ -81,9 +81,13 @@ master.menu.employer = Empleador
 master.menu.employer.favourite-link = Link favorito
 master.menu.employer.job.list = Lista de mis trabajos
 master.menu.employer.application.list = Lista de mis solicitudes
+
 master.menu.employer.application.list-ref = Lista de mis solicitudes por referencia
 master.menu.employer.application.list-status = Lista de mis solicitudes por estado
 master.menu.employer.application.list-creationmoment = Lista de mis solicitudes por fecha de creación
+
+master.menu.employer.job.create = Crear trabajos
+
 
 # master.menu.worker ####################################################
 

@@ -43,4 +43,5 @@ acme.validation.range = Must be between {0} and {1}
 acme.validation.script = Script expression "{0}" must return true
 acme.validation.ticker = This reference is taken
 acme.validation.deadline = The deadline must be at least 7 days ahead in the future.
+acme.validation.finalMode = The job must not be in final mode
 acme.validation.accept = Press me!
