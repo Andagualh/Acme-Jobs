@@ -32,7 +32,7 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "descriptor");
+		request.bind(entity, errors);
 	}
 
 	@Override
@@ -65,6 +65,12 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
+		String description = request.getModel().getString("descriptor");
+
+		if (!errors.hasErrors("descriptor")) {
+			errors.state(request, description != null || description != "", "descriptor", "employer.job.descriptor.blank");
+		}
 	}
 
 	@Override

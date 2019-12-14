@@ -12,9 +12,11 @@ employer.job.form.label.moreInfo = Más información
 employer.application.form.label.draft = DRAFT
 employer.application.form.label.published = PUBLISHED
 
+employer.job.descriptor.blank = No debe ser vacio
+
 employer.job.descriptor = <h4>Descriptor:</h4>
 employer.job.form.label.description = Descripción
-employer.job.form.label.descriptor = Descriptor
+employer.job.form.label.descriptor = Descripción
 employer.job.form.label.finalMode = Final Mode
 
 employer.job.form.button.update = Actualizar trabajo
