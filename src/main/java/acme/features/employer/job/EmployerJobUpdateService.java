@@ -1,10 +1,13 @@
 
 package acme.features.employer.job;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.descriptor.Descriptor;
+import acme.entities.duty.Duty;
 import acme.entities.job.Job;
 import acme.entities.roles.Employer;
 import acme.framework.components.Errors;
@@ -38,7 +41,7 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "descriptor");
+		request.bind(entity, errors);
 
 	}
 
@@ -49,7 +52,7 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 		assert model != null;
 
 		request.unbind(entity, model, "reference", "status", "title", "deadline");
-		request.unbind(entity, model, "salary", "moreInfo", "description", "finalMode");
+		request.unbind(entity, model, "salary", "moreInfo", "description");
 	}
 
 	@Override
@@ -69,6 +72,30 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 		assert entity != null;
 		assert errors != null;
 
+		Integer descriptorId = entity.getDescriptor().getId();
+
+		Collection<Duty> duties = this.repository.findManyDutiesById(descriptorId);
+
+		Integer percent = 0;
+
+		for (Duty d : duties) {
+			String s = d.getPercent();
+			s = s.replace("%", "");
+			percent = percent + Integer.parseInt(s);
+		}
+
+		String description = request.getModel().getString("descriptor-description");
+
+		String status = request.getModel().getString("status");
+
+		if (!errors.hasErrors("descriptor-description")) {
+			errors.state(request, description != "", "descriptor-description", "employer.job.descriptor.blank");
+		}
+
+		if (!errors.hasErrors("status") && status.equals("PUBLISHED")) {
+			errors.state(request, percent == 100, "status", "employer.job.status");
+		}
+
 	}
 
 	@Override
@@ -78,7 +105,7 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 
 		Descriptor descriptor;
 
-		String description = request.getModel().getString("descriptor");
+		String description = request.getModel().getString("descriptor-description");
 
 		descriptor = entity.getDescriptor();
 

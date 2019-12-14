@@ -13,6 +13,7 @@ employer.application.form.label.draft = DRAFT
 employer.application.form.label.published = PUBLISHED
 
 employer.job.descriptor.blank = No debe ser vacio
+employer.job.status = Para cambiar el trabajo al estado de publicado este debe tener un descriptor y el porcentaje de las tareas al 100%
 
 employer.job.descriptor = <h4>Descriptor:</h4>
 employer.job.form.label.description = Descripción

@@ -66,32 +66,27 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 		assert entity != null;
 		assert errors != null;
 
-		String description = request.getModel().getString("descriptor");
+		String description = request.getModel().getString("descriptor-description");
 
-		if (!errors.hasErrors("descriptor")) {
-			errors.state(request, description != null || description != "", "descriptor", "employer.job.descriptor.blank");
+		if (!errors.hasErrors("descriptor-description")) {
+			errors.state(request, description != "", "descriptor-description", "employer.job.descriptor.blank");
 		}
 	}
 
 	@Override
 	public void create(final Request<Job> request, final Job entity) {
-
 		assert request != null;
 		assert entity != null;
 
-		String description = request.getModel().getString("descriptor");
-		if (description == "" || description == null) {
-			entity.setDescriptor(null);
-		} else {
-			Descriptor desc = new Descriptor();
-			desc.setDescription(description);
-			desc.setJob(entity);
-			entity.setDescriptor(desc);
-			this.repository.save(desc);
+		String description = request.getModel().getString("descriptor-description");
 
-		}
+		Descriptor desc = new Descriptor();
+		desc.setDescription(description);
+		desc.setJob(entity);
+		entity.setDescriptor(desc);
+		this.repository.save(desc);
+
 		this.repository.save(entity);
-
 	}
 
 }

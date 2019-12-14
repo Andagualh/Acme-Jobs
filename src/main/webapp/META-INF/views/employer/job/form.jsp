@@ -35,7 +35,7 @@
 	
 	<!-- Descriptor -->
 	<acme:message code="employer.job.descriptor" />
-	<acme:form-textarea code="employer.job.form.label.descriptor" path="descriptor" />
+	<acme:form-textarea code="employer.job.form.label.descriptor" path="descriptor-description" />
 
 
 	<acme:check-access test="${!finalMode}">
@@ -46,12 +46,12 @@
 	<acme:form-submit test="${command == 'create'}" code="employer.job.form.button.create" action="/employer/job/create" />
 
 	<!-- Duties -->
-	<acme:check-access test="${duties != 0}">
+	<acme:check-access test="${duties != 0 && command != 'update'}">
 		<acme:form-submit test="${command != 'create'}" method="get" code="employer.job.form.button.duties"
 		action="/employer/duty/list?id=${descriptorId}&ref=${reference}" />
 	</acme:check-access>
 	
-	<acme:check-access test="${duties == 0 || !finalMode}">
+	<acme:check-access test="${duties == 0 || !finalMode && command != 'update'}">
 		<acme:form-submit test="${command != 'create'}" method="get" code="employer.job.form.button.create-duty"
 		action="/employer/duty/create?id=${descriptorId}" />
 	</acme:check-access>
