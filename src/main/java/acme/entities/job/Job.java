@@ -33,6 +33,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+
 public class Job extends DomainEntity {
 
 	/**

@@ -53,6 +53,9 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 
 		request.unbind(entity, model, "reference", "status", "title", "deadline");
 		request.unbind(entity, model, "salary", "moreInfo", "description");
+
+		model.setAttribute("descriptorId", entity.getDescriptor().getId());
+
 	}
 
 	@Override

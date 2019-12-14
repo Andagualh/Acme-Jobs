@@ -17,6 +17,8 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form readonly="false">
+
+	<acme:form-hidden path="descriptorId"/>
 	<acme:form-textbox code="employer.job.form.label.reference" path="reference" />
 	<acme:check-access test="${command != 'create'}">
 		<acme:form-textbox readonly="true" code="employer.application.form.label.oldstatus" path="oldstatus"/>
@@ -46,12 +48,12 @@
 	<acme:form-submit test="${command == 'create'}" code="employer.job.form.button.create" action="/employer/job/create" />
 
 	<!-- Duties -->
-	<acme:check-access test="${duties != 0 && command != 'update'}">
+	<acme:check-access test="${duties != 0 && command != 'create'}">
 		<acme:form-submit test="${command != 'create'}" method="get" code="employer.job.form.button.duties"
 		action="/employer/duty/list?id=${descriptorId}&ref=${reference}" />
 	</acme:check-access>
 	
-	<acme:check-access test="${duties == 0 || !finalMode && command != 'update'}">
+	<acme:check-access test="${duties == 0 || !finalMode && command != 'create'}">
 		<acme:form-submit test="${command != 'create'}" method="get" code="employer.job.form.button.create-duty"
 		action="/employer/duty/create?id=${descriptorId}" />
 	</acme:check-access>
