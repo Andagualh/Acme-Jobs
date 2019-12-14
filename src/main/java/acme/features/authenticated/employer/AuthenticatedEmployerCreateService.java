@@ -26,7 +26,16 @@ public class AuthenticatedEmployerCreateService implements AbstractCreateService
 	@Override
 	public boolean authorise(final Request<Employer> request) {
 		assert request != null;
-		return true;
+
+		Principal principal = request.getPrincipal();
+		int userId = principal.getAccountId();
+
+		UserAccount ua = this.repository.findOneUserAccountById(userId);
+		Employer e = this.repository.findOneEmployerByUserId(ua.getId());
+		//int employerId = e.getId();
+
+		return e == null;
+
 	}
 
 	@Override
