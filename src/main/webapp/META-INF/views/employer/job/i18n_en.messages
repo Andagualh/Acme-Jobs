@@ -15,4 +15,5 @@ employer.job.form.label.descriptor = Descriptor
 
 employer.job.form.button.duties = Duties
 employer.job.form.button.auditRecord = Audit Records
+employer.job.form.button.delete = Delete Job
 employer.job.form.button.return = Return

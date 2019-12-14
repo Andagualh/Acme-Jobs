@@ -823,8 +823,7 @@
 		<property name="finalMode" value="true"/>
 		<property name="application">
 			<list>
-			<ref bean="application3"/>
-			<ref bean="application4"/>
+			
 			</list>
 		</property>
 		<property name="descriptor" ref ="descriptor1" />
@@ -900,8 +899,6 @@
 		<property name="employer" ref="employer4Employer"/>
 		<property name="application">
 			<list>
-			<ref bean="application3"/>
-			<ref bean="application4"/>
 			</list>
 		</property>
 		<property name="auditRecord">
@@ -925,8 +922,6 @@
 		<property name="employer" ref="employer5Employer"/>
 		<property name="application">
 			<list>
-			<ref bean="application3"/>
-			<ref bean="application4"/>
 			</list>
 		</property>
 		<property name="auditRecord">
@@ -950,8 +945,6 @@
 		<property name="employer" ref="employer5Employer"/>
 		<property name="application">
 			<list>
-			<ref bean="application3"/>
-			<ref bean="application4"/>
 			</list>
 		</property>
 		<property name="auditRecord">
@@ -975,7 +968,7 @@
 		<property name="employer" ref="employer2Employer"/>
 		<property name="application">
 			<list>
-			<ref bean="application3"/>
+			
 			<ref bean="application1"/>
 			</list>
 		</property>
@@ -1013,7 +1006,7 @@
 		<property name="finalMode" value="false"/>
 		</bean>
 		
-		<bean name="application3" class = "acme.entities.application.Application">
+		<!-- <bean name="application3" class = "acme.entities.application.Application">
 		<property name="ref" value="EMPA-JOBA:WORA"/>
 		<property name="creationMoment" value="2018/12/11 23:59"/>
 		<property name="status" value="PENDING"/>
@@ -1035,7 +1028,7 @@
 		<property name="job" ref="job1"/>
 		<property name="worker" ref="worker6Worker"/>
 		<property name="finalMode" value="false"/>
-		</bean>
+		</bean> -->
 		
 		<bean name="application5" class = "acme.entities.application.Application">
 		<property name="ref" value="EMPC-JOBC:WORA"/>
