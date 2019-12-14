@@ -12,7 +12,6 @@
 
 <%@page language="java"%>
 
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
@@ -22,6 +21,7 @@
 	<acme:check-access test="${command != 'create'}">
 		<acme:form-moment code="authenticated.message-thread.form.label.creationMoment" path="creationMoment"/>
 		<acme:form-submit method="get" code="authenticated.message-thread.list.button.messages" action="/authenticated/message/list?id=${id}"/>
+		<acme:form-submit method="get" code="authenticated.message-thread.list.button.users" action="/authenticated/user-account/list?id=${id}"/>
 	</acme:check-access>
 	
 	<acme:form-submit test="${command == 'create'}"

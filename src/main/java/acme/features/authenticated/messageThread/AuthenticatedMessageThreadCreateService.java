@@ -26,6 +26,7 @@ public class AuthenticatedMessageThreadCreateService implements AbstractCreateSe
 	@Override
 	public boolean authorise(final Request<MessageThread> request) {
 		assert request != null;
+
 		return true;
 	}
 
@@ -35,7 +36,7 @@ public class AuthenticatedMessageThreadCreateService implements AbstractCreateSe
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors);
+		request.bind(entity, errors, "creationMoment");
 	}
 
 	@Override
@@ -50,8 +51,25 @@ public class AuthenticatedMessageThreadCreateService implements AbstractCreateSe
 	@Override
 	public MessageThread instantiate(final Request<MessageThread> request) {
 		MessageThread result;
+		Date moment;
+		Collection<Authenticated> users;
+		Collection<Message> messages;
+
+		users = new ArrayList<Authenticated>();
+		messages = new ArrayList<Message>();
+		moment = new Date(System.currentTimeMillis() - 1);
+
+		Integer id = request.getPrincipal().getActiveRoleId();
+
+		Authenticated userCreator = this.repository.findUserAccountById(id);
+
+		users.add(userCreator);
 
 		result = new MessageThread();
+
+		result.setCreationMoment(moment);
+		result.setUsers(users);
+		result.setMessage(messages);
 
 		return result;
 	}
@@ -65,17 +83,8 @@ public class AuthenticatedMessageThreadCreateService implements AbstractCreateSe
 
 	@Override
 	public void create(final Request<MessageThread> request, final MessageThread entity) {
-		Date moment;
-		Collection<Authenticated> users;
-		Collection<Message> messages;
-
-		users = new ArrayList<Authenticated>();
-		messages = new ArrayList<Message>();
-
-		moment = new Date(System.currentTimeMillis() - 1);
-		entity.setCreationMoment(moment);
-		entity.setUsers(users);
-		entity.setMessage(messages);
+		assert request != null;
+		assert entity != null;
 
 		this.repository.save(entity);
 	}

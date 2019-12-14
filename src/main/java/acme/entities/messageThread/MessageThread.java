@@ -5,7 +5,6 @@ import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -33,7 +32,8 @@ public class MessageThread extends DomainEntity {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date						creationMoment;
 
-	@ManyToMany
+	@Valid
+	@OneToMany
 	private Collection<Authenticated>	users;
 
 	@Valid
