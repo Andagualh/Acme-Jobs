@@ -32,7 +32,7 @@ public class Descriptor extends DomainEntity {
 	private String				description;
 
 	//	fetch = FetchType.EAGER
-	@NotNull
+
 	@Valid
 	@OneToMany(mappedBy = "descriptor")
 	private Collection<Duty>	duty;

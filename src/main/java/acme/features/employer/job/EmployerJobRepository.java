@@ -3,6 +3,9 @@ package acme.features.employer.job;
 
 import java.util.Collection;
 
+import javax.transaction.Transactional;
+
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
@@ -21,5 +24,22 @@ public interface EmployerJobRepository extends AbstractRepository {
 
 	@Query("select d from Duty d where d.descriptor.id = ?1")
 	Collection<Duty> findManyDutiesById(int id);
+
+	@Transactional
+	@Modifying
+	@Query("delete from Duty d where d.descriptor.id = ?1")
+	void deleteDuties(int id);
+	@Transactional
+	@Modifying
+	@Query("delete from Descriptor d where id = ?1")
+	void deleteDescriptor(int id);
+	@Transactional
+	@Modifying
+	@Query("delete from AuditRecord a where a.job.id = ?1")
+	void deleteAudit(int id);
+	@Transactional
+	@Modifying
+	@Query("delete from Application a where a.job.id = ?1")
+	void deleteAppli(int id);
 
 }
