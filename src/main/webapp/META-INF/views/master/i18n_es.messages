@@ -123,6 +123,7 @@ master.menu.authenticated = Usuarios
 master.menu.challenge.challenges-list = Desafíos
 master.menu.authenticated.job-list = Lista de Trabajos
 master.menu.authenticated.message-thread-list = Lista de Hilos de mensajes
+master.menu.authenticated.message-thread-create = Crear Hilo de mensajes
 
 # master.menu.offer ####################################################
 
