@@ -41,9 +41,5 @@ public interface EmployerJobRepository extends AbstractRepository {
 	@Modifying
 	@Query("delete from AuditRecord a where a.job.id = ?1")
 	void deleteAudit(int id);
-	@Transactional
-	@Modifying
-	@Query("delete from Application a where a.job.id = ?1")
-	void deleteAppli(int id);
 
 }

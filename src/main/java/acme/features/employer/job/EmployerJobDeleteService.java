@@ -1,12 +1,9 @@
 
 package acme.features.employer.job;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.application.Application;
 import acme.entities.job.Job;
 import acme.entities.roles.Employer;
 import acme.framework.components.Errors;
@@ -65,6 +62,8 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 		assert entity != null;
 		assert errors != null;
 
+		errors.state(request, this.repository.findManyApplicationsByJobId(entity.getId()).isEmpty(), "reference", "acme.validation.yesapps");
+
 	}
 
 	@Override
@@ -74,14 +73,10 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 
 		Integer descriptorId = entity.getDescriptor().getId();
 
-		Collection<Application> linkedApps = this.repository.findManyApplicationsByJobId(entity.getId());
-		if (linkedApps.isEmpty()) {
-
-			this.repository.deleteDuties(descriptorId);
-			this.repository.deleteDescriptor(descriptorId);
-			this.repository.deleteAudit(entity.getId());
-			this.repository.delete(entity);
-		}
+		this.repository.deleteDuties(descriptorId);
+		this.repository.deleteDescriptor(descriptorId);
+		this.repository.deleteAudit(entity.getId());
+		this.repository.delete(entity);
 
 	}
 

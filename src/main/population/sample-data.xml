@@ -940,7 +940,7 @@
 		<property name="salary" value="€ 50,000.00"/>
 		<property name="description" value="Este Job no debería mostrarse"/>
 		<property name="moreInfo" value="https://www.example.com"/>
-		<property name="finalMode" value="true"/>
+		<property name="finalMode" value="false"/>
 		<property name="descriptor" ref="descriptor5" />
 		<property name="employer" ref="employer5Employer"/>
 		<property name="application">
