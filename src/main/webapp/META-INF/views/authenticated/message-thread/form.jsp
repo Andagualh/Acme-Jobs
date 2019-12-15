@@ -16,7 +16,7 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form readonly="false">
-	<acme:form-textbox code="authenticated.message-thread.form.label.title" path="title" readonly="true"/>
+	<acme:form-textbox code="authenticated.message-thread.form.label.title" path="title"/>
 	
 	<acme:check-access test="${command != 'create'}">
 		<acme:form-moment code="authenticated.message-thread.form.label.creationMoment" path="creationMoment" readonly="true"/>
