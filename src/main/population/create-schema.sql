@@ -195,6 +195,7 @@
     create table `message` (
        `id` integer not null,
         `version` integer not null,
+        `accepted` bit,
         `body` varchar(255),
         `creation_moment` datetime(6),
         `tags` varchar(255),

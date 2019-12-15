@@ -24,6 +24,7 @@
 		<acme:check-access test="${isAdministrator}">
 			<acme:form-submit method="get" code="authenticated.message-thread.list.button.users" action="/authenticated/user-account/list?id=${id}"/>
 		</acme:check-access>
+		<acme:form-submit method="get" code="authenticated.message-thread.list.button.message-create" action="/authenticated/message/create?id=${id}"/>
 	</acme:check-access>
 	
 	<acme:menu-separator />

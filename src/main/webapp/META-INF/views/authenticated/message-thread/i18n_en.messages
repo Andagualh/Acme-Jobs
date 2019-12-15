@@ -14,6 +14,7 @@ authenticated.message.body = Body:
 authenticated.message-thread.list.button.messages = Messages
 authenticated.message-thread.list.button.users = Users
 
+authenticated.message-thread.list.button.message-create= Create Message
 authenticated.user-account.form.button.update = Update
 authenticated.message-thread.form.button.create = Create
 authenticated.message-thread.form.button.return = Return

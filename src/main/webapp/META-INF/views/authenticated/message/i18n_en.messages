@@ -5,7 +5,9 @@ authenticated.message.list.label.body = Body
 
 authenticated.message.form.label.title = Title
 authenticated.message.form.label.creationMoment = Creation moment
+authenticated.message.form.label.accepted = I accept to publish this message
 authenticated.message.form.label.tags = Tags
 authenticated.message.form.label.body = Body
 
+authenticated.message-thread.form.button.create = Create
 authenticated.message.form.button.return = Return
