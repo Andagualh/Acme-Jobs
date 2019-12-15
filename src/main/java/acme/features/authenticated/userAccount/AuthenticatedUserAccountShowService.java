@@ -31,10 +31,6 @@ public class AuthenticatedUserAccountShowService implements AbstractShowService<
 		assert model != null;
 
 		request.unbind(entity, model, "username", "identity.name", "identity.surname", "identity.email");
-
-		model.setAttribute("mtId", request.getServletRequest().getParameter("id1"));
-
-		System.out.println(request.getServletRequest().getParameter("id1"));
 	}
 
 	@Override
