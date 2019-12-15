@@ -208,6 +208,7 @@
         `version` integer not null,
         `creation_moment` datetime(6),
         `title` varchar(255),
+        `administrator_id` integer,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -420,6 +421,11 @@ create index IDX2insomc4a40jprju8tmgcvmig on `spamword` (`spamword`);
        add constraint `FKq851een84mnkrhyssa05q7je` 
        foreign key (`thread_id`) 
        references `message_thread` (`id`);
+
+    alter table `message_thread` 
+       add constraint `FKqs5ayrsbpr4dn7sufcl1x2pqv` 
+       foreign key (`administrator_id`) 
+       references `user_account` (`id`);
 
     alter table `message_thread_authenticated` 
        add constraint `FK5hkl2eosfv1vpc97uhxqj988q` 

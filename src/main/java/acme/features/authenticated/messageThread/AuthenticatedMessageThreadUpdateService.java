@@ -16,7 +16,7 @@ import acme.framework.entities.UserAccount;
 import acme.framework.services.AbstractUpdateService;
 
 @Service
-public class AuthenticatedMessageThreadUpdateAddService implements AbstractUpdateService<Authenticated, MessageThread> {
+public class AuthenticatedMessageThreadUpdateService implements AbstractUpdateService<Authenticated, MessageThread> {
 
 	@Autowired
 	AuthenticatedMessageThreadRepository repository;
@@ -35,7 +35,7 @@ public class AuthenticatedMessageThreadUpdateAddService implements AbstractUpdat
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "title", "creationMoment", "message");
+		request.bind(entity, errors, "message", "administrator");
 	}
 
 	@Override
@@ -44,7 +44,7 @@ public class AuthenticatedMessageThreadUpdateAddService implements AbstractUpdat
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model);
+		request.unbind(entity, model, "title", "creationMoment");
 	}
 
 	@Override
@@ -52,15 +52,9 @@ public class AuthenticatedMessageThreadUpdateAddService implements AbstractUpdat
 		assert request != null;
 
 		MessageThread result;
-		MessageThreadAuthenticated mta;
-
-		String id;
-		id = request.getServletRequest().getParameter("id");
-
-		mta = this.repository.findOneMessageThreadAuthenticatedById(Integer.parseInt(id));
-
-		result = this.repository.findOneById(mta.getThread().getId());
-
+		int id;
+		id = request.getModel().getInteger("id");
+		result = this.repository.findOneById(id);
 		return result;
 	}
 
@@ -76,24 +70,42 @@ public class AuthenticatedMessageThreadUpdateAddService implements AbstractUpdat
 		assert request != null;
 		assert entity != null;
 
-		MessageThreadAuthenticated messageThreadAuthenticated;
-		String username;
-		String email;
+		MessageThreadAuthenticated newMessageThreadAuthenticated;
+		String usernameAdd;
+		String emailAdd;
+		String usernameDelete;
+		String emailDelete;
 		Collection<MessageThreadAuthenticated> mtas;
 
-		username = request.getModel().getString("username");
-		email = request.getModel().getString("email");
-		UserAccount user = this.repository.findOneUserAccountByUsernameEmail(username, email);
+		usernameAdd = request.getModel().getString("usernameAdd");
+		emailAdd = request.getModel().getString("emailAdd");
+		UserAccount userAdd = this.repository.findOneUserAccountByUsernameEmail(usernameAdd, emailAdd);
 
-		messageThreadAuthenticated = new MessageThreadAuthenticated();
-		messageThreadAuthenticated.setUser(user);
-		messageThreadAuthenticated.setThread(entity);
+		usernameDelete = request.getModel().getString("usernameDelete");
+		emailDelete = request.getModel().getString("emailDelete");
+		UserAccount userDelete = this.repository.findOneUserAccountByUsernameEmail(usernameDelete, emailDelete);
 
-		this.repository.save(messageThreadAuthenticated);
+		if (userAdd != null) {
+			newMessageThreadAuthenticated = new MessageThreadAuthenticated();
+			newMessageThreadAuthenticated.setUser(userAdd);
+			newMessageThreadAuthenticated.setThread(entity);
 
-		mtas = this.repository.findManyMessageThreadAuthenticatedByMTId(entity.getId());
-		mtas.add(messageThreadAuthenticated);
-		entity.setUsers(mtas);
+			this.repository.save(newMessageThreadAuthenticated);
+
+			mtas = this.repository.findManyMessageThreadAuthenticatedByMTId(entity.getId());
+			mtas.add(newMessageThreadAuthenticated);
+			entity.setUsers(mtas);
+		}
+
+		if (userDelete != null) {
+			MessageThreadAuthenticated oldMessageThreadAuthenticated = this.repository.findOneMessageThreadAuthenticatedById(userDelete.getId());
+
+			this.repository.delete(oldMessageThreadAuthenticated);
+
+			mtas = this.repository.findManyMessageThreadAuthenticatedByMTId(entity.getId());
+			mtas.remove(oldMessageThreadAuthenticated);
+			entity.setUsers(mtas);
+		}
 
 		this.repository.save(entity);
 	}

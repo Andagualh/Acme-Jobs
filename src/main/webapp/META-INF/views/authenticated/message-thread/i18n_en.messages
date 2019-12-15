@@ -14,5 +14,12 @@ authenticated.message.body = Body:
 authenticated.message-thread.list.button.messages = Messages
 authenticated.message-thread.list.button.users = Users
 
+authenticated.user-account.form.button.update = Update
 authenticated.message-thread.form.button.create = Create
 authenticated.message-thread.form.button.return = Return
+
+authenticated.message-thread.add = <h4>Add User</h4>
+authenticated.message-thread.delete = <h4>Delete User</h4>
+
+administrator.message-thread.form.label.user.username = Usermane
+administrator.message-thread.form.label.user.email = Email

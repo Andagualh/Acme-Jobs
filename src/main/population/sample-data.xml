@@ -133,6 +133,7 @@
 	<bean name="msgThread1" class = "acme.entities.messageThread.MessageThread">
 		<property name="title" value="Msg Thread 1"/>
 		<property name="creationMoment" value="2018/12/11 23:30"/>
+		<property name="administrator" ref="employer1UserAccount"/>
 		<property name="users">
 			<list>
 			<ref bean="msga1"/>

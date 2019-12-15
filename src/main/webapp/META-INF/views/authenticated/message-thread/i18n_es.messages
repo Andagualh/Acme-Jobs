@@ -14,5 +14,6 @@ authenticated.message.body = Cuerpo:
 authenticated.message-thread.list.button.messages = Mensajes
 authenticated.message-thread.list.button.users = Usuarios
 
+authenticated.user-account.form.button.update = Actualizar
 authenticated.message-thread.form.button.create = Crear
 authenticated.message-thread.form.button.return = Volver

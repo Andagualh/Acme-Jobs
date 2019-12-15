@@ -38,7 +38,7 @@ public class AuthenticatedMessageThreadCreateService implements AbstractCreateSe
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "creationMoment");
+		request.bind(entity, errors, "creationMoment", "administrator");
 	}
 
 	@Override
@@ -56,7 +56,9 @@ public class AuthenticatedMessageThreadCreateService implements AbstractCreateSe
 		Collection<MessageThreadAuthenticated> users;
 		Collection<Message> messages;
 		Date moment;
+		UserAccount administrator;
 
+		administrator = this.repository.findUserAccountById(request.getPrincipal().getAccountId());
 		moment = new Date(System.currentTimeMillis() - 1);
 		users = new ArrayList<MessageThreadAuthenticated>();
 		messages = new ArrayList<Message>();
@@ -65,6 +67,7 @@ public class AuthenticatedMessageThreadCreateService implements AbstractCreateSe
 		result.setMessage(messages);
 		result.setUsers(users);
 		result.setCreationMoment(moment);
+		result.setAdministrator(administrator);
 
 		return result;
 	}

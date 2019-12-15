@@ -46,6 +46,7 @@ public class AuthenticatedMessageThreadShowService implements AbstractShowServic
 
 		model.setAttribute("message", messages);
 
+		model.setAttribute("isAdministrator", entity.getAdministrator().getId() == request.getPrincipal().getAccountId());
 	}
 	@Override
 	public MessageThread findOne(final Request<MessageThread> request) {
