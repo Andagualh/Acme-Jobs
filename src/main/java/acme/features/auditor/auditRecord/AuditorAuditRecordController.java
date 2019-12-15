@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import acme.components.CustomCommand;
 import acme.entities.auditRecord.AuditRecord;
 import acme.entities.roles.Auditor;
 import acme.framework.components.BasicCommand;
@@ -19,10 +20,16 @@ public class AuditorAuditRecordController extends AbstractController<Auditor, Au
 	//Internal State -------------------------------------
 
 	@Autowired
-	private AuditorAuditRecordShowService	showService;
+	private AuditorAuditRecordShowService		showService;
 
 	@Autowired
-	private AuditorAuditRecordListService	listService;
+	private AuditorAuditRecordListService		listService;
+
+	@Autowired
+	private AuditorAuditRecordCreateService		createService;
+
+	@Autowired
+	private AuditorAuditRecordListMineService	listMineService;
 
 
 	//Costructor -----------------------------------------
@@ -31,6 +38,8 @@ public class AuditorAuditRecordController extends AbstractController<Auditor, Au
 	private void initialise() {
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 		super.addBasicCommand(BasicCommand.LIST, this.listService);
+		super.addBasicCommand(BasicCommand.CREATE, this.createService);
+		super.addCustomCommand(CustomCommand.LIST_MINE, BasicCommand.LIST, this.listMineService);
 	}
 
 }

@@ -41,7 +41,7 @@ public class AuditorAuditRecordShowService implements AbstractShowService<Audito
 		int id;
 
 		id = request.getModel().getInteger("id");
-		result = this.repository.findOneJobById(id);
+		result = this.repository.findOneAuditRecordById(id);
 
 		return result;
 	}

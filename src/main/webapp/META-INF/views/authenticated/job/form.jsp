@@ -31,6 +31,8 @@
 	<acme:form-submit method="get" code="authenticated.job.form.button.duties" action="/authenticated/duty/list?id=${descriptorId}&ref=${reference}"/>
 	<acme:form-submit method="get" code="authenticated.job.form.button.auditRecord" action="/authenticated/audit-record/list?id=${id}&ref=${reference}"/>
 	<acme:form-submit test="${status == 'PUBLISHED' && isWorker}" method="get" code="authenticated.job.form.button.application" action="/worker/application/create?id=${id}&ref=${reference}"/>
+	<acme:form-submit test="${isAuditor}" method="get" code="authenticated.job.form.button.audit-records.apply" action="/auditor/audit-record/create?id=${id}&ref=${reference}"/>
+	
 	
 	<acme:form-return code="authenticated.job.form.button.return" />
 </acme:form>

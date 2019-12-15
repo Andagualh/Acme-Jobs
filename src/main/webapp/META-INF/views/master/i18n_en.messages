@@ -106,6 +106,7 @@ master.menu.auditor = Auditor
 master.menu.auditor.favourite-link = Favourite link
 master.menu.auditor.job.list-rec = My audit recorded jobs
 master.menu.auditor.job.list-nonrec = My non audit recorded jobs
+master.menu.worker.audit-records.list  = Audit records list
 
 # master.menu.user-account ####################################################
 
