@@ -24,12 +24,6 @@
 		<acme:form-textbox code="auditor.audit-record.form.label.creationMoment" path="creationMoment" />
 	</jstl:if>
 
-	<acme:check-access>
-		<acme:form-submit test="${command == 'show'}" code="auditor.audit-record.form.button.update" action="/auditor/audit-record/update" />
-		<acme:form-submit test="${command == 'update'}" code="auditor.audit-record.form.button.update" action="/auditor/audit-record/update" />
-	</acme:check-access>
-
-
 
 	<acme:form-submit test="${command == 'create'}" code="auditor.audit-record.form.button.create"
 		action="/auditor/audit-record/create" />
