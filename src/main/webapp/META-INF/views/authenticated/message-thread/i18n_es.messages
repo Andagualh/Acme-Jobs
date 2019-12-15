@@ -17,3 +17,7 @@ authenticated.message-thread.list.button.users = Usuarios
 authenticated.user-account.form.button.update = Actualizar
 authenticated.message-thread.form.button.create = Crear
 authenticated.message-thread.form.button.return = Volver
+
+administrator.message-thread.form.label.user.username = Usuario
+employer.message-thread.exist = El usuario ya existe en el hilo
+employer.message-thread.no-exist = El usuario no existe en el hilo

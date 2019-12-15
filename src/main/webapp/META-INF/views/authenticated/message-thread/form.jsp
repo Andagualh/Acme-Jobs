@@ -28,21 +28,19 @@
 	
 	<acme:menu-separator />
 	
-	<acme:check-access test="${isAdministrator}">
+	<acme:check-access test="${isAdministrator || command == 'update'}">
 		<acme:message code="authenticated.message-thread.add"/>
 		<acme:form-textarea code="administrator.message-thread.form.label.user.username" path="usernameAdd" />	
-		<acme:form-textarea code="administrator.message-thread.form.label.user.email" path="emailAdd" />	
 		
 		<acme:message code="authenticated.message-thread.delete"/>
 		<acme:form-textarea code="administrator.message-thread.form.label.user.username" path="usernameDelete" />	
-		<acme:form-textarea code="administrator.message-thread.form.label.user.email" path="emailDelete" />	
 	</acme:check-access>
 	
 	<acme:form-submit test="${command == 'create'}"
 	code="authenticated.message-thread.form.button.create" 
 	action="/authenticated/message-thread/create"/>
 	
-	<acme:check-access test="${isAdministrator}">
+	<acme:check-access test="${isAdministrator || command == 'update'}">
 		<acme:form-submit test="${command == 'show'}"
 		code="authenticated.user-account.form.button.update" 
 		action="/authenticated/message-thread/update"/>

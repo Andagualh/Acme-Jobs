@@ -63,6 +63,28 @@ public class AuthenticatedMessageThreadUpdateService implements AbstractUpdateSe
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
+		MessageThreadAuthenticated mtaA;
+		MessageThreadAuthenticated mtaD;
+		String usernameAdd;
+		String usernameDelete;
+
+		usernameAdd = request.getModel().getString("usernameAdd");
+		UserAccount userAdd = this.repository.findOneUserAccountByUsername(usernameAdd);
+
+		usernameDelete = request.getModel().getString("usernameDelete");
+		UserAccount userDelete = this.repository.findOneUserAccountByUsername(usernameDelete);
+
+		if (!errors.hasErrors("usernameAdd") && userAdd != null) {
+			mtaA = this.repository.findOneMessageThreadAuthenticatedByIds(userAdd.getId(), entity.getId());
+			errors.state(request, mtaA == null, "usernameAdd", "employer.message-thread.exist");
+		}
+
+		if (!errors.hasErrors("usernameDelete") && userDelete != null) {
+			mtaD = this.repository.findOneMessageThreadAuthenticatedByIds(userDelete.getId(), entity.getId());
+			errors.state(request, mtaD != null, "usernameDelete", "employer.message-thread.no-exist");
+		}
+
 	}
 
 	@Override
@@ -72,18 +94,14 @@ public class AuthenticatedMessageThreadUpdateService implements AbstractUpdateSe
 
 		MessageThreadAuthenticated newMessageThreadAuthenticated;
 		String usernameAdd;
-		String emailAdd;
 		String usernameDelete;
-		String emailDelete;
 		Collection<MessageThreadAuthenticated> mtas;
 
 		usernameAdd = request.getModel().getString("usernameAdd");
-		emailAdd = request.getModel().getString("emailAdd");
-		UserAccount userAdd = this.repository.findOneUserAccountByUsernameEmail(usernameAdd, emailAdd);
+		UserAccount userAdd = this.repository.findOneUserAccountByUsername(usernameAdd);
 
 		usernameDelete = request.getModel().getString("usernameDelete");
-		emailDelete = request.getModel().getString("emailDelete");
-		UserAccount userDelete = this.repository.findOneUserAccountByUsernameEmail(usernameDelete, emailDelete);
+		UserAccount userDelete = this.repository.findOneUserAccountByUsername(usernameDelete);
 
 		if (userAdd != null) {
 			newMessageThreadAuthenticated = new MessageThreadAuthenticated();
@@ -98,7 +116,7 @@ public class AuthenticatedMessageThreadUpdateService implements AbstractUpdateSe
 		}
 
 		if (userDelete != null) {
-			MessageThreadAuthenticated oldMessageThreadAuthenticated = this.repository.findOneMessageThreadAuthenticatedById(userDelete.getId());
+			MessageThreadAuthenticated oldMessageThreadAuthenticated = this.repository.findOneMessageThreadAuthenticatedByIds(userDelete.getId(), entity.getId());
 
 			this.repository.delete(oldMessageThreadAuthenticated);
 
