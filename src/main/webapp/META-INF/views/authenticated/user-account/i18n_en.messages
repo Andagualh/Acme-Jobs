@@ -22,7 +22,7 @@ authenticated.user-account.form.label.name = Name:
 authenticated.user-account.form.label.surname = Surname:
 authenticated.user-account.form.label.email = Email:
  
-authenticated.user-account.form.button.delete-user = Delete
+authenticated.user-account.form.button.update-add = Add User
 authenticated.user-account.form.button.update = Update
 authenticated.user-account.form.button.return = Return
 

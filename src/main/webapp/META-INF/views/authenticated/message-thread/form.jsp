@@ -21,7 +21,7 @@
 	<acme:check-access test="${command != 'create'}">
 		<acme:form-moment code="authenticated.message-thread.form.label.creationMoment" path="creationMoment"/>
 		<acme:form-submit method="get" code="authenticated.message-thread.list.button.messages" action="/authenticated/message/list?id=${id}"/>
-		<acme:form-submit method="get" code="authenticated.message-thread.list.button.users" action="/authenticated/user-account/list?id1=${id}"/>
+		<acme:form-submit method="get" code="authenticated.message-thread.list.button.users" action="/authenticated/user-account/list?id=${id}"/>
 	</acme:check-access>
 	
 	<acme:form-submit test="${command == 'create'}"

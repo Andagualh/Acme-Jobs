@@ -35,4 +35,7 @@ public interface AuthenticatedMessageThreadRepository extends AbstractRepository
 
 	@Query("select mta from MessageThreadAuthenticated mta where mta.thread.id = ?1")
 	Collection<MessageThreadAuthenticated> findManyMessageThreadAuthenticatedByMTId(int id);
+
+	@Query("select ua from UserAccount ua where ua.username = ?1 AND ua.identity.email = ?2")
+	UserAccount findOneUserAccountByUsernameEmail(String username, String email);
 }

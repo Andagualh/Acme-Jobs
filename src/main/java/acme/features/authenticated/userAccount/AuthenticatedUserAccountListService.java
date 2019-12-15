@@ -35,6 +35,8 @@ public class AuthenticatedUserAccountListService implements AbstractListService<
 		assert model != null;
 
 		request.unbind(entity, model, "username", "identity.name", "identity.surname", "identity.email");
+
+		model.setAttribute("mtId", request.getServletRequest().getParameter("id"));
 	}
 
 	@Override
@@ -44,7 +46,7 @@ public class AuthenticatedUserAccountListService implements AbstractListService<
 		Collection<UserAccount> users;
 		Collection<MessageThreadAuthenticated> messageThreadAuthenticated;
 
-		String id = request.getServletRequest().getParameter("id1");
+		String id = request.getServletRequest().getParameter("id");
 
 		users = new ArrayList<UserAccount>();
 		messageThreadAuthenticated = this.repository.findManyUsersByMTId(Integer.parseInt(id));

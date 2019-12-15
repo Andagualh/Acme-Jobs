@@ -22,3 +22,7 @@
 	<acme:list-column code="authenticated.user-account.list.label.identity.surname" path="identity.surname" width="20%"/>
 	<acme:list-column code="authenticated.user-account.list.label.identity.email" path="identity.email" width="20%"/>
 </acme:list>
+
+<acme:form> 
+	<acme:form-submit code="authenticated.user-account.form.button.update-add" action="/authenticated/message-thread/update-add?id=${mtId}"/>
+</acme:form>

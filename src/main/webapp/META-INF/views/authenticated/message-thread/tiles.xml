@@ -26,4 +26,8 @@
 		<put-attribute name="body" type="template" value="../authenticated/message-thread/form.jsp" />
 	</definition>
 	
+	<definition name="authenticated/message-thread/update-add" extends="master">
+		<put-attribute name="body" type="template" value="../authenticated/message-thread/update-add.jsp" />
+	</definition>
+	
 </tiles-definitions>

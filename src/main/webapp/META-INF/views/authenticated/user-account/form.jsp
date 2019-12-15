@@ -27,6 +27,5 @@
 	<acme:form-textbox code="authenticated.user-account.form.label.email" path="identity.email"/>
 	 
 	<acme:form-submit test="${command != 'show'}" code="authenticated.user-account.form.button.update" action="/authenticated/user-account/update"/>
-	<acme:form-submit test="${command == 'show'}" code="authenticated.user-account.form.button.delete-user" action="/authenticated/message-thread/update?id1=${id1}&id2=${id}"/>
   	<acme:form-return code="authenticated.user-account.form.button.return"/>
 </acme:form>

@@ -12,10 +12,11 @@ import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
+import acme.framework.entities.UserAccount;
 import acme.framework.services.AbstractUpdateService;
 
 @Service
-public class AuthenticatedMessageThreadUpdateService implements AbstractUpdateService<Authenticated, MessageThread> {
+public class AuthenticatedMessageThreadUpdateAddService implements AbstractUpdateService<Authenticated, MessageThread> {
 
 	@Autowired
 	AuthenticatedMessageThreadRepository repository;
@@ -54,7 +55,7 @@ public class AuthenticatedMessageThreadUpdateService implements AbstractUpdateSe
 		MessageThreadAuthenticated mta;
 
 		String id;
-		id = request.getServletRequest().getParameter("id2");
+		id = request.getServletRequest().getParameter("id");
 
 		mta = this.repository.findOneMessageThreadAuthenticatedById(Integer.parseInt(id));
 
@@ -76,20 +77,24 @@ public class AuthenticatedMessageThreadUpdateService implements AbstractUpdateSe
 		assert entity != null;
 
 		MessageThreadAuthenticated messageThreadAuthenticated;
-		String id;
+		String username;
+		String email;
 		Collection<MessageThreadAuthenticated> mtas;
 
-		id = request.getServletRequest().getParameter("id2");
+		username = request.getModel().getString("username");
+		email = request.getModel().getString("email");
+		UserAccount user = this.repository.findOneUserAccountByUsernameEmail(username, email);
 
-		messageThreadAuthenticated = this.repository.findOneMessageThreadAuthenticatedById(Integer.parseInt(id));
+		messageThreadAuthenticated = new MessageThreadAuthenticated();
+		messageThreadAuthenticated.setUser(user);
+		messageThreadAuthenticated.setThread(entity);
+
+		this.repository.save(messageThreadAuthenticated);
 
 		mtas = this.repository.findManyMessageThreadAuthenticatedByMTId(entity.getId());
-
-		mtas.remove(messageThreadAuthenticated);
-
+		mtas.add(messageThreadAuthenticated);
 		entity.setUsers(mtas);
 
-		this.repository.delete(messageThreadAuthenticated);
 		this.repository.save(entity);
 	}
 
