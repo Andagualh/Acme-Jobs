@@ -13,6 +13,8 @@ import acme.entities.application.Application;
 import acme.entities.duty.Duty;
 import acme.entities.job.Job;
 import acme.entities.roles.Employer;
+import acme.entities.spamlist.Spamlist;
+import acme.entities.spamlist.Spamword;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
@@ -49,5 +51,10 @@ public interface EmployerJobRepository extends AbstractRepository {
 	@Query("select count(d) from Duty d where d.descriptor.job.id = ?1")
 	Integer findDutiesByJobId(int id);
 
+	@Query("select s from Spamword s")
+	Collection<Spamword> findSpamWords();
+
+	@Query("select s from Spamlist s")
+	Collection<Spamlist> findSpamLists();
 
 }

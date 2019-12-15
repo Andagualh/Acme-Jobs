@@ -1,12 +1,16 @@
 
 package acme.features.employer.job;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.descriptor.Descriptor;
 import acme.entities.job.Job;
 import acme.entities.roles.Employer;
+import acme.entities.spamlist.Spamlist;
+import acme.entities.spamlist.Spamword;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -71,6 +75,15 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 		if (!errors.hasErrors("descriptor-description")) {
 			errors.state(request, description != "", "descriptor-description", "employer.job.descriptor.blank");
 		}
+
+		Boolean isSpam;
+		String reallyBigString;
+		reallyBigString = request.getModel().getString("title") + " " + request.getModel().getString("moreInfo") + " " + request.getModel().getString("description") + " " + request.getModel().getString("descriptor-description");
+		Collection<Spamword> spam = this.repository.findSpamWords();
+		Collection<Spamlist> lists = this.repository.findSpamLists();
+		isSpam = this.spamWords(reallyBigString, spam, lists);
+		errors.state(request, !isSpam, "reference", "acme.validation.spam");
+
 	}
 
 	@Override
@@ -87,6 +100,39 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 		this.repository.save(desc);
 
 		this.repository.save(entity);
+	}
+
+	//Método Auxiliar
+
+	public Boolean spamWords(final String reallyBigString, final Collection<Spamword> spam, final Collection<Spamlist> lists) {
+		Double numSpamwords = 0.;
+		Boolean res = false;
+
+		for (Spamword sw : spam) {
+			String spamword = sw.getSpamword();
+			numSpamwords = numSpamwords + this.numDeSpamwords(reallyBigString, spamword, 0.);
+		}
+
+		numSpamwords = numSpamwords / 2;
+		numSpamwords = numSpamwords / 100;
+
+		for (Spamlist sl : lists) {
+			Double threshold = sl.getThreshold();
+			res = numSpamwords > threshold;
+
+		}
+
+		return res;
+
+	}
+
+	private Double numDeSpamwords(final String fullText, final String spamword, final Double u) {
+		if (!fullText.contains(spamword)) {
+			return u;
+		} else {
+			Integer a = fullText.indexOf(spamword);
+			return this.numDeSpamwords(fullText.substring(a + 1), spamword, u + 1);
+		}
 	}
 
 }
