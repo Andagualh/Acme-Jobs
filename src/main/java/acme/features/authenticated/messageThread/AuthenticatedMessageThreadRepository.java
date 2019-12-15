@@ -8,13 +8,14 @@ import org.springframework.stereotype.Repository;
 
 import acme.entities.message.Message;
 import acme.entities.messageThread.MessageThread;
-import acme.framework.entities.Authenticated;
+import acme.entities.messageThread.MessageThreadAuthenticated;
+import acme.framework.entities.UserAccount;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
 public interface AuthenticatedMessageThreadRepository extends AbstractRepository {
 
-	@Query("select m from MessageThread m join m.users u where u.id = ?1")
+	@Query("select m from MessageThread m join m.users u where u.user.id = ?1")
 	Collection<MessageThread> findManyMessageThreadByUserId(int id);
 
 	@Query("select mt from MessageThread mt where mt.id=?1")
@@ -23,6 +24,15 @@ public interface AuthenticatedMessageThreadRepository extends AbstractRepository
 	@Query("select m from Message m where m.thread.id = ?1")
 	Collection<Message> findManyMessagesById(int id);
 
-	@Query("select u from Authenticated u where u.id = ?1")
-	Authenticated findUserAccountById(int id);
+	@Query("select ua from UserAccount ua where ua.id = ?1")
+	UserAccount findUserAccountById(int id);
+
+	@Query("select mt from MessageThread mt join mt.message where mt.id = ?1")
+	MessageThread findOneById(int id);
+
+	@Query("select mta from MessageThreadAuthenticated mta where mta.user.id = ?1")
+	MessageThreadAuthenticated findOneMessageThreadAuthenticatedById(int id);
+
+	@Query("select mta from MessageThreadAuthenticated mta where mta.thread.id = ?1")
+	Collection<MessageThreadAuthenticated> findManyMessageThreadAuthenticatedByMTId(int id);
 }

@@ -7,6 +7,10 @@
 # this software. It has been tested carefully, but it is not guaranteed for any particular
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
+authenticated.user-account.list.label.username = Usuario
+authenticated.user-account.list.label.identity.name = Nombre
+authenticated.user-account.list.label.identity.surname = Apellido
+authenticated.user-account.list.label.identity.email = Email
 
 authenticated.user-account.form.title.update = Actualización de cuenta
 
@@ -17,6 +21,7 @@ authenticated.user-account.form.label.name = Nombre:
 authenticated.user-account.form.label.surname = Apellidos:
 authenticated.user-account.form.label.email = E-mail:
  
+authenticated.user-account.form.button.delete-user = Eliminar
 authenticated.user-account.form.button.update = Actualizar
 authenticated.user-account.form.button.return = Volver
 

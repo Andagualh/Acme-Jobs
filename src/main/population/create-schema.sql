@@ -212,8 +212,11 @@
     ) engine=InnoDB;
 
     create table `message_thread_authenticated` (
-       `message_thread_id` integer not null,
-        `users_id` integer not null
+       `id` integer not null,
+        `version` integer not null,
+        `thread_id` integer,
+        `user_id` integer,
+        primary key (`id`)
     ) engine=InnoDB;
 
     create table `non_commercial` (
@@ -419,14 +422,14 @@ create index IDX2insomc4a40jprju8tmgcvmig on `spamword` (`spamword`);
        references `message_thread` (`id`);
 
     alter table `message_thread_authenticated` 
-       add constraint `FKsnymblhgu3dixq3t2qhptr4x2` 
-       foreign key (`users_id`) 
-       references `authenticated` (`id`);
+       add constraint `FK5hkl2eosfv1vpc97uhxqj988q` 
+       foreign key (`thread_id`) 
+       references `message_thread` (`id`);
 
     alter table `message_thread_authenticated` 
-       add constraint `FKjb0tx79q4dpibs3mnkp6wfqvf` 
-       foreign key (`message_thread_id`) 
-       references `message_thread` (`id`);
+       add constraint `FKga1oyn9oxkdor5spjyt2rlaur` 
+       foreign key (`user_id`) 
+       references `user_account` (`id`);
 
     alter table `non_commercial` 
        add constraint `FKqo73ln7f61vbg9r4a06esfujd` 

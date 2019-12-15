@@ -8,6 +8,11 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
+authenticated.user-account.list.label.username = Username
+authenticated.user-account.list.label.identity.name = Name
+authenticated.user-account.list.label.identity.surname = Surname
+authenticated.user-account.list.label.identity.email = Email
+
 authenticated.user-account.form.title.update = Update your account
 
 authenticated.user-account.form.label.username = Username:
@@ -17,6 +22,7 @@ authenticated.user-account.form.label.name = Name:
 authenticated.user-account.form.label.surname = Surname:
 authenticated.user-account.form.label.email = Email:
  
+authenticated.user-account.form.button.delete-user = Delete
 authenticated.user-account.form.button.update = Update
 authenticated.user-account.form.button.return = Return
 

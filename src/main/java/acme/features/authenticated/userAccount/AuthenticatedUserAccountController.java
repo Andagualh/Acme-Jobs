@@ -30,7 +30,13 @@ public class AuthenticatedUserAccountController extends AbstractController<Authe
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AuthenticatedUserAccountUpdateService updateService;
+	private AuthenticatedUserAccountUpdateService	updateService;
+
+	@Autowired
+	private AuthenticatedUserAccountListService		listService;
+
+	@Autowired
+	private AuthenticatedUserAccountShowService		showService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -38,6 +44,8 @@ public class AuthenticatedUserAccountController extends AbstractController<Authe
 	@PostConstruct
 	private void initialise() {
 		super.addBasicCommand(BasicCommand.UPDATE, this.updateService);
+		super.addBasicCommand(BasicCommand.LIST, this.listService);
+		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 	}
 
 }

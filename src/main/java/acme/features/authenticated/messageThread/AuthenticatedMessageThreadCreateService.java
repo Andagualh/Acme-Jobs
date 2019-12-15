@@ -10,10 +10,12 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.message.Message;
 import acme.entities.messageThread.MessageThread;
+import acme.entities.messageThread.MessageThreadAuthenticated;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
+import acme.framework.entities.UserAccount;
 import acme.framework.services.AbstractCreateService;
 
 @Service
@@ -51,25 +53,18 @@ public class AuthenticatedMessageThreadCreateService implements AbstractCreateSe
 	@Override
 	public MessageThread instantiate(final Request<MessageThread> request) {
 		MessageThread result;
-		Date moment;
-		Collection<Authenticated> users;
+		Collection<MessageThreadAuthenticated> users;
 		Collection<Message> messages;
+		Date moment;
 
-		users = new ArrayList<Authenticated>();
-		messages = new ArrayList<Message>();
 		moment = new Date(System.currentTimeMillis() - 1);
-
-		Integer id = request.getPrincipal().getActiveRoleId();
-
-		Authenticated userCreator = this.repository.findUserAccountById(id);
-
-		users.add(userCreator);
-
+		users = new ArrayList<MessageThreadAuthenticated>();
+		messages = new ArrayList<Message>();
 		result = new MessageThread();
 
-		result.setCreationMoment(moment);
-		result.setUsers(users);
 		result.setMessage(messages);
+		result.setUsers(users);
+		result.setCreationMoment(moment);
 
 		return result;
 	}
@@ -86,6 +81,27 @@ public class AuthenticatedMessageThreadCreateService implements AbstractCreateSe
 		assert request != null;
 		assert entity != null;
 
+		Collection<MessageThreadAuthenticated> users;
+		Collection<Message> messages;
+		MessageThreadAuthenticated messageThreadAuthenticated;
+
+		users = new ArrayList<MessageThreadAuthenticated>();
+		messages = new ArrayList<Message>();
+		messageThreadAuthenticated = new MessageThreadAuthenticated();
+
+		Integer id = request.getPrincipal().getAccountId();
+
+		UserAccount userCreator = this.repository.findUserAccountById(id);
+
+		messageThreadAuthenticated.setUser(userCreator);
+		messageThreadAuthenticated.setThread(entity);
+
+		users.add(messageThreadAuthenticated);
+
+		entity.setUsers(users);
+		entity.setMessage(messages);
+
+		this.repository.save(messageThreadAuthenticated);
 		this.repository.save(entity);
 	}
 

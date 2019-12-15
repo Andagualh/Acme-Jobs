@@ -135,12 +135,12 @@
 		<property name="creationMoment" value="2018/12/11 23:30"/>
 		<property name="users">
 			<list>
-			<ref bean="employer1Authenticated"/>
-			<ref bean="employer2Authenticated"/>
-			<ref bean="employer3Authenticated"/>
-			<ref bean="worker1Authenticated"/>
-			<ref bean="worker2Authenticated"/>
-			<ref bean="worker3Authenticated"/>
+			<ref bean="msga1"/>
+			<ref bean="msga2"/>
+			<ref bean="msga3"/>
+			<ref bean="msga4"/>
+			<ref bean="msga5"/>
+			<ref bean="msga6"/>
 			</list>
 		</property>
 		<property name="message">
@@ -152,7 +152,7 @@
 			</list>
 		</property>
 		</bean>
-		
+		<!--
 		<bean name="msgThread2" class = "acme.entities.messageThread.MessageThread">
 		<property name="title" value="Msg Thread 2"/>
 		<property name="creationMoment" value="2018/12/11 23:40"/>
@@ -239,6 +239,38 @@
 			</list>
 		</property>
 		</bean>
+		-->
+	<!-- MessageThreadAuthenticated -->
+	
+	<bean name="msga1" class = "acme.entities.messageThread.MessageThreadAuthenticated">
+		<property name="thread" ref="msgThread1"/>
+		<property name="user" ref="employer1UserAccount"/>
+	</bean>
+	
+	<bean name="msga2" class = "acme.entities.messageThread.MessageThreadAuthenticated">
+		<property name="thread" ref="msgThread1"/>
+		<property name="user" ref="employer2UserAccount"/>
+	</bean>
+	
+	<bean name="msga3" class = "acme.entities.messageThread.MessageThreadAuthenticated">
+		<property name="thread" ref="msgThread1"/>
+		<property name="user" ref="employer3UserAccount"/>
+	</bean>
+	
+	<bean name="msga4" class = "acme.entities.messageThread.MessageThreadAuthenticated">
+		<property name="thread" ref="msgThread1"/>
+		<property name="user" ref="worker1UserAccount"/>
+	</bean>
+	
+	<bean name="msga5" class = "acme.entities.messageThread.MessageThreadAuthenticated">
+		<property name="thread" ref="msgThread1"/>
+		<property name="user" ref="worker2UserAccount"/>
+	</bean>
+	
+	<bean name="msga6" class = "acme.entities.messageThread.MessageThreadAuthenticated">
+		<property name="thread" ref="msgThread1"/>
+		<property name="user" ref="worker3UserAccount"/>
+	</bean>
 		
 	<!-- Messages -->
 	
@@ -273,7 +305,7 @@
 		<property name="body" value="This is the fourth msg"/>
 		<property name="thread"><ref bean="msgThread1"/></property>
 	</bean>
-	
+	<!--
 	<bean name="msg5" class = "acme.entities.message.Message">
 		<property name="title" value="5th Message"/>
 		<property name="creationMoment" value="2019/10/11 23:59"/>
@@ -321,7 +353,7 @@
 		<property name="body" value="This is the tenth msg"/>
 		<property name="thread"><ref bean="msgThread4"/></property>
 	</bean>
-	
+	-->
 
 
 	<!-- Employer1 -->

@@ -12,9 +12,12 @@
 
 package acme.features.authenticated.userAccount;
 
+import java.util.Collection;
+
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.entities.messageThread.MessageThreadAuthenticated;
 import acme.framework.entities.UserAccount;
 import acme.framework.repositories.AbstractRepository;
 
@@ -24,4 +27,6 @@ public interface AuthenticatedUserAccountRepository extends AbstractRepository {
 	@Query("select ua from UserAccount ua where ua.id = ?1")
 	UserAccount findOneUserAccountById(int id);
 
+	@Query("select mta from MessageThreadAuthenticated mta where mta.thread.id = ?1")
+	Collection<MessageThreadAuthenticated> findManyUsersByMTId(int id);
 }

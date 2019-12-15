@@ -65,11 +65,11 @@
 
     alter table `message_thread_authenticated` 
        drop 
-       foreign key `FKsnymblhgu3dixq3t2qhptr4x2`;
+       foreign key `FK5hkl2eosfv1vpc97uhxqj988q`;
 
     alter table `message_thread_authenticated` 
        drop 
-       foreign key `FKjb0tx79q4dpibs3mnkp6wfqvf`;
+       foreign key `FKga1oyn9oxkdor5spjyt2rlaur`;
 
     alter table `non_commercial` 
        drop 
