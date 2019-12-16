@@ -1,0 +1,10 @@
+administrator.employer.form.label.firm = Empresa
+administrator.employer.form.label.statement = Declaración
+
+administrator.auditor.list.label.firm = Empresa
+administrator.auditor.list.label.statement = Declaración
+
+administrator.employer.form.label.create = Registrar
+administrator.employer.form.label.update = Activar auditor
+
+administrator.employer.form.button.return = Volver

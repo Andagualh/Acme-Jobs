@@ -60,6 +60,7 @@ master.menu.administrator.company-records.create = Crear registro de compañía
 master.menu.administrator.investor-record = Registros de Inversor
 master.menu.administrator.createinvestorrecord = Crear Registro de Inversor
 master.menu.administrator.spamlist = Parámetros de Customización
+master.menu.administrator.auditor = Auditores por confirmar
 
 
 
@@ -120,6 +121,7 @@ master.menu.user-account.employer = Datos de empleadores
 master.menu.user-account.become-employer = Hazte empleador
 master.menu.user-account.worker = Datos de trabajadores
 master.menu.user-account.become-worker = Hazte trabajador
+master.menu.user-account.become-auditor = Hazte auditor
 
 # master.menu.authenticated ####################################################
 

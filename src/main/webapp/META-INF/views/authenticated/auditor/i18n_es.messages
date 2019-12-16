@@ -1,0 +1,7 @@
+authenticated.employer.form.label.firm = Empresa
+authenticated.employer.form.label.statement = Declaración
+
+authenticated.employer.form.label.create = Registrar
+authenticated.employer.form.label.update = Actualizar
+
+authenticated.employer.form.button.return = Volver

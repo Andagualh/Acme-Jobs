@@ -61,6 +61,7 @@ master.menu.administrator.company-records.create = Create Company Record
 master.menu.administrator.investor-record = Investor Records
 master.menu.administrator.createinvestorrecord = Create Investor Record
 master.menu.administrator.spamlist = Customisation Parameters
+master.menu.administrator.auditor = Pending auditors
 
 
 # master.menu.provider ########################################################
@@ -119,6 +120,7 @@ master.menu.user-account.employer = Employer data
 master.menu.user-account.become-employer = Become an employer
 master.menu.user-account.worker = Worker data
 master.menu.user-account.become-worker = Become a Worker
+master.menu.user-account.become-auditor = Become an auditor
 
 # master.menu.authenticated ####################################################
 

@@ -60,6 +60,9 @@
 			<acme:menu-suboption code="master.menu.administrator.dashboard" action="/administrator/dashboard/show" />
 			<acme:menu-separator />
 			<acme:menu-suboption code="master.menu.administrator.spamlist" action="/administrator/spamlist/list" />
+			<acme:menu-separator />
+			<acme:menu-suboption code="master.menu.administrator.auditor" action="/administrator/auditor/list" />			
+	
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">
@@ -125,7 +128,9 @@
 			<acme:menu-suboption code="master.menu.user-account.become-worker" action="/authenticated/worker/create"
 				access="!hasRole('Worker')" />
 			<acme:menu-suboption code="master.menu.user-account.worker" action="/authenticated/worker/update"
-				access="hasRole('Worker')" />	
+				access="hasRole('Worker')" />
+			<acme:menu-suboption code="master.menu.user-account.become-auditor" action="/authenticated/auditor/create"
+				access="!hasRole('Auditor')" />	
 				
 		</acme:menu-option>
 
