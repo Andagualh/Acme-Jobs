@@ -77,7 +77,7 @@ public class SponsorNonCommercialCreateService implements AbstractCreateService<
 		isSpamEN = this.isSpam(reallyBigString, spamEN, entity);
 		isSpamES = this.isSpam(reallyBigString, spamES, entity);
 
-		errors.state(request, !isSpamEN || !isSpamES, "reference", "acme.validation.spam");
+		errors.state(request, !isSpamEN || !isSpamES, "jingle", "acme.validation.spam");
 	}
 
 	@Override
