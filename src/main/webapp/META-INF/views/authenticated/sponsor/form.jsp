@@ -17,7 +17,7 @@
 
 <acme:form>
 	<acme:form-textbox code="authenticated.sponsor.form.label.organisation" path="organisation" />
-	<acme:form-textbox code="authenticated.sponsor.form.label.cardCredit" path="cardCredit" />
+
 
 	<acme:form-submit test="${command == 'create'}" code="authenticated.sponsor.form.label.create"
 		action="/authenticated/sponsor/create" />
