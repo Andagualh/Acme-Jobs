@@ -23,9 +23,26 @@ public class AuditorAuditRecordCreateService implements AbstractCreateService<Au
 
 	@Override
 	public boolean authorise(final Request<AuditRecord> request) {
+		boolean res = true;
 		assert request != null;
 
-		return true;
+		Job job;
+		int auditorid;
+		Auditor auditor;
+
+		auditorid = request.getPrincipal().getActiveRoleId();
+		auditor = this.repository.findOneAuditorById(auditorid);
+
+		String jobid = request.getServletRequest().getParameter("id");
+
+		job = this.repository.findOneJobById(Integer.parseInt(jobid));
+		for (AuditRecord a : job.getAuditRecord()) {
+			if (a.getAuditor().equals(auditor)) {
+				res = false;
+			}
+		}
+
+		return res;
 	}
 
 	@Override
