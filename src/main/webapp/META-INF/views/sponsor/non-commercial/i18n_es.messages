@@ -12,4 +12,6 @@ sponsor.non-commercial.form.button.update = Actualizar
 sponsor.non-commercial.form.button.delete = Eliminar
 sponsor.non-commercial.form.button.create = Crear
 
+acme.validation.spam = Por favor, no introduzca spam en el sistema
+
 sponsor.non-commercial.form.button.return= Volver

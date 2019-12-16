@@ -18,17 +18,28 @@ import acme.framework.controllers.AbstractController;
 public class SponsorNonCommercialController extends AbstractController<Sponsor, NonCommercial> {
 
 	@Autowired
-	private SponsorNonCommercialListService	listService;
+	private SponsorNonCommercialListService		listService;
 
 	@Autowired
-	private SponsorNonCommercialShowService	showService;
+	private SponsorNonCommercialShowService		showService;
+
+	@Autowired
+	private SponsorNonCommercialCreateService	createService;
+
+	@Autowired
+	private SponsorNonCommercialUpdateService	updateService;
+
+	@Autowired
+	private SponsorNonCommercialDeleteService	deleteService;
 
 
 	@PostConstruct
 	public void initialise() {
 		super.addCustomCommand(CustomCommand.LIST_MINE, BasicCommand.LIST, this.listService);
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
-
+		super.addBasicCommand(BasicCommand.CREATE, this.createService);
+		super.addBasicCommand(BasicCommand.UPDATE, this.updateService);
+		super.addBasicCommand(BasicCommand.DELETE, this.deleteService);
 	}
 
 }
