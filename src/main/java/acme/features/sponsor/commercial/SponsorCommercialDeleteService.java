@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.commercial.Commercial;
-import acme.entities.creditCard.CreditCard;
 import acme.entities.roles.Sponsor;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
@@ -68,12 +67,6 @@ public class SponsorCommercialDeleteService implements AbstractDeleteService<Spo
 	public void delete(final Request<Commercial> request, final Commercial entity) {
 		assert request != null;
 		assert entity != null;
-
-		CreditCard card = null;
-
-		//		card = this.repository.findCreditCardByCommercialId(entity.getId());
-
-		this.repository.delete(card);
 
 		this.repository.delete(entity);
 	}

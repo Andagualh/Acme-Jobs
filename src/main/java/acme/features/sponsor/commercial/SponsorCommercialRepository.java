@@ -20,7 +20,4 @@ public interface SponsorCommercialRepository extends AbstractRepository {
 	@Query("select s from Sponsor s where s.id = ?1")
 	Sponsor findSponsorById(int activeRoleId);
 
-	//	@Query("select cc from CreditCard cc where cc.commercial.id = ?1")
-	//	CreditCard findCreditCardByCommercialId(int id);
-
 }
