@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.message.Message;
 import acme.entities.messageThread.MessageThread;
+import acme.entities.messageThread.MessageThreadAuthenticated;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
@@ -25,7 +26,18 @@ public class AuthenticatedMessageThreadShowService implements AbstractShowServic
 	public boolean authorise(final Request<MessageThread> request) {
 		assert request != null;
 
-		return true;
+		Boolean result = true;
+
+		Integer idPrincipal = request.getPrincipal().getAccountId();
+		Integer idThread = request.getModel().getInteger("id");
+
+		MessageThreadAuthenticated mta = this.repository.findOneMessageThreadAuthenticatedByIds(idPrincipal, idThread);
+
+		if (mta == null) {
+			result = false;
+		}
+
+		return result;
 	}
 
 	@Override
@@ -36,7 +48,7 @@ public class AuthenticatedMessageThreadShowService implements AbstractShowServic
 
 		Principal principal = request.getPrincipal();
 
-		Integer id = principal.getActiveRoleId();
+		Integer id = principal.getAccountId();
 
 		model.setAttribute("id", id);
 
@@ -46,6 +58,7 @@ public class AuthenticatedMessageThreadShowService implements AbstractShowServic
 
 		model.setAttribute("message", messages);
 
+		model.setAttribute("isAdministrator", entity.getAdministrator().getId() == request.getPrincipal().getAccountId());
 	}
 	@Override
 	public MessageThread findOne(final Request<MessageThread> request) {

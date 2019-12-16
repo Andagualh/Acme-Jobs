@@ -194,6 +194,7 @@
     create table `message` (
        `id` integer not null,
         `version` integer not null,
+        `accepted` bit,
         `body` varchar(255),
         `creation_moment` datetime(6),
         `tags` varchar(255),
@@ -207,12 +208,16 @@
         `version` integer not null,
         `creation_moment` datetime(6),
         `title` varchar(255),
+        `administrator_id` integer,
         primary key (`id`)
     ) engine=InnoDB;
 
     create table `message_thread_authenticated` (
-       `message_thread_id` integer not null,
-        `users_id` integer not null
+       `id` integer not null,
+        `version` integer not null,
+        `thread_id` integer,
+        `user_id` integer,
+        primary key (`id`)
     ) engine=InnoDB;
 
     create table `non_commercial` (
@@ -264,6 +269,7 @@
     create table `spamlist` (
        `id` integer not null,
         `version` integer not null,
+        `idiom` varchar(255),
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -414,15 +420,20 @@ create index IDX2insomc4a40jprju8tmgcvmig on `spamword` (`spamword`);
        foreign key (`thread_id`) 
        references `message_thread` (`id`);
 
-    alter table `message_thread_authenticated` 
-       add constraint `FKsnymblhgu3dixq3t2qhptr4x2` 
-       foreign key (`users_id`) 
-       references `authenticated` (`id`);
+    alter table `message_thread` 
+       add constraint `FKqs5ayrsbpr4dn7sufcl1x2pqv` 
+       foreign key (`administrator_id`) 
+       references `user_account` (`id`);
 
     alter table `message_thread_authenticated` 
-       add constraint `FKjb0tx79q4dpibs3mnkp6wfqvf` 
-       foreign key (`message_thread_id`) 
+       add constraint `FK5hkl2eosfv1vpc97uhxqj988q` 
+       foreign key (`thread_id`) 
        references `message_thread` (`id`);
+
+    alter table `message_thread_authenticated` 
+       add constraint `FKga1oyn9oxkdor5spjyt2rlaur` 
+       foreign key (`user_id`) 
+       references `user_account` (`id`);
 
     alter table `non_commercial` 
        add constraint `FKqo73ln7f61vbg9r4a06esfujd` 

@@ -63,13 +63,17 @@
        drop 
        foreign key `FKq851een84mnkrhyssa05q7je`;
 
-    alter table `message_thread_authenticated` 
+    alter table `message_thread` 
        drop 
-       foreign key `FKsnymblhgu3dixq3t2qhptr4x2`;
+       foreign key `FKqs5ayrsbpr4dn7sufcl1x2pqv`;
 
     alter table `message_thread_authenticated` 
        drop 
-       foreign key `FKjb0tx79q4dpibs3mnkp6wfqvf`;
+       foreign key `FK5hkl2eosfv1vpc97uhxqj988q`;
+
+    alter table `message_thread_authenticated` 
+       drop 
+       foreign key `FKga1oyn9oxkdor5spjyt2rlaur`;
 
     alter table `non_commercial` 
        drop 

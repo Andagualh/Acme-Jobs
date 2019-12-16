@@ -29,7 +29,12 @@ public class Message extends DomainEntity {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date				creationMoment;
 
+	@NotNull
+	private Boolean				accepted;
+
+	@NotBlank
 	private String				tags;
+
 	@NotBlank
 	private String				body;
 

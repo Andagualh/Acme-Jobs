@@ -1,5 +1,16 @@
 authenticated.message.list.label.title = Título
 authenticated.message.list.label.creationMoment = Momento de creación
+authenticated.message.list.label.tags = Tags
 authenticated.message.list.label.body = Cuerpo
 
+authenticated.message.form.label.title = Título
+authenticated.message.form.label.creationMoment = Momento de creación
+authenticated.message.form.label.accepted = Acepto publicar este mensaje
+authenticated.message.form.label.tags = Tags
+authenticated.message.form.label.body = Cuerpo
+
+authenticated.message-thread.form.button.create = Crear
 authenticated.message.form.button.return = Volver
+
+authenticated.message.accepted = Debes aceptar
+authenticated.message.spam = Este mensaje ha sido considerado spam

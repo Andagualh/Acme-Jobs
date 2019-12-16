@@ -131,6 +131,7 @@ master.menu.offer.offer-list = Offers
 master.menu.request.requests-list = Requests
 master.menu.authenticated.job-list = Job List
 master.menu.authenticated.message-thread-list = Message Thread List
+master.menu.authenticated.message-thread-create = Create Message Thread
 
 
 # master.footer ###############################################################
