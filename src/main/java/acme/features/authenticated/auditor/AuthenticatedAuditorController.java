@@ -17,12 +17,19 @@ import acme.framework.entities.Authenticated;
 public class AuthenticatedAuditorController extends AbstractController<Authenticated, Auditor> {
 
 	@Autowired
-	private AuthenticatedAuditorCreateService createService;
+	private AuthenticatedAuditorCreateService	createService;
+
+	@Autowired
+	private AuthenticatedAuditorUpdateService	updateService;
+
+	@Autowired
+	private AuthenticatedAuditorShowService		showService;
 
 
 	@PostConstruct
 	private void intialise() {
 		super.addBasicCommand(BasicCommand.CREATE, this.createService);
-		//super.addBasicCommand(BasicCommand.UPDATE, this.updateService);
+		super.addBasicCommand(BasicCommand.UPDATE, this.updateService);
+		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 	}
 }

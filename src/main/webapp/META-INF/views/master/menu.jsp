@@ -130,7 +130,9 @@
 			<acme:menu-suboption code="master.menu.user-account.worker" action="/authenticated/worker/update"
 				access="hasRole('Worker')" />
 			<acme:menu-suboption code="master.menu.user-account.become-auditor" action="/authenticated/auditor/create"
-				access="!hasRole('Auditor')" />	
+				access="!hasRole('Auditor')" />
+			<acme:menu-suboption code="master.menu.user-account.auditor" action="/authenticated/auditor/update"
+				access="hasRole('Auditor')" />
 				
 		</acme:menu-option>
 
