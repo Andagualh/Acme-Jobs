@@ -18,4 +18,7 @@ public interface AdministratorCommercialRepository extends AbstractRepository {
 	@Query("select a from Commercial a")
 	Collection<Commercial> findManyAll();
 
+	//	@Query("select cc from CreditCard cc where cc.commercial.id = ?1")
+	//	CreditCard findCreditCardByCommercialId(int id);
+
 }

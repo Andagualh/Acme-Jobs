@@ -99,7 +99,13 @@ master.menu.worker.application.list = My applications list
 # master.menu.sponsor ####################################################
 
 master.menu.sponsor.commercial.list = Commercial Banners
+master.menu.sponsor.commercial.create = Create Commercial Banner
 master.menu.sponsor.noncommercial.list = Non-Commercial Banners
+
+master.menu.sponsor.noncommercial.create = Create Non-Commercial Banners
+
+master.menu.sponsor.credit-card.create = Create Credit Card
+
 master.menu.sponsor = Sponsor
 
 # master.menu.auditor ####################################################
@@ -121,9 +127,14 @@ master.menu.user-account.employer = Employer data
 master.menu.user-account.become-employer = Become an employer
 master.menu.user-account.worker = Worker data
 master.menu.user-account.become-worker = Become a Worker
+
 master.menu.user-account.become-auditor = Become an auditor
 
 master.menu.user-account.auditor = Auditor data
+
+master.menu.user-account.sponsor = Sponsor data
+master.menu.user-account.become-sponsor = Become a Sponsor
+
 
 # master.menu.authenticated ####################################################
 

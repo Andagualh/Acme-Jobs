@@ -14,7 +14,7 @@ administrator.commercial.form.button.card = Credit Card
 
 administrator.commercial.form.error.number = The number must have 15 digits
 administrator.commercial.form.error.cvv = The CVV must have 3 digits
-administrator.commercial.form.error.deadline = The Date mush be MM/yyyy
+administrator.commercial.form.error.deadline = The Date must be MM/yyyy
 administrator.commercial.form.error.month = The month must be between 01 and 12
 administrator.commercial.form.error.numberInvalid = The number is invalid
 administrator.commercial.form.error.invalidStart = The credit card must start with 4(Visa), 5(MasterCard), 3(American Express) or 6(Discover)

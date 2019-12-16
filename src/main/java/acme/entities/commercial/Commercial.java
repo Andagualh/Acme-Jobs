@@ -3,7 +3,6 @@ package acme.entities.commercial;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 
@@ -37,7 +36,7 @@ public class Commercial extends DomainEntity {
 	private String				url;
 
 	@Valid
-	@OneToOne(mappedBy = "commercial")
+	@ManyToOne(optional = true)
 	private CreditCard			card;
 
 	@Valid

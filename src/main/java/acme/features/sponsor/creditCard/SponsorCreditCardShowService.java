@@ -21,7 +21,20 @@ public class SponsorCreditCardShowService implements AbstractShowService<Sponsor
 	public boolean authorise(final Request<CreditCard> request) {
 		assert request != null;
 
-		return true;
+		Boolean res = false;
+		CreditCard card;
+		Integer cardId;
+		Integer principalId;
+
+		principalId = request.getPrincipal().getActiveRoleId();
+		cardId = request.getModel().getInteger("id");
+		card = this.repository.findOneCardById(cardId);
+
+		if (card.getSponsor().getId() == principalId) {
+			res = true;
+		}
+
+		return res;
 	}
 
 	@Override

@@ -13,4 +13,14 @@ sponsor.credit-card.form.label.number = Number
 sponsor.credit-card.form.label.deadline = Deadline
 sponsor.credit-card.form.label.cvv = CVV
 
+sponsor.credit-card.form.button.update = Update
+sponsor.credit-card.form.button.create = Create
 sponsor.credit-card.form.button.return= Return
+
+sponsor.credit-card.form.error.exist = This user already have a Credit Card
+sponsor.credit-card.form.error.number = The number must have 15 digits
+sponsor.credit-card.form.error.cvv = The CVV must have 3 digits
+sponsor.credit-card.form.error.deadline = The Date must be MM/yyyy
+sponsor.credit-card.form.error.month = The month must be between 01 and 12
+sponsor.credit-card.form.error.numberInvalid = The number is invalid
+sponsor.credit-card.form.error.invalidStart = The credit card must start with 4(Visa), 5(MasterCard), 3(American Express) or 6(Discover)

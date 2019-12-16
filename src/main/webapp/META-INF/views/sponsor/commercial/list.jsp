@@ -6,6 +6,7 @@
 <acme:list>
 
     <acme:list-column code="sponsor.commercial.list.label.banner" path="banner" width="20%"/>
-    <acme:list-column code="sponsor.commercial.list.label.slogan" path="slogan" width="40%"/>           
+    <acme:list-column code="sponsor.commercial.list.label.slogan" path="slogan" width="40%"/>   
+    <acme:list-column code="sponsor.commercial.list.label.url" path="url" width="40%"/>            
 	
 </acme:list>

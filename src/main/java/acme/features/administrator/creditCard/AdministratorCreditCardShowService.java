@@ -21,6 +21,18 @@ public class AdministratorCreditCardShowService implements AbstractShowService<A
 	public boolean authorise(final Request<CreditCard> request) {
 		assert request != null;
 
+		CreditCard card;
+		Integer cardId;
+		Integer principalId;
+
+		principalId = request.getPrincipal().getActiveRoleId();
+		cardId = Integer.parseInt(request.getServletRequest().getParameter("id"));
+		card = this.repository.findOneCardById(cardId);
+
+		if (card.getSponsor().getId() == principalId) {
+			return false;
+		}
+
 		return true;
 	}
 

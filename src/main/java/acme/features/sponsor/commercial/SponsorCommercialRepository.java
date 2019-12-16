@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import acme.entities.commercial.Commercial;
 import acme.entities.roles.Sponsor;
+import acme.entities.spamlist.Spamlist;
 import acme.framework.repositories.AbstractRepository;
 
 public interface SponsorCommercialRepository extends AbstractRepository {
@@ -19,5 +20,8 @@ public interface SponsorCommercialRepository extends AbstractRepository {
 
 	@Query("select s from Sponsor s where s.id = ?1")
 	Sponsor findSponsorById(int activeRoleId);
+
+	@Query("select s from Spamlist s where s.idiom = ?1")
+	Spamlist findSpamLists(String idiom);
 
 }

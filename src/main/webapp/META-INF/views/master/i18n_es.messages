@@ -98,8 +98,14 @@ master.menu.worker.application.list = Lista de mis solicitudes
 
 # master.menu.sponsor ####################################################
 
-master.menu.sponsor.commercial.list = Banners Comerciales
-master.menu.sponsor.noncommercial.list = Banners no comerciales
+master.menu.sponsor.commercial.list = Pancartas Comerciales
+master.menu.sponsor.commercial.create = Crear Pancarta Comercial
+master.menu.sponsor.noncommercial.list = Pancartas no comerciales
+
+master.menu.sponsor.noncommercial.create = Crear Pancarta no comercial
+
+master.menu.sponsor.credit-card.create = Crear Tarjeta de Credito
+
 master.menu.sponsor = Patrocinador
 
 # master.menu.auditor ####################################################
@@ -122,8 +128,13 @@ master.menu.user-account.employer = Datos de empleadores
 master.menu.user-account.become-employer = Hazte empleador
 master.menu.user-account.worker = Datos de trabajadores
 master.menu.user-account.become-worker = Hazte trabajador
+
 master.menu.user-account.become-auditor = Hazte auditor
 master.menu.user-account.auditor = Datos de auditor
+
+
+master.menu.user-account.sponsor = Datos de patrocinadores
+master.menu.user-account.become-sponsor = Hazte patrocinador
 
 
 # master.menu.authenticated ####################################################
