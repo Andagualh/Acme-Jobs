@@ -24,9 +24,6 @@ public interface AuthenticatedMessageRepository extends AbstractRepository {
 	MessageThread findOneMessageThreadById(int id);
 
 	@Query("select a from Spamlist a where a.idiom = ?1")
-	Spamlist findEN(String idiom);
-
-	@Query("select a from Spamlist a where a.idiom = ?1")
-	Spamlist findES(String idiom);
+	Spamlist findIdiom(String idiom);
 
 }

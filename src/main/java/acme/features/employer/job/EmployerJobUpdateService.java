@@ -93,6 +93,12 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 
 		String status = request.getModel().getString("status");
 
+		Boolean isSpamEN, isSpamES;
+		String reallyBigString;
+		reallyBigString = request.getModel().getString("title") + " " + request.getModel().getString("moreInfo") + " " + request.getModel().getString("description") + " " + request.getModel().getString("descriptor-description");
+		Spamlist spamEN = this.repository.findSpamLists("EN");
+		Spamlist spamES = this.repository.findSpamLists("ES");
+
 		if (!errors.hasErrors("descriptor-description")) {
 			errors.state(request, description != "", "descriptor-description", "employer.job.descriptor.blank");
 		}
@@ -101,13 +107,10 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 			errors.state(request, percent == 100, "status", "employer.job.status");
 		}
 
-		Boolean isSpam;
-		String reallyBigString;
-		reallyBigString = request.getModel().getString("title") + " " + request.getModel().getString("moreInfo") + " " + request.getModel().getString("description") + " " + request.getModel().getString("descriptor-description");
-		Collection<Spamword> spam = this.repository.findSpamWords();
-		Collection<Spamlist> lists = this.repository.findSpamLists();
-		isSpam = this.spamWords(reallyBigString, spam, lists);
-		errors.state(request, !isSpam, "reference", "acme.validation.spam");
+		isSpamEN = this.isSpam(reallyBigString, spamEN, entity);
+		isSpamES = this.isSpam(reallyBigString, spamES, entity);
+
+		errors.state(request, !isSpamEN || !isSpamES, "reference", "acme.validation.spam");
 
 	}
 
@@ -131,27 +134,18 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 
 	//Método Auxiliar
 
-	public Boolean spamWords(final String reallyBigString, final Collection<Spamword> spam, final Collection<Spamlist> lists) {
-		Double numSpamwords = 0.;
-		Boolean res = false;
+	private Boolean isSpam(final String reallyBigString, final Spamlist sl, final Job entity) {
 
-		for (Spamword sw : spam) {
+		Collection<Spamword> spamwords = sl.getSpamwordslist();
+
+		Double numSpamWords = 0.;
+
+		for (Spamword sw : spamwords) {
 			String spamword = sw.getSpamword();
-			numSpamwords = numSpamwords + this.numDeSpamwords(reallyBigString, spamword, 0.);
+			numSpamWords = numSpamWords + this.numDeSpamwords(reallyBigString, spamword, 0.);
 		}
 
-		numSpamwords = numSpamwords / 2;
-		numSpamwords = numSpamwords / 100;
-
-		for (Spamlist sl : lists) {
-			Double threshold = sl.getThreshold();
-
-			res = numSpamwords > threshold;
-
-		}
-
-		return res;
-
+		return numSpamWords / 100 > sl.getThreshold();
 	}
 
 	private Double numDeSpamwords(final String fullText, final String spamword, final Double u) {

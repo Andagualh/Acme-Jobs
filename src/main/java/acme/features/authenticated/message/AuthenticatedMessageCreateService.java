@@ -84,8 +84,8 @@ public class AuthenticatedMessageCreateService implements AbstractCreateService<
 		Spamlist SlEN;
 		Spamlist SlES;
 
-		SlEN = this.repository.findEN("EN");
-		SlES = this.repository.findES("ES");
+		SlEN = this.repository.findIdiom("EN");
+		SlES = this.repository.findIdiom("ES");
 
 		spamES = this.isSpam(SlEN, entity);
 		spamEN = this.isSpam(SlES, entity);
