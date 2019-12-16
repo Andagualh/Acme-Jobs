@@ -44,7 +44,7 @@ public class AuditorAuditRecordListService implements AbstractListService<Audito
 
 		String jobId = request.getServletRequest().getParameter("id");
 
-		result = this.repository.findManyByJobId(Integer.parseInt(jobId));
+		result = this.repository.findManyPublishedByJobId(Integer.parseInt(jobId));
 
 		return result;
 	}

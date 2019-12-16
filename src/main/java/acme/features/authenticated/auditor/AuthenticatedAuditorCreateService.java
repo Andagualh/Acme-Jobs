@@ -10,7 +10,9 @@ import acme.framework.components.HttpMethod;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.components.Response;
+
 import acme.framework.entities.Administrator;
+
 import acme.framework.entities.Authenticated;
 import acme.framework.entities.Principal;
 import acme.framework.entities.UserAccount;
@@ -21,20 +23,25 @@ import acme.framework.services.AbstractCreateService;
 public class AuthenticatedAuditorCreateService implements AbstractCreateService<Authenticated, Auditor> {
 
 	@Autowired
+
 	AuthenticatedAuditorRepository repository;
+
 
 
 	@Override
 	public boolean authorise(final Request<Auditor> request) {
 		assert request != null;
 
+
 		Principal principal = request.getPrincipal();
 		int userId = principal.getAccountId();
 
 		UserAccount ua = this.repository.findOneUserAccountById(userId);
+
 		Auditor e = this.repository.findOneAuditorByUserId(ua.getId());
 
 		return e == null;
+
 
 	}
 
@@ -60,6 +67,7 @@ public class AuthenticatedAuditorCreateService implements AbstractCreateService<
 
 	@Override
 	public Auditor instantiate(final Request<Auditor> request) {
+
 		assert request != null;
 
 		Auditor result;
@@ -96,6 +104,7 @@ public class AuthenticatedAuditorCreateService implements AbstractCreateService<
 		}
 
 		this.repository.save(entity);
+
 	}
 
 	@Override
@@ -106,6 +115,7 @@ public class AuthenticatedAuditorCreateService implements AbstractCreateService<
 		if (request.isMethod(HttpMethod.POST)) {
 			PrincipalHelper.handleUpdate();
 			PrincipalHelper.handleSignOut();
+
 		}
 	}
 

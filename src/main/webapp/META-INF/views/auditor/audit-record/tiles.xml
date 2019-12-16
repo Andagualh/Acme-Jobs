@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
-<!--
-- tiles.xml
--
-- Copyright (c) 2019 Rafael Corchuelo.
--
-- In keeping with the traditional purpose of furthering education and research, it is
-- the policy of the copyright owner to permit non-commercial use and redistribution of
-- this software. It has been tested carefully, but it is not guaranteed for any particular
-- purposes.  The copyright owner does not offer any warranties or representations, nor do
-- they accept any liabilities with respect to them.
--->
+<!-- - tiles.xml - - Copyright (c) 2019 Rafael Corchuelo. - - In keeping with the traditional purpose of furthering education and research, 
+	it is - the policy of the copyright owner to permit non-commercial use and redistribution of - this software. It has been tested carefully, 
+	but it is not guaranteed for any particular - purposes. The copyright owner does not offer any warranties or representations, nor do 
+	- they accept any liabilities with respect to them. -->
 
 <!DOCTYPE tiles-definitions PUBLIC 
 	"-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" 
@@ -22,8 +15,12 @@
 		<put-attribute name="body" type="template" value="../auditor/audit-record/list.jsp" />
 	</definition>
 	
+	<definition name="auditor/audit-record/list_mine" extends="master">
+		<put-attribute name="body" type="template" value="../auditor/audit-record/list_mine.jsp" />
+	</definition>
+
 	<definition name="auditor/audit-record/form" extends="master">
 		<put-attribute name="body" type="template" value="../auditor/audit-record/form.jsp" />
 	</definition>
-	
+
 </tiles-definitions>

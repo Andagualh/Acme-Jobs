@@ -987,7 +987,6 @@
 		<property name="auditRecord">
 			<list>
 			<ref bean="auditRecord1"/>
-			<ref bean="auditRecord2"/>
 			</list>
 		</property>
 	</bean>
@@ -1080,6 +1079,8 @@
 			<list>
 			<ref bean="auditRecord3"/>
 			<ref bean="auditRecord1"/>
+			<ref bean="auditRecord2"/>
+			
 			</list>
 		</property>
 	</bean>
@@ -1126,7 +1127,6 @@
 		</property>
 		<property name="auditRecord">
 			<list>
-			<ref bean="auditRecord2"/>
 			<ref bean="auditRecord1"/>
 			</list>
 		</property>
@@ -1473,7 +1473,7 @@
 		<property name="creationMoment" value="2018/10/10 20:30"/>
 		<property name="body" value="This is the body of the first audit record"/>
 		<property name="job" ref="job1"/>
-		<property name="auditor" ref="auditor1Auditor"/>
+		<property name="auditor" ref="auditor2Auditor"/>
 		</bean>
 		
 		<bean name="auditRecord2" class = "acme.entities.auditRecord.AuditRecord">
@@ -1481,7 +1481,7 @@
 		<property name="status" value="DRAFT"/>
 		<property name="creationMoment" value="2018/11/12 16:30"/>
 		<property name="body" value="This is the body of the second audit record"/>
-		<property name="job" ref="job1"/>
+		<property name="job" ref="job3"/>
 		<property name="auditor" ref="auditor2Auditor"/>
 		</bean>
 		
@@ -1491,7 +1491,7 @@
 		<property name="creationMoment" value="2017/12/12 22:40"/>
 		<property name="body" value="This is the body of the third audit record"/>
 		<property name="job" ref="job2"/>
-		<property name="auditor" ref="auditor1Auditor"/>
+		<property name="auditor" ref="auditor2Auditor"/>
 		</bean>
 
 	<!-- Non Commercial Banners -->

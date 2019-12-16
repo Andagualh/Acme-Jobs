@@ -3,9 +3,14 @@ auditor.audit-record.list.label.status = Estado
 auditor.audit-record.list.label.body = Cuerpo
 auditor.audit-record.list.label.creationMoment = Momento de Creación
 
+auditor.audit-record.list.label.reference = Referencia
 auditor.audit-record.form.label.title = Título
-auditor.audit-record.form.label.status = Estado
+auditor.audit-record.form.label.oldstatus = Estado Actual
+auditor.audit-record.form.label.status = Cambiar Estado
 auditor.audit-record.form.label.body = Cuerpo
 auditor.audit-record.form.label.creationMoment = Momento de Creación
+auditor.audit-record.form.label.finalMode = Modo final
 
+auditor.audit-record.form.button.update = Actualizar
+auditor.audit-record.form.button.create = Crear
 auditor.audit-record.form.button.return = Volver

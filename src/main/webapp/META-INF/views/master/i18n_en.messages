@@ -107,6 +107,7 @@ master.menu.auditor = Auditor
 master.menu.auditor.favourite-link = Favourite link
 master.menu.auditor.job.list-rec = My audit recorded jobs
 master.menu.auditor.job.list-nonrec = My non audit recorded jobs
+master.menu.worker.audit-records.list  = Audit records list
 
 # master.menu.user-account ####################################################
 
@@ -121,6 +122,7 @@ master.menu.user-account.become-employer = Become an employer
 master.menu.user-account.worker = Worker data
 master.menu.user-account.become-worker = Become a Worker
 master.menu.user-account.become-auditor = Become an auditor
+
 master.menu.user-account.auditor = Auditor data
 
 # master.menu.authenticated ####################################################

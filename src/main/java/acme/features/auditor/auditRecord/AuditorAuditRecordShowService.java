@@ -31,6 +31,7 @@ public class AuditorAuditRecordShowService implements AbstractShowService<Audito
 		assert model != null;
 
 		request.unbind(entity, model, "title", "creationMoment", "status", "body");
+		model.setAttribute("oldstatus", entity.getStatus());
 	}
 
 	@Override
@@ -41,7 +42,7 @@ public class AuditorAuditRecordShowService implements AbstractShowService<Audito
 		int id;
 
 		id = request.getModel().getInteger("id");
-		result = this.repository.findOneJobById(id);
+		result = this.repository.findOneAuditRecordById(id);
 
 		return result;
 	}

@@ -26,10 +26,17 @@ public class AuthenticatedAuditorController extends AbstractController<Authentic
 	private AuthenticatedAuditorShowService		showService;
 
 
+
+	//Constructors--------------------------------------
+
+
 	@PostConstruct
 	private void intialise() {
 		super.addBasicCommand(BasicCommand.CREATE, this.createService);
 		super.addBasicCommand(BasicCommand.UPDATE, this.updateService);
+
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 	}
+
+
 }

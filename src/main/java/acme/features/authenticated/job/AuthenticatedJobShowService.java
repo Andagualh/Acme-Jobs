@@ -40,6 +40,7 @@ public class AuthenticatedJobShowService implements AbstractShowService<Authenti
 		Boolean isWorker;
 		isWorker = request.getPrincipal().hasRole(Worker.class);
 		model.setAttribute("isWorker", isWorker);
+
 	}
 
 	@Override

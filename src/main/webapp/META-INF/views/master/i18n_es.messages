@@ -108,6 +108,7 @@ master.menu.auditor = Auditor
 master.menu.auditor.favourite-link = Link favorito
 master.menu.auditor.job.list-rec = Mis trabajos documentados
 master.menu.auditor.job.list-nonrec = Trabajos no documentados por mi
+master.menu.worker.audit-records.list = Lista de registros de auditoría
 
 # master.menu.user-account ####################################################
 
@@ -123,6 +124,7 @@ master.menu.user-account.worker = Datos de trabajadores
 master.menu.user-account.become-worker = Hazte trabajador
 master.menu.user-account.become-auditor = Hazte auditor
 master.menu.user-account.auditor = Datos de auditor
+
 
 # master.menu.authenticated ####################################################
 
