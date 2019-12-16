@@ -830,7 +830,6 @@
 		<property name="auditRecord">
 			<list>
 			<ref bean="auditRecord1"/>
-			<ref bean="auditRecord2"/>
 			</list>
 		</property>
 	</bean>
@@ -1325,7 +1324,7 @@
 		<property name="status" value="DRAFT"/>
 		<property name="creationMoment" value="2018/11/12 16:30"/>
 		<property name="body" value="This is the body of the second audit record"/>
-		<property name="job" ref="job1"/>
+		<property name="job" ref="job3"/>
 		<property name="auditor" ref="auditor2Auditor"/>
 		</bean>
 		
