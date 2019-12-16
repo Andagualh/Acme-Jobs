@@ -13,7 +13,7 @@ auditor.job.form.label.description = Description
 auditor.job.descriptor = <h4>Descriptor:</h4>
 auditor.job.form.label.descriptor = Description
 
-auditor.job.form.button.audit-records.apply = Apply
+auditor.job.form.button.audit-records.apply = Write Record
 auditor.job.form.button.duties = Duties
 auditor.job.form.button.auditRecord = Audit Records
 auditor.job.form.button.return = Return

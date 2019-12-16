@@ -2,7 +2,6 @@
 package acme.features.auditor.auditRecord;
 
 import java.util.Collection;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -47,9 +46,7 @@ public class AuditorAuditRecordListMineService implements AbstractListService<Au
 
 		auditRecords = this.repository.findManyByAuditRecordsByAuditorId(auditorId);
 
-		result = auditRecords.stream().filter(x -> x.finalMode()).collect(Collectors.toList());
-
-		return result;
+		return auditRecords;
 	}
 
 }
