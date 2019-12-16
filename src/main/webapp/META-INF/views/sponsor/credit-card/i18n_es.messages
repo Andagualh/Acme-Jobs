@@ -13,6 +13,7 @@ sponsor.credit-card.form.label.number = Número
 sponsor.credit-card.form.label.deadline = Fecha de Caducidad
 sponsor.credit-card.form.label.cvv = CVV
 
+sponsor.credit-card.form.button.update = Actualizar
 sponsor.credit-card.form.button.create = Crear
 sponsor.credit-card.form.button.return= Volver
 
