@@ -10,6 +10,7 @@ import acme.framework.components.HttpMethod;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.components.Response;
+import acme.framework.entities.Administrator;
 import acme.framework.entities.Authenticated;
 import acme.framework.entities.Principal;
 import acme.framework.entities.UserAccount;
@@ -88,7 +89,12 @@ public class AuthenticatedAuditorCreateService implements AbstractCreateService<
 		assert request != null;
 		assert entity != null;
 
-		entity.getUserAccount().setEnabled(false);
+		if (!request.getPrincipal().hasRole(Administrator.class)) {
+			entity.getUserAccount().setEnabled(false);
+		} else if (request.getPrincipal().hasRole(Administrator.class)) {
+			entity.getUserAccount().setEnabled(true);
+		}
+
 		this.repository.save(entity);
 	}
 
