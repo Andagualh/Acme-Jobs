@@ -100,7 +100,11 @@ master.menu.worker.application.list = Lista de mis solicitudes
 master.menu.sponsor.commercial.list = Pancartas Comerciales
 master.menu.sponsor.commercial.create = Crear Pancarta Comercial
 master.menu.sponsor.noncommercial.list = Pancartas no comerciales
+
 master.menu.sponsor.noncommercial.create = Crear Pancarta no comercial
+
+master.menu.sponsor.credit-card.create = Crear Tarjeta de Credito
+
 master.menu.sponsor = Patrocinador
 
 # master.menu.auditor ####################################################

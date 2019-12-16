@@ -26,10 +26,10 @@ public class SponsorCreditCardShowService implements AbstractShowService<Sponsor
 		Integer principalId;
 
 		principalId = request.getPrincipal().getActiveRoleId();
-		cardId = Integer.parseInt(request.getServletRequest().getParameter("id"));
+		cardId = request.getModel().getInteger("id");
 		card = this.repository.findOneCardById(cardId);
 
-		if (card.getSponsor().getId() == principalId) {
+		if (card.getSponsor().getId() != principalId) {
 			return false;
 		}
 

@@ -7,14 +7,6 @@
 	<acme:form-textbox code="sponsor.commercial.form.label.slogan" path="slogan" />
 	<acme:form-textbox code="sponsor.commercial.form.label.url" path="url" />
 	
-	<acme:check-access test="${command == 'create'}">
-		<acme:message code="sponsor.commercial.form.credit-card" />
-		<acme:form-textbox code="sponsor.commercial.form.label.ownerName" path="ownerName"/>
-		<acme:form-textbox code="sponsor.commercial.form.label.number" path="number"/>
-		<acme:form-textbox code="sponsor.commercial.form.label.deadline" path="deadline"/>
-		<acme:form-textbox code="sponsor.commercial.form.label.cvv" path="cvv"/>
-	</acme:check-access>
-	
 	<acme:form-submit test="${command != 'create' && cardId != null}"
 	method="get"
 	code="sponsor.commercial.form.button.card"

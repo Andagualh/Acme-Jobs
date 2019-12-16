@@ -1,7 +1,10 @@
 
 package acme.entities.creditCard;
 
+import java.util.Collection;
+
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
@@ -21,28 +24,28 @@ import lombok.Setter;
 @Setter
 public class CreditCard extends DomainEntity {
 
-	private static final long	serialVersionUID	= 1L;
+	private static final long		serialVersionUID	= 1L;
 
 	@NotBlank
-	private String				ownerName;
+	private String					ownerName;
 
 	@NotBlank
 	@CreditCardNumber
-	private String				number;
+	private String					number;
 
 	@Pattern(regexp = "[0-9]{2}/[0-9]{4}")
 	@NotNull
-	private String				deadline;
+	private String					deadline;
 
 	@NotBlank
 	@Pattern(regexp = "[0-9]{3}")
-	private String				cvv;
+	private String					cvv;
+
+	@Valid
+	@OneToMany(mappedBy = "card")
+	private Collection<Commercial>	commercials;
 
 	@Valid
 	@OneToOne(optional = true)
-	private Commercial			commercial;
-
-	@Valid
-	@OneToOne(optional = true)
-	private Sponsor				sponsor;
+	private Sponsor					sponsor;
 }

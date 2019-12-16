@@ -69,9 +69,9 @@ public class AdministratorCommercialDeleteService implements AbstractDeleteServi
 		assert request != null;
 		assert entity != null;
 
-		CreditCard card;
+		CreditCard card = null;
 
-		card = this.repository.findCreditCardByCommercialId(entity.getId());
+		//		card = this.repository.findCreditCardByCommercialId(entity.getId());
 
 		this.repository.delete(card);
 

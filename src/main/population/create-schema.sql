@@ -100,6 +100,7 @@
         `banner` varchar(255),
         `slogan` varchar(255),
         `url` varchar(255),
+        `card_id` integer,
         `sponsor_id` integer,
         primary key (`id`)
     ) engine=InnoDB;
@@ -135,7 +136,6 @@
         `deadline` varchar(255),
         `number` varchar(255),
         `owner_name` varchar(255),
-        `commercial_id` integer,
         `sponsor_id` integer,
         primary key (`id`)
     ) engine=InnoDB;
@@ -376,6 +376,11 @@ create index IDX2insomc4a40jprju8tmgcvmig on `spamword` (`spamword`);
        references `user_account` (`id`);
 
     alter table `commercial` 
+       add constraint `FKnbdymiyaaubi8jpb2afo6p8x2` 
+       foreign key (`card_id`) 
+       references `credit_card` (`id`);
+
+    alter table `commercial` 
        add constraint `FK2jw28sba4n2gi3xdkdqqhm870` 
        foreign key (`sponsor_id`) 
        references `sponsor` (`id`);
@@ -384,11 +389,6 @@ create index IDX2insomc4a40jprju8tmgcvmig on `spamword` (`spamword`);
        add constraint FK_6cyha9f1wpj0dpbxrrjddrqed 
        foreign key (`user_account_id`) 
        references `user_account` (`id`);
-
-    alter table `credit_card` 
-       add constraint `FKs2mubwxp2bt1yiltbw4pa8u51` 
-       foreign key (`commercial_id`) 
-       references `commercial` (`id`);
 
     alter table `credit_card` 
        add constraint `FK31l5hvh7p1nx1aw6v649gw3rc` 

@@ -33,15 +33,15 @@
 
     alter table `commercial` 
        drop 
+       foreign key `FKnbdymiyaaubi8jpb2afo6p8x2`;
+
+    alter table `commercial` 
+       drop 
        foreign key `FK2jw28sba4n2gi3xdkdqqhm870`;
 
     alter table `consumer` 
        drop 
        foreign key FK_6cyha9f1wpj0dpbxrrjddrqed;
-
-    alter table `credit_card` 
-       drop 
-       foreign key `FKs2mubwxp2bt1yiltbw4pa8u51`;
 
     alter table `credit_card` 
        drop 
