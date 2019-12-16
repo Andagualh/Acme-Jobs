@@ -70,6 +70,10 @@ public class SponsorCommercialCreateService implements AbstractCreateService<Spo
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
+
+		Boolean creditCard = this.repository.findSponsorById(request.getPrincipal().getActiveRoleId()).getCard() == null;
+
+		errors.state(request, !creditCard, "banner", "acme.validation.card");
 	}
 
 	@Override

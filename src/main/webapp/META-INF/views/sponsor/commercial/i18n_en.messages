@@ -11,5 +11,6 @@ sponsor.commercial.form.button.card = Credit Card
 sponsor.commercial.form.button.update = Update
 sponsor.commercial.form.button.delete = Delete
 sponsor.commercial.form.button.create = Create
+acme.validation.card = Please, add a Credit Card to your account
 
 sponsor.commercial.form.button.return= Return

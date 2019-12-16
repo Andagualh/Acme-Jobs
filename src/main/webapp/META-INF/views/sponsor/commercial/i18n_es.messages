@@ -11,5 +11,6 @@ sponsor.commercial.form.button.card = Tarjeta de crédito
 sponsor.commercial.form.button.update = Actualizar
 sponsor.commercial.form.button.delete = Eliminar
 sponsor.commercial.form.button.create = Crear
+acme.validation.card = Por favor, añada una tarjeta de crédito a su cuenta
 
 sponsor.commercial.form.button.return= Volver
