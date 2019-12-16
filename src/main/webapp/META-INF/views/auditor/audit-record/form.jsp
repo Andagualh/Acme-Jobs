@@ -18,7 +18,18 @@
 <acme:form readonly="false">
 	<acme:form-textbox code="auditor.audit-record.form.label.title" path="title" />
 	<acme:form-textbox code="auditor.audit-record.form.label.body" path="body" />
-	<acme:form-textbox code="auditor.audit-record.form.label.status" path="status" />
+	
+	<jstl:if test="${command != create }">
+	<acme:form-textbox readonly="true" code="auditor.audit-record.form.label.oldstatus" path="oldstatus"/>
+	</jstl:if>
+	
+	<jstl:if test="${status != 'PUBLISHED'}">
+	<acme:form-select code="auditor.audit-record.form.label.status" path="status">
+				<acme:form-option code="employer.application.form.label.draft" value="DRAFT"/>
+				<acme:form-option code="employer.application.form.label.published" value="PUBLISHED"/>
+	</acme:form-select>
+	</jstl:if>
+	
 
 	<jstl:if test="${command != 'create' && status == 'PUBLISHED'}">
 		<acme:form-textbox code="auditor.audit-record.form.label.creationMoment" path="creationMoment" />
