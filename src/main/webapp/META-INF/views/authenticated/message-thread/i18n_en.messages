@@ -22,6 +22,6 @@ authenticated.message-thread.form.button.return = Return
 authenticated.message-thread.add = <h4>Add User</h4>
 authenticated.message-thread.delete = <h4>Delete User</h4>
 
-administrator.message-thread.form.label.user.username = Usermane
-employer.message-thread.exist = The user already exist in the thread
-employer.message-thread.no-exist = The user doesn´t exist in the thread
+authenticated.message-thread.form.label.user.username = Usermane
+authenticated.message-thread.exist = The user already exist in the thread
+authenticated.message-thread.no-exist = The user doesn´t exist in the thread

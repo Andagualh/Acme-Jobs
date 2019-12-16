@@ -2,12 +2,15 @@
 package acme.features.authenticated.message;
 
 import java.sql.Date;
+import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.message.Message;
 import acme.entities.messageThread.MessageThread;
+import acme.entities.spamlist.Spamlist;
+import acme.entities.spamlist.Spamword;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -46,10 +49,14 @@ public class AuthenticatedMessageCreateService implements AbstractCreateService<
 		request.unbind(entity, model, "title", "tags", "body");
 
 		model.setAttribute("id", request.getServletRequest().getParameter("id"));
+
+		model.setAttribute("accepted", false);
 	}
 
 	@Override
 	public Message instantiate(final Request<Message> request) {
+		assert request != null;
+
 		Message result;
 		Date creationMoment;
 		String id;
@@ -72,11 +79,25 @@ public class AuthenticatedMessageCreateService implements AbstractCreateService<
 		assert errors != null;
 
 		Boolean accepted;
+		Boolean spamES;
+		Boolean spamEN;
+		Spamlist SlEN;
+		Spamlist SlES;
+
+		SlEN = this.repository.findEN("EN");
+		SlES = this.repository.findES("ES");
+
+		spamES = this.isSpam(SlEN, entity);
+		spamEN = this.isSpam(SlES, entity);
 
 		accepted = request.getModel().getBoolean("accepted");
 
 		if (!errors.hasErrors("accepted")) {
 			errors.state(request, accepted, "accepted", "authenticated.message.accepted");
+		}
+
+		if (!errors.hasErrors()) {
+			errors.state(request, !spamEN || !spamES, "title", "authenticated.message.spam");
 		}
 	}
 
@@ -86,6 +107,30 @@ public class AuthenticatedMessageCreateService implements AbstractCreateService<
 		assert entity != null;
 
 		this.repository.save(entity);
+	}
+
+	private Boolean isSpam(final Spamlist sl, final Message entity) {
+		String fullText = entity.getTitle() + " " + entity.getTags() + " " + entity.getBody();
+
+		Collection<Spamword> spamwords = sl.getSpamwordslist();
+
+		Double numSpamWords = 0.;
+
+		for (Spamword sw : spamwords) {
+			String spamword = sw.getSpamword();
+			numSpamWords = numSpamWords + this.numDeSpamwords(fullText, spamword, 0.);
+		}
+
+		return numSpamWords / 100 > sl.getThreshold();
+	}
+
+	private Double numDeSpamwords(final String fullText, final String spamword, final Double u) {
+		if (!fullText.contains(spamword)) {
+			return u;
+		} else {
+			Integer a = fullText.indexOf(spamword);
+			return this.numDeSpamwords(fullText.substring(a + 1), spamword, u + 1);
+		}
 	}
 
 }

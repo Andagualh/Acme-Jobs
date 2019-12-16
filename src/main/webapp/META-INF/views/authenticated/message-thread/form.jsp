@@ -31,10 +31,10 @@
 	
 	<acme:check-access test="${isAdministrator || command == 'update'}">
 		<acme:message code="authenticated.message-thread.add"/>
-		<acme:form-textarea code="administrator.message-thread.form.label.user.username" path="usernameAdd" />	
+		<acme:form-textarea code="authenticated.message-thread.form.label.user.username" path="usernameAdd" />	
 		
 		<acme:message code="authenticated.message-thread.delete"/>
-		<acme:form-textarea code="administrator.message-thread.form.label.user.username" path="usernameDelete" />	
+		<acme:form-textarea code="authenticated.message-thread.form.label.user.username" path="usernameDelete" />	
 	</acme:check-access>
 	
 	<acme:form-submit test="${command == 'create'}"

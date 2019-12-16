@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import acme.framework.entities.DomainEntity;
@@ -20,6 +21,9 @@ import lombok.Setter;
 public class Spamlist extends DomainEntity {
 
 	private static final long		serialVersionUID	= 1L;
+
+	@NotBlank
+	private String					idiom;
 
 	@NotNull
 	@Valid

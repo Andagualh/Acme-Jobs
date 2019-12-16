@@ -11,3 +11,6 @@ authenticated.message.form.label.body = Body
 
 authenticated.message-thread.form.button.create = Create
 authenticated.message.form.button.return = Return
+
+authenticated.message.accepted = Must accept 
+authenticated.message.spam = This message has been considered spam

@@ -11,3 +11,6 @@ authenticated.message.form.label.body = Cuerpo
 
 authenticated.message-thread.form.button.create = Crear
 authenticated.message.form.button.return = Volver
+
+authenticated.message.accepted = Debes aceptar
+authenticated.message.spam = Este mensaje ha sido considerado spam

@@ -13,6 +13,7 @@
 	<!-- EN SpamwordList -->
 
 	<bean id="spamEn" class="acme.entities.spamlist.Spamlist">
+		<property name="idiom" value="EN" />
 		<property name="spamwordslist">
 			<list>
 				<ref bean = "string01" />
@@ -60,6 +61,7 @@
 	<!-- ES SpamwordList -->
 
 	<bean id="spamEs" class="acme.entities.spamlist.Spamlist">
+	<property name="idiom" value="ES" />
 		<property name="spamwordslist">
 			<list>
 				<ref bean = "string08" />
