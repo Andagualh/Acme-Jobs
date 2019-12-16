@@ -70,14 +70,14 @@ public class SponsorNonCommercialCreateService implements AbstractCreateService<
 
 		Boolean isSpamEN, isSpamES;
 		String reallyBigString;
-		reallyBigString = request.getModel().getString("banner") + " " + request.getModel().getString("slogan") + " " + request.getModel().getString("url") + " " + request.getModel().getString("jingle");
+		reallyBigString = request.getModel().getString("slogan");
 		Spamlist spamEN = this.repository.findSpamLists("EN");
 		Spamlist spamES = this.repository.findSpamLists("ES");
 
 		isSpamEN = this.isSpam(reallyBigString, spamEN, entity);
 		isSpamES = this.isSpam(reallyBigString, spamES, entity);
 
-		errors.state(request, !isSpamEN || !isSpamES, "jingle", "acme.validation.spam");
+		errors.state(request, !isSpamEN || !isSpamES, "banner", "acme.validation.spam");
 	}
 
 	@Override

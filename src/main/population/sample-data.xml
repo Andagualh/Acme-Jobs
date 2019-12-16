@@ -25,7 +25,6 @@
 				<ref bean = "string07" />
 			</list>
 		</property>
-		<property name="idiom" value="EN"/>
 	</bean>
 	
 	<!-- Spamwords -->
@@ -74,7 +73,6 @@
 				<ref bean = "string14" />
 			</list>
 		</property>
-		<property name="idiom" value="ES"/>
 	</bean>
 	
 	<!-- Spamwords -->

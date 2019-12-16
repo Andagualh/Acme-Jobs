@@ -66,7 +66,7 @@ public class SponsorCommercialUpdateService implements AbstractUpdateService<Spo
 
 		Boolean isSpamEN, isSpamES;
 		String reallyBigString;
-		reallyBigString = request.getModel().getString("banner") + " " + request.getModel().getString("slogan") + " " + request.getModel().getString("slogan") + " " + request.getModel().getString("url");
+		reallyBigString = request.getModel().getString("slogan");
 		Spamlist spamEN = this.repository.findSpamLists("EN");
 		Spamlist spamES = this.repository.findSpamLists("ES");
 
