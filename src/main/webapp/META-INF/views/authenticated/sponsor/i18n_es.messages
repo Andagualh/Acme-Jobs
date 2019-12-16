@@ -3,5 +3,7 @@ authenticated.sponsor.form.label.cardCredit = Tarjeta de credito
 
 authenticated.sponsor.form.label.create = Registrar
 authenticated.sponsor.form.label.update = Actualizar
+authenticated.sponsor.submit.card = Tarjeta de Crédito
+authenticated.sponsor.create.card = Añadir Tarjeta de Crédito
 
 authenticated.sponsor.form.button.return = Volver

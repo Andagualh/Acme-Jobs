@@ -25,7 +25,15 @@ public class SponsorCreditCardCreateService implements AbstractCreateService<Spo
 	@Override
 	public boolean authorise(final Request<CreditCard> request) {
 		assert request != null;
-		return true;
+
+		Boolean res = false;
+		Sponsor sp = this.repository.findOneSponsorId(request.getPrincipal().getActiveRoleId());
+
+		if (request.getPrincipal().hasRole(Sponsor.class) && sp.getCard() == null) {
+			res = true;
+		}
+
+		return res;
 	}
 
 	@Override

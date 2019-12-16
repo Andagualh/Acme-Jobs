@@ -96,7 +96,7 @@ public class SponsorNonCommercialUpdateService implements AbstractUpdateService<
 
 		for (Spamword sw : spamwords) {
 			String spamword = sw.getSpamword();
-			numSpamWords = numSpamWords + this.numDeSpamwords(reallyBigString, spamword, 0.);
+			numSpamWords = numSpamWords + this.numDeSpamwords(reallyBigString.toLowerCase(), spamword, 0.);
 		}
 
 		return numSpamWords / 100 > sl.getThreshold();

@@ -45,6 +45,14 @@ public class AuthenticatedSponsorUpdateService implements AbstractUpdateService<
 		assert model != null;
 
 		request.unbind(entity, model, "organisation");
+		Integer cardId = 0;
+		if (entity.getCard() != null) {
+			cardId = entity.getCard().getId();
+		}
+
+		model.setAttribute("cardId", cardId);
+
+		model.setAttribute("isCard", entity.getCard() != null);
 	}
 
 	@Override

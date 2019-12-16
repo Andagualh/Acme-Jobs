@@ -18,7 +18,10 @@
 <acme:form>
 	<acme:form-textbox code="authenticated.sponsor.form.label.organisation" path="organisation" />
 
-
+	<acme:form-submit test="${command != 'create' && isCard}" method="get" code="authenticated.sponsor.submit.card" action="/sponsor/credit-card/show?id=${cardId}"/>
+	
+	<acme:form-submit test="${command != 'create' && !isCard }" method="get" code="authenticated.sponsor.create.card" action="/sponsor/credit-card/create"/>
+	
 	<acme:form-submit test="${command == 'create'}" code="authenticated.sponsor.form.label.create"
 		action="/authenticated/sponsor/create" />
 	<acme:form-submit test="${command == 'update'}" code="authenticated.sponsor.form.label.update"

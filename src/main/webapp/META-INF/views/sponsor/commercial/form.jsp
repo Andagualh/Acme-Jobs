@@ -7,11 +7,6 @@
 	<acme:form-textbox code="sponsor.commercial.form.label.slogan" path="slogan" />
 	<acme:form-textbox code="sponsor.commercial.form.label.url" path="url" />
 	
-	<acme:form-submit test="${command != 'create' && cardId != null}"
-	method="get"
-	code="sponsor.commercial.form.button.card"
-	action="/sponsor/credit-card/show?id=${cardId}" />
-	
 	<acme:form-submit test="${command == 'show'}"
 	code="sponsor.commercial.form.button.update"
 	action="/sponsor/commercial/update"/>
