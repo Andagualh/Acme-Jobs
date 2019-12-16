@@ -19,16 +19,23 @@
 	<acme:form-textbox code="auditor.job.form.label.reference" path="reference" />
 	<acme:form-textbox code="auditor.job.form.label.status" path="status" />
 	<acme:form-textbox code="auditor.job.form.label.title" path="title" />
-	<acme:form-moment code="auditor.job.form.label.deadline" path="deadline"/>
-	<acme:form-money code="auditor.job.form.label.salary" path="salary"/>
-	<acme:form-url code="auditor.job.form.label.moreInfo" path="moreInfo"/>
-	<acme:form-textarea code="auditor.job.form.label.description" path="description"/>
-	
-	<acme:message code="auditor.job.descriptor"/>
+	<acme:form-moment code="auditor.job.form.label.deadline" path="deadline" />
+	<acme:form-money code="auditor.job.form.label.salary" path="salary" />
+	<acme:form-url code="auditor.job.form.label.moreInfo" path="moreInfo" />
+	<acme:form-textarea code="auditor.job.form.label.description" path="description" />
+
+	<acme:message code="auditor.job.descriptor" />
 	<acme:form-textarea readonly="true" code="auditor.job.form.label.descriptor" path="descriptor" />
 
-	<acme:form-submit method="get" code="auditor.job.form.button.duties" action="/auditor/duty/list?id=${descriptorId}&ref=${reference}"/>
-	<acme:form-submit method="get" code="auditor.job.form.button.auditRecord" action="/auditor/audit-record/list?id=${id}&ref=${reference}"/>
-	
+	<acme:form-submit method="get" code="auditor.job.form.button.duties"
+		action="/auditor/duty/list?id=${descriptorId}&ref=${reference}" />
+	<acme:form-submit method="get" code="auditor.job.form.button.auditRecord"
+		action="/auditor/audit-record/list?id=${id}&ref=${reference}" />
+		
+	<acme:form-submit test="${!isAudited}" method="get" code="auditor.job.form.button.audit-records.apply"
+		action="/auditor/audit-record/create?id=${id}&ref=${reference}" />
+
+
+
 	<acme:form-return code="auditor.job.form.button.return" />
 </acme:form>

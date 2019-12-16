@@ -31,7 +31,18 @@ public class AuditorJobShowService implements AbstractShowService<Auditor, Job> 
 		assert model != null;
 
 		request.unbind(entity, model, "reference", "status", "title", "deadline");
-		request.unbind(entity, model, "salary", "moreInfo", "description", "finalMode");
+		request.unbind(entity, model, "salary", "moreInfo", "description");
+
+		boolean isAudited;
+
+		int jobId = entity.getId();
+		int auditorId = request.getPrincipal().getAccountId();
+
+		Auditor a = this.repository.finManyAuditorByJobIdAndAuditorId(jobId, auditorId);
+
+		isAudited = a == null ? false : true;
+
+		model.setAttribute("isAudited", isAudited);
 
 		model.setAttribute("descriptor", entity.getDescriptor().getDescription());
 

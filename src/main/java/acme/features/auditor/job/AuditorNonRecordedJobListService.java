@@ -33,6 +33,10 @@ public class AuditorNonRecordedJobListService implements AbstractListService<Aud
 		assert entity != null;
 		assert model != null;
 
+		boolean isAudited = true;
+
+		model.setAttribute("isAudited", isAudited);
+
 		request.unbind(entity, model, "reference", "title", "deadline");
 
 	}

@@ -12,6 +12,7 @@ auditor.job.form.label.description = Descripción
 auditor.job.descriptor = <h4>Descriptor:</h4>
 auditor.job.form.label.descriptor = Descripción
 
+auditor.job.form.button.audit-records.apply = Aplicar
 auditor.job.form.button.duties = Tareas
 auditor.job.form.button.auditRecord = Registros de auditorías
 auditor.job.form.button.return = Volver
