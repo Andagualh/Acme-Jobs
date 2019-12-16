@@ -6,6 +6,7 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.Query;
 
 import acme.entities.commercial.Commercial;
+import acme.entities.creditCard.CreditCard;
 import acme.entities.roles.Sponsor;
 import acme.framework.repositories.AbstractRepository;
 
@@ -19,5 +20,8 @@ public interface SponsorCommercialRepository extends AbstractRepository {
 
 	@Query("select s from Sponsor s where s.id = ?1")
 	Sponsor findSponsorById(int activeRoleId);
+
+	@Query("select cc from CreditCard cc where cc.commercial.id = ?1")
+	CreditCard findCreditCardByCommercialId(int id);
 
 }

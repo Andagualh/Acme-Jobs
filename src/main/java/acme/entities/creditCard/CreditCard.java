@@ -11,6 +11,7 @@ import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.CreditCardNumber;
 
 import acme.entities.commercial.Commercial;
+import acme.entities.roles.Sponsor;
 import acme.framework.entities.DomainEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -41,4 +42,7 @@ public class CreditCard extends DomainEntity {
 	@OneToOne(optional = true)
 	private Commercial			commercial;
 
+	@Valid
+	@OneToOne(optional = true)
+	private Sponsor				sponsor;
 }

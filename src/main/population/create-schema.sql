@@ -136,6 +136,7 @@
         `number` varchar(255),
         `owner_name` varchar(255),
         `commercial_id` integer,
+        `sponsor_id` integer,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -279,7 +280,6 @@
        `id` integer not null,
         `version` integer not null,
         `user_account_id` integer,
-        `card_credit` varchar(255),
         `organisation` varchar(255),
         primary key (`id`)
     ) engine=InnoDB;
@@ -388,6 +388,11 @@ create index IDX2insomc4a40jprju8tmgcvmig on `spamword` (`spamword`);
        add constraint `FKs2mubwxp2bt1yiltbw4pa8u51` 
        foreign key (`commercial_id`) 
        references `commercial` (`id`);
+
+    alter table `credit_card` 
+       add constraint `FK31l5hvh7p1nx1aw6v649gw3rc` 
+       foreign key (`sponsor_id`) 
+       references `sponsor` (`id`);
 
     alter table `descriptor` 
        add constraint `FKgfulfilmwi4hhaquiu7fr5g0g` 

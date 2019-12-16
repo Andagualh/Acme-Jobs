@@ -92,7 +92,10 @@
 		
 		<acme:menu-option code="master.menu.sponsor" access="hasRole('Sponsor')">
 			<acme:menu-suboption code="master.menu.worker.favourite-link" action="http://www.example.com/"/>
+			<acme:menu-separator />
 			<acme:menu-suboption code="master.menu.sponsor.commercial.list" action="/sponsor/commercial/list_mine"/>
+			<acme:menu-suboption code="master.menu.sponsor.commercial.create" action="/sponsor/commercial/create"/>
+			<acme:menu-separator />
 			<acme:menu-suboption code="master.menu.sponsor.noncommercial.list" action="/sponsor/non-commercial/list_mine"/>
 		</acme:menu-option>
 		

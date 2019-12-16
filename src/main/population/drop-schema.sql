@@ -43,6 +43,10 @@
        drop 
        foreign key `FKs2mubwxp2bt1yiltbw4pa8u51`;
 
+    alter table `credit_card` 
+       drop 
+       foreign key `FK31l5hvh7p1nx1aw6v649gw3rc`;
+
     alter table `descriptor` 
        drop 
        foreign key `FKgfulfilmwi4hhaquiu7fr5g0g`;

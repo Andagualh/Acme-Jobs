@@ -1,18 +1,28 @@
 sponsor.commercial.list.label.banner = Banner
 sponsor.commercial.list.label.slogan = Slogan
 sponsor.commercial.list.label.url = Url
-sponsor.commercial.list.label.card = card
 
 sponsor.commercial.form.label.banner = Banner
 sponsor.commercial.form.label.slogan = Slogan
 sponsor.commercial.form.label.url = Url
+
+sponsor.commercial.form.credit-card = <h4>Credit Card:</h4>
 sponsor.commercial.form.label.ownerName = Owner Name
-sponsor.commercial.form.label.expireDate = Expire Date
-sponsor.commercial.form.label.ccv = CCV
-sponsor.commercial.form.label.card = Credit Card
+sponsor.commercial.form.label.number = number
+sponsor.commercial.form.label.deadline = deadline
+sponsor.commercial.form.label.cvv = CVV
+
+sponsor.commercial.form.button.card = Credit Card
 
 sponsor.commercial.form.button.update = Update
 sponsor.commercial.form.button.delete = Delete
 sponsor.commercial.form.button.create = Create
 
 sponsor.commercial.form.button.return= Return
+
+sponsor.commercial.form.error.number = The number must have 15 digits
+sponsor.commercial.form.error.cvv = The CVV must have 3 digits
+sponsor.commercial.form.error.deadline = The Date must be MM/yyyy
+sponsor.commercial.form.error.month = The month must be between 01 and 12
+sponsor.commercial.form.error.numberInvalid = The number is invalid
+sponsor.commercial.form.error.invalidStart = The credit card must start with 4(Visa), 5(MasterCard), 3(American Express) or 6(Discover)
