@@ -97,6 +97,8 @@
 			<acme:menu-suboption code="master.menu.sponsor.commercial.create" action="/sponsor/commercial/create"/>
 			<acme:menu-separator />
 			<acme:menu-suboption code="master.menu.sponsor.noncommercial.list" action="/sponsor/non-commercial/list_mine"/>
+			<acme:menu-separator />
+			<acme:menu-suboption code="master.menu.sponsor.credit-card.create" action="/sponsor/credit-card/create"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.auditor" access="hasRole('Auditor')">

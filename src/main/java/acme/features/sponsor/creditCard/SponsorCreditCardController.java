@@ -19,7 +19,10 @@ public class SponsorCreditCardController extends AbstractController<Sponsor, Cre
 	//Internal State -------------------------------------
 
 	@Autowired
-	private SponsorCreditCardShowService showService;
+	private SponsorCreditCardShowService	showService;
+
+	@Autowired
+	private SponsorCreditCardCreateService	createService;
 
 
 	//Costructor -----------------------------------------
@@ -27,6 +30,7 @@ public class SponsorCreditCardController extends AbstractController<Sponsor, Cre
 	@PostConstruct
 	private void initialise() {
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
+		super.addBasicCommand(BasicCommand.CREATE, this.createService);
 	}
 
 }

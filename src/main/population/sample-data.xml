@@ -1397,7 +1397,11 @@
 		<property name="number" value="5541147884694773" />
 		<property name="deadline" value="01/2021" />
 		<property name="cvv" value="123" />
-		<property name="commercial" ref="banner04" />
+		<property name="commercials">
+			<list>
+				<ref bean="banner04"/>
+			</list>
+		</property>
 		<property name="sponsor" ref="sponsor1Sponsor"/>	
 	</bean>
 	
@@ -1406,7 +1410,11 @@
 		<property name="number" value="5496675056390627" />
 		<property name="deadline" value="01/2021" />
 		<property name="cvv" value="738" />
-		<property name="commercial" ref="banner05" />
+		<property name="commercials">
+			<list>
+				<ref bean="banner05"/>
+			</list>
+		</property>
 		<property name="sponsor" ref="sponsor2Sponsor"/>	
 	</bean>
 	
@@ -1415,7 +1423,12 @@
 		<property name="number" value="5159262819350277" />
 		<property name="deadline" value="01/2021" />
 		<property name="cvv" value="453" />
-		<property name="commercial" ref="banner06" />
+		<property name="commercials">
+			<list>
+				<ref bean="banner06"/>
+				<ref bean="banner07"/>
+			</list>
+		</property>
 		<property name="sponsor" ref="sponsor3Sponsor"/>	
 	</bean>
 	
@@ -1425,7 +1438,7 @@
 		<property name="banner" value="https://i.pinimg.com/474x/0d/02/9d/0d029d10452ecea33f9409e91c1ea64a.jpg" />
 		<property name="slogan" value="Life is about small things." />
 		<property name="url" value="https://www.pinterest.com" />
-		<property name="card" ref="card01" />
+		<property name="card" ref="card01"/>	
 		<property name="sponsor" ref="sponsor1Sponsor"/>	
 	</bean>
 
@@ -1433,7 +1446,7 @@
 		<property name="banner" value="https://i.pinimg.com/474x/0d/02/9d/0d029d10452ecea33f9409e91c1ea64a.jpg" />
 		<property name="slogan" value="Life is about small things." />
 		<property name="url" value="https://www.pinterest.com" />
-		<property name="card" ref="card02" />
+		<property name="card" ref="card02"/>	
 		<property name="sponsor" ref="sponsor2Sponsor"/>
 	</bean>
 
@@ -1441,7 +1454,15 @@
 		<property name="banner" value="https://i.pinimg.com/474x/0d/02/9d/0d029d10452ecea33f9409e91c1ea64a.jpg" />
 		<property name="slogan" value="Life is about small things." />
 		<property name="url" value="https://www.pinterest.com" />
-		<property name="card" ref="card03" />
+		<property name="card" ref="card03"/>	
+		<property name="sponsor" ref="sponsor3Sponsor"/>	
+	</bean>
+	
+	<bean id="banner07" class="acme.entities.commercial.Commercial">
+		<property name="banner" value="https://i.pinimg.com/474x/0d/02/9d/0d029d10452ecea33f9409e91c1ea64a.jpg" />
+		<property name="slogan" value="Life is about small things." />
+		<property name="url" value="https://www.pinterest.com" />
+		<property name="card" ref="card03"/>	
 		<property name="sponsor" ref="sponsor3Sponsor"/>	
 	</bean>
 
