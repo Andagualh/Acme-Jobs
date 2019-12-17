@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.descriptor.Descriptor;
 import acme.entities.duty.Duty;
+import acme.entities.job.Job;
 import acme.entities.roles.Employer;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
@@ -24,7 +25,14 @@ public class EmployerDutyCreateService implements AbstractCreateService<Employer
 	@Override
 	public boolean authorise(final Request<Duty> request) {
 		assert request != null;
-		return true;
+
+		String id = request.getServletRequest().getParameter("id");
+
+		Job j = this.repository.findOneJobByDescriptorId(Integer.parseInt(id));
+
+		Integer idPrincipal = request.getPrincipal().getActiveRoleId();
+
+		return idPrincipal == j.getEmployer().getId();
 	}
 
 	@Override
@@ -42,7 +50,7 @@ public class EmployerDutyCreateService implements AbstractCreateService<Employer
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "description", "daysToComplete");
+		request.unbind(entity, model, "title", "description", "percent");
 
 		model.setAttribute("id", request.getServletRequest().getParameter("id"));
 	}
@@ -70,21 +78,26 @@ public class EmployerDutyCreateService implements AbstractCreateService<Employer
 		assert errors != null;
 
 		String descriptorId = request.getServletRequest().getParameter("id");
+		Integer percent = request.getModel().getInteger("percent");
 
 		Collection<Duty> duties = this.repository.findManyByDescriptorId(Integer.parseInt(descriptorId));
 
-		Integer percent = 0;
+		Integer allPercent = 0;
 
 		if (duties.size() != 0) {
-			percent = Integer.parseInt(entity.getPercent().replace("%", ""));
+			allPercent = entity.getPercent();
 
 			for (Duty d : duties) {
-				percent = percent + Integer.parseInt(d.getPercent().replace("%", ""));
+				allPercent = allPercent + d.getPercent();
 			}
 		}
 
-		if (!errors.hasErrors("daysToComplete")) {
-			errors.state(request, percent <= 100, "daysToComplete", "acme.validation.percent");
+		if (!errors.hasErrors("percent")) {
+			errors.state(request, percent <= 100 && percent >= 1, "percent", "acme.validation.percent");
+		}
+
+		if (!errors.hasErrors()) {
+			errors.state(request, allPercent <= 100, "percent", "acme.validation.percent");
 		}
 
 	}

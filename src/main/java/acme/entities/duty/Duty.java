@@ -1,8 +1,6 @@
 
 package acme.entities.duty;
 
-import java.beans.Transient;
-
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.validation.Valid;
@@ -33,47 +31,14 @@ public class Duty extends DomainEntity {
 	private String				description;
 
 	@NotNull
-	@Max(7)
+	@Max(100)
 	@Min(1)
-	private Integer				daysToComplete;
-
-
-	@Transient
-	public String getPercent() {
-		String result = "";
-
-		switch (this.daysToComplete) {
-		case 1:
-			result = "10%";
-			break;
-		case 2:
-			result = "20%";
-			break;
-		case 3:
-			result = "40%";
-			break;
-		case 4:
-			result = "50%";
-			break;
-		case 5:
-			result = "60%";
-			break;
-		case 6:
-			result = "80%";
-			break;
-		case 7:
-			result = "100%";
-			break;
-		}
-
-		return result;
-	}
-
+	private Integer				percent;
 
 	//Relationships
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
-	private Descriptor descriptor;
+	private Descriptor			descriptor;
 
 }

@@ -151,8 +151,8 @@
     create table `duty` (
        `id` integer not null,
         `version` integer not null,
-        `days_to_complete` integer,
         `description` varchar(255),
+        `percent` integer,
         `title` varchar(255),
         `descriptor_id` integer not null,
         primary key (`id`)

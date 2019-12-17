@@ -29,7 +29,7 @@ public class EmployerDutyShowService implements AbstractShowService<Employer, Du
 		Principal principal;
 
 		appId = request.getModel().getInteger("id");
-		duty = this.repository.findOneJobById(appId);
+		duty = this.repository.findOneDutyById(appId);
 		employer = duty.getDescriptor().getJob().getEmployer();
 		principal = request.getPrincipal();
 		result = duty.getDescriptor().getJob().finalMode() || !duty.getDescriptor().getJob().finalMode() && employer.getUserAccount().getId() == principal.getAccountId();
@@ -43,8 +43,7 @@ public class EmployerDutyShowService implements AbstractShowService<Employer, Du
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "description");
-		model.setAttribute("percent", entity.getPercent());
+		request.unbind(entity, model, "title", "description", "percent");
 	}
 
 	@Override
@@ -55,7 +54,7 @@ public class EmployerDutyShowService implements AbstractShowService<Employer, Du
 		int id;
 
 		id = request.getModel().getInteger("id");
-		result = this.repository.findOneJobById(id);
+		result = this.repository.findOneDutyById(id);
 
 		return result;
 	}

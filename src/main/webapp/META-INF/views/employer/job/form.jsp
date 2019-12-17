@@ -43,6 +43,8 @@
 	<acme:check-access test="${!finalMode}">
 		<acme:form-submit test="${command == 'show'}" code="employer.job.form.button.update" action="/employer/job/update" />
 		<acme:form-submit test="${command == 'update'}" code="employer.job.form.button.update" action="/employer/job/update" />
+		<acme:form-submit test="${command == 'show' || command == 'update'}" code = "employer.job.form.button.delete" action="/employer/job/delete"/>
+		<acme:form-submit test="${command == 'delete'}" code="employer.job.form.button.delete" action="/employer/job/delete"/>
 	</acme:check-access>
 
 	<acme:form-submit test="${command == 'create'}" code="employer.job.form.button.create" action="/employer/job/create" />
@@ -57,10 +59,6 @@
 		<acme:form-submit test="${command != 'create'}" method="get" code="employer.job.form.button.create-duty"
 		action="/employer/duty/create?id=${descriptorId}" />
 	</acme:check-access>
-	
-	<!-- Delete -->
-	<acme:form-submit test="${command == 'show' || command == 'update'}" code = "employer.job.form.button.delete" action="/employer/job/delete"/>
-	<acme:form-submit test="${command == 'delete'}" code="employer.job.form.button.delete" action="/employer/job/delete"/>
 
 	<!-- Audit Records -->
 	<acme:form-submit test="${command != 'create'}" method="get" code="employer.job.form.button.auditRecord"

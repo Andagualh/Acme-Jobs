@@ -32,8 +32,7 @@ public class EmployerDutyListService implements AbstractListService<Employer, Du
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "description");
-		model.setAttribute("percent", entity.getPercent());
+		request.unbind(entity, model, "title", "description", "percent");
 		model.setAttribute("reference", request.getServletRequest().getParameter("ref"));
 	}
 

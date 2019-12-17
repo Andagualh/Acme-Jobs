@@ -89,9 +89,7 @@ public class Job extends DomainEntity {
 		boolean res = true;
 		Integer sum = 0;
 		for (Duty d : this.descriptor.getDuty()) {
-			String s = d.getPercent();
-			s = s.replace("%", "");
-			Integer a = Integer.parseInt(s);
+			Integer a = d.getPercent();
 			sum = sum + a;
 		}
 		res = this.descriptor != null && sum == 100 && this.status.equals("PUBLISHED");

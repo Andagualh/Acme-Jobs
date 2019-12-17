@@ -84,9 +84,7 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 		Integer percent = 0;
 
 		for (Duty d : duties) {
-			String s = d.getPercent();
-			s = s.replace("%", "");
-			percent = percent + Integer.parseInt(s);
+			percent = percent + d.getPercent();
 		}
 
 		String description = request.getModel().getString("descriptor-description");
