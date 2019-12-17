@@ -70,16 +70,12 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 		assert entity != null;
 		assert errors != null;
 
-		String description = request.getModel().getString("descriptor-description");
 		Boolean isSpamEN, isSpamES;
 		String reallyBigString;
 		reallyBigString = request.getModel().getString("title") + " " + request.getModel().getString("moreInfo") + " " + request.getModel().getString("description") + " " + request.getModel().getString("descriptor-description");
 		Spamlist spamEN = this.repository.findSpamLists("EN");
 		Spamlist spamES = this.repository.findSpamLists("ES");
 
-		if (!errors.hasErrors("descriptor-description")) {
-			errors.state(request, description != "", "descriptor-description", "employer.job.descriptor.blank");
-		}
 		isSpamEN = this.isSpam(reallyBigString, spamEN, entity);
 		isSpamES = this.isSpam(reallyBigString, spamES, entity);
 

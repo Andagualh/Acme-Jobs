@@ -71,7 +71,6 @@ public class Job extends DomainEntity {
 	private String					moreInfo;
 
 	@OneToOne(mappedBy = "job")
-
 	private Descriptor				descriptor;
 
 	//RelationShips
