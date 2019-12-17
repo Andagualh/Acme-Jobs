@@ -1,9 +1,12 @@
 
 package acme.features.employer.job;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.application.Application;
 import acme.entities.job.Job;
 import acme.entities.roles.Employer;
 import acme.framework.components.Model;
@@ -56,6 +59,15 @@ public class EmployerJobShowService implements AbstractShowService<Employer, Job
 		model.setAttribute("oldstatus", entity.getStatus());
 
 		model.setAttribute("finalMode", entity.finalMode());
+
+		boolean isApply;
+		Collection<Application> a = this.repository.findManyApplicationsByJobId(entity.getId());
+		if (a.size() > 0) {
+			isApply = true;
+		} else {
+			isApply = false;
+		}
+		model.setAttribute("isApply", isApply);
 	}
 
 	@Override

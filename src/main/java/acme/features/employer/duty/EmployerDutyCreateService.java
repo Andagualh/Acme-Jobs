@@ -24,15 +24,21 @@ public class EmployerDutyCreateService implements AbstractCreateService<Employer
 
 	@Override
 	public boolean authorise(final Request<Duty> request) {
+		boolean res = false;
 		assert request != null;
 
-		String id = request.getServletRequest().getParameter("id");
+		Descriptor descriptor;
+		int principalId = request.getPrincipal().getActiveRoleId();
 
-		Job j = this.repository.findOneJobByDescriptorId(Integer.parseInt(id));
+		String descriptorid = request.getServletRequest().getParameter("id");
 
-		Integer idPrincipal = request.getPrincipal().getActiveRoleId();
+		descriptor = this.repository.findOneDescriptorById(Integer.parseInt(descriptorid));
+		if (descriptor.getJob().getEmployer().getId() == principalId) {
+			res = true;
+		}
 
-		return idPrincipal == j.getEmployer().getId();
+		return res;
+
 	}
 
 	@Override

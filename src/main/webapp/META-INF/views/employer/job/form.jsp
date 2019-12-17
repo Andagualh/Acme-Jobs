@@ -19,7 +19,7 @@
 <acme:form readonly="false">
 
 	<acme:form-hidden path="descriptorId"/>
-	<acme:form-textbox code="employer.job.form.label.reference" path="reference" />
+	<acme:form-textbox code="employer.job.form.label.reference" path="reference" placeholder="XXXX-YYYY" />
 	<acme:check-access test="${command != 'create'}">
 		<acme:form-textbox readonly="true" code="employer.application.form.label.oldstatus" path="oldstatus"/>
 		<acme:check-access test="${!finalMode}">
@@ -43,8 +43,6 @@
 	<acme:check-access test="${!finalMode}">
 		<acme:form-submit test="${command == 'show'}" code="employer.job.form.button.update" action="/employer/job/update" />
 		<acme:form-submit test="${command == 'update'}" code="employer.job.form.button.update" action="/employer/job/update" />
-		<acme:form-submit test="${command == 'show' || command == 'update'}" code = "employer.job.form.button.delete" action="/employer/job/delete"/>
-		<acme:form-submit test="${command == 'delete'}" code="employer.job.form.button.delete" action="/employer/job/delete"/>
 	</acme:check-access>
 
 	<acme:form-submit test="${command == 'create'}" code="employer.job.form.button.create" action="/employer/job/create" />
@@ -59,6 +57,11 @@
 		<acme:form-submit test="${command != 'create'}" method="get" code="employer.job.form.button.create-duty"
 		action="/employer/duty/create?id=${descriptorId}" />
 	</acme:check-access>
+	
+	<!-- Delete -->
+	<acme:form-submit test="${(command == 'show' || command == 'update') && !isApply}" code = "employer.job.form.button.delete" action="/employer/job/delete"/>
+	<acme:form-submit test="${command == 'delete' && !isApply}" code="employer.job.form.button.delete" action="/employer/job/delete"/>
+
 
 	<!-- Audit Records -->
 	<acme:form-submit test="${command != 'create'}" method="get" code="employer.job.form.button.auditRecord"
