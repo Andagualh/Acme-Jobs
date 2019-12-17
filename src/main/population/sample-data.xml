@@ -1016,7 +1016,7 @@
 	
 	<bean name="job1" class = "acme.entities.job.Job">
 		<property name="reference" value="EMPA-JOBA"/>
-		<property name="status" value="DRAFT"/>
+		<property name="status" value="PUBLISHED"/>
 		<property name="title" value="Job 1"/>
 		<property name="deadline" value="2030/12/11 23:59"/>
 		<property name="salary" value="€ 20,000.00"/>
@@ -1062,7 +1062,7 @@
 		
 	<bean name="job3" class = "acme.entities.job.Job">
 		<property name="reference" value="EMPC-JOBC"/>
-		<property name="status" value="DRAFT"/>
+		<property name="status" value="PUBLISHED"/>
 		<property name="title" value="Job 3"/>
 		<property name="deadline" value="2030/12/11 23:59"/>
 		<property name="salary" value="€ 20,000.00"/>
@@ -1086,7 +1086,7 @@
 	
 	<bean name="job4" class = "acme.entities.job.Job">
 		<property name="reference" value="EMPD-JOBD"/>
-		<property name="status" value="DRAFT"/>
+		<property name="status" value="PUBLISHED"/>
 		<property name="title" value="Job 4"/>
 		<property name="deadline" value="2030/12/11 23:59"/>
 		<property name="salary" value="€ 20,000.00"/>
@@ -1132,7 +1132,7 @@
 	
 	<bean name="job6" class = "acme.entities.job.Job">
 		<property name="reference" value="EMPE-JOBF"/>
-		<property name="status" value="DRAFT"/>
+		<property name="status" value="PUBLISHED"/>
 		<property name="title" value="Job 6"/>
 		<property name="deadline" value="2010/12/11 23:59"/>
 		<property name="salary" value="€ 50,000.00"/>
@@ -1156,15 +1156,13 @@
 	
 	<bean name="job7" class = "acme.entities.job.Job">
 		<property name="reference" value="EMPB-JOBG"/>
-		<property name="status" value="DRAFT"/>
+		<property name="status" value="PUBLISHED"/>
 		<property name="title" value="Pagination test Job"/>
 		<property name="deadline" value="2020/12/11 23:59"/>
 		<property name="salary" value="€ 50,000.00"/>
 		<property name="description" value="Este Job es para comprobar paginacion"/>
 		<property name="moreInfo" value="https://www.example.com"/>
-
 		<property name="descriptor" ref="descriptor4" />
-
 		<property name="employer" ref="employer2Employer"/>
 		<property name="application">
 			<list>
