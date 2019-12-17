@@ -20,7 +20,9 @@ public class AdministratorAuditorShowService implements AbstractShowService<Admi
 	@Override
 	public boolean authorise(final Request<Auditor> request) {
 		assert request != null;
-		return true;
+		Boolean res = request.getPrincipal().hasRole(Administrator.class);
+
+		return res;
 	}
 
 	@Override
@@ -29,7 +31,7 @@ public class AdministratorAuditorShowService implements AbstractShowService<Admi
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "firm", "statement");
+		request.unbind(entity, model, "firm", "statement", "enabledRole");
 
 	}
 

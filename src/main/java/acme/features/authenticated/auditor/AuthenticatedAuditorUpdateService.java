@@ -25,8 +25,13 @@ public class AuthenticatedAuditorUpdateService implements AbstractUpdateService<
 	@Override
 	public boolean authorise(final Request<Auditor> request) {
 		assert request != null;
+		Boolean res;
+		Integer auId = request.getPrincipal().getAccountId();
+		Auditor au = this.repository.findOneAuditorById(auId);
 
-		return true;
+		res = request.getPrincipal().hasRole(Auditor.class) && au.getEnabledRole();
+
+		return res;
 	}
 
 	@Override
@@ -44,7 +49,7 @@ public class AuthenticatedAuditorUpdateService implements AbstractUpdateService<
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "firm", "statement");
+		request.unbind(entity, model, "firm", "statement", "enabledRole");
 		request.getModel().setAttribute("id", entity.getId());
 	}
 

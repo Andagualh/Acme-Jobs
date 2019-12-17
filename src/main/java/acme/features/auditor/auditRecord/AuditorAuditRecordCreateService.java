@@ -41,6 +41,7 @@ public class AuditorAuditRecordCreateService implements AbstractCreateService<Au
 				res = false;
 			}
 		}
+		res = res && request.getModel().getBoolean("enabledRole");
 
 		return res;
 	}

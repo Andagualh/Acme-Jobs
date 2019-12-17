@@ -21,8 +21,13 @@ public class AuditorJobShowService implements AbstractShowService<Auditor, Job> 
 	@Override
 	public boolean authorise(final Request<Job> request) {
 		assert request != null;
+		Boolean res;
+		Integer auId = request.getPrincipal().getAccountId();
+		Auditor au = this.repository.findOneAuditorById(auId);
 
-		return true;
+		res = request.getPrincipal().hasRole(Auditor.class) && au.getEnabledRole();
+
+		return res;
 	}
 
 	@Override
@@ -34,7 +39,6 @@ public class AuditorJobShowService implements AbstractShowService<Auditor, Job> 
 		request.unbind(entity, model, "reference", "status", "title", "deadline");
 		request.unbind(entity, model, "salary", "moreInfo", "description");
 
-
 		boolean isAudited;
 
 		int jobId = entity.getId();
@@ -45,7 +49,6 @@ public class AuditorJobShowService implements AbstractShowService<Auditor, Job> 
 		isAudited = a == null ? false : true;
 
 		model.setAttribute("isAudited", isAudited);
-
 
 		model.setAttribute("descriptor", entity.getDescriptor().getDescription());
 

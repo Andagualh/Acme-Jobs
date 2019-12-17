@@ -9,7 +9,6 @@ import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Administrator;
-import acme.framework.entities.UserAccount;
 import acme.framework.services.AbstractUpdateService;
 
 @Service
@@ -22,7 +21,9 @@ public class AdministratorAuditorUpdateService implements AbstractUpdateService<
 	@Override
 	public boolean authorise(final Request<Auditor> request) {
 		assert request != null;
-		return true;
+		Boolean res = request.getPrincipal().hasRole(Administrator.class);
+
+		return res;
 	}
 
 	@Override
@@ -40,7 +41,7 @@ public class AdministratorAuditorUpdateService implements AbstractUpdateService<
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "firm", "statement");
+		request.unbind(entity, model, "firm", "statement", "enabledRole");
 
 	}
 
@@ -68,11 +69,7 @@ public class AdministratorAuditorUpdateService implements AbstractUpdateService<
 		assert request != null;
 		assert entity != null;
 
-		int id = entity.getUserAccount().getId();
-
-		UserAccount ua = this.repository.findOneUserAccountById(id);
-		ua.setEnabled(true);
-		this.repository.save(ua);
+		entity.setEnabledRole(true);
 		this.repository.save(entity);
 	}
 

@@ -23,8 +23,13 @@ public class AuditorRecordedJobListService implements AbstractListService<Audito
 	@Override
 	public boolean authorise(final Request<Job> request) {
 		assert request != null;
+		Boolean res;
+		Integer auId = request.getPrincipal().getAccountId();
+		Auditor au = this.repository.findOneAuditorById(auId);
 
-		return true;
+		res = request.getPrincipal().hasRole(Auditor.class) && au.getEnabledRole();
+
+		return res;
 	}
 
 	@Override

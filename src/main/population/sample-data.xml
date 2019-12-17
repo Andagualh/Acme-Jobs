@@ -975,6 +975,7 @@
 	<bean id="auditor1Auditor" class="acme.entities.roles.Auditor">
 		<property name="firm" value="Firm Name One" />
 		<property name="statement" value="Accept statement" />
+		<property name="enabledRole" value="true"/>
 		<property name="userAccount" ref="auditor1UserAccount" />
 	</bean>
 
@@ -1005,6 +1006,7 @@
 	<bean id="auditor2Auditor" class="acme.entities.roles.Auditor">
 		<property name="firm" value="Firm Name Two" />
 		<property name="statement" value="The Responsability Statement" />
+		<property name="enabledRole" value="true"/>
 		<property name="userAccount" ref="auditor2UserAccount" />
 	</bean>
 

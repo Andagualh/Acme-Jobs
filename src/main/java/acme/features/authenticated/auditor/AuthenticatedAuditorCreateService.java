@@ -6,17 +6,12 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.roles.Auditor;
 import acme.framework.components.Errors;
-import acme.framework.components.HttpMethod;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
-import acme.framework.components.Response;
-
 import acme.framework.entities.Administrator;
-
 import acme.framework.entities.Authenticated;
 import acme.framework.entities.Principal;
 import acme.framework.entities.UserAccount;
-import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractCreateService;
 
 @Service
@@ -27,11 +22,9 @@ public class AuthenticatedAuditorCreateService implements AbstractCreateService<
 	AuthenticatedAuditorRepository repository;
 
 
-
 	@Override
 	public boolean authorise(final Request<Auditor> request) {
 		assert request != null;
-
 
 		Principal principal = request.getPrincipal();
 		int userId = principal.getAccountId();
@@ -41,7 +34,6 @@ public class AuthenticatedAuditorCreateService implements AbstractCreateService<
 		Auditor e = this.repository.findOneAuditorByUserId(ua.getId());
 
 		return e == null;
-
 
 	}
 
@@ -61,7 +53,8 @@ public class AuthenticatedAuditorCreateService implements AbstractCreateService<
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "firm", "statement");
+		request.unbind(entity, model, "firm", "statement", "enabledRole");
+		model.setAttribute("enabledRole", false);
 
 	}
 
@@ -81,6 +74,7 @@ public class AuthenticatedAuditorCreateService implements AbstractCreateService<
 
 		result = new Auditor();
 		result.setUserAccount(userAccount);
+		result.setEnabledRole(false);
 
 		return result;
 	}
@@ -98,25 +92,13 @@ public class AuthenticatedAuditorCreateService implements AbstractCreateService<
 		assert entity != null;
 
 		if (!request.getPrincipal().hasRole(Administrator.class)) {
-			entity.getUserAccount().setEnabled(false);
+			entity.setEnabledRole(false);
 		} else if (request.getPrincipal().hasRole(Administrator.class)) {
-			entity.getUserAccount().setEnabled(true);
+			entity.setEnabledRole(true);
 		}
 
 		this.repository.save(entity);
 
-	}
-
-	@Override
-	public void onSuccess(final Request<Auditor> request, final Response<Auditor> response) {
-		assert request != null;
-		assert response != null;
-
-		if (request.isMethod(HttpMethod.POST)) {
-			PrincipalHelper.handleUpdate();
-			PrincipalHelper.handleSignOut();
-
-		}
 	}
 
 }

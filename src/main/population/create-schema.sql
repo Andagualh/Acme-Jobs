@@ -55,6 +55,7 @@
        `id` integer not null,
         `version` integer not null,
         `user_account_id` integer,
+        `enabled_role` bit,
         `firm` varchar(255),
         `statement` varchar(255),
         primary key (`id`)

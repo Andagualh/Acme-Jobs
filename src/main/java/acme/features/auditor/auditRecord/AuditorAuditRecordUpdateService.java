@@ -29,6 +29,7 @@ public class AuditorAuditRecordUpdateService implements AbstractUpdateService<Au
 
 		boolean result;
 		result = j.getAuditor().getId() == principalId;
+		result = result && request.getModel().getBoolean("enabledRole");
 		return result;
 	}
 

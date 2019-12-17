@@ -20,7 +20,13 @@ public class AuthenticatedAuditorShowService implements AbstractShowService<Auth
 	@Override
 	public boolean authorise(final Request<Auditor> request) {
 		assert request != null;
-		return true;
+		Boolean res;
+		Integer auId = request.getPrincipal().getAccountId();
+		Auditor au = this.repository.findOneAuditorById(auId);
+
+		res = request.getPrincipal().hasRole(Auditor.class) && au.getEnabledRole();
+
+		return res;
 	}
 
 	@Override
@@ -29,7 +35,7 @@ public class AuthenticatedAuditorShowService implements AbstractShowService<Auth
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "firm", "statement");
+		request.unbind(entity, model, "firm", "statement", "enabledRole");
 
 	}
 

@@ -19,6 +19,7 @@
 	<acme:form-textbox code="authenticated.auditor.form.label.firm" path="firm" />
 	<acme:form-textbox code="authenticated.auditor.form.label.statement" path="statement" />
 	
+	
 	<acme:form-submit test="${command == 'create'}" code="authenticated.auditor.form.label.create"
 		action="/authenticated/auditor/create"  />
 	<acme:form-submit test="${command == 'show'}" code="administrator.auditor.form.label.update"

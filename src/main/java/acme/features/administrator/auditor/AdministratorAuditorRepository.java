@@ -19,7 +19,7 @@ public interface AdministratorAuditorRepository extends AbstractRepository {
 	@Query("select ua from UserAccount ua where ua.id = ?1")
 	UserAccount findOneUserAccountById(int id);
 
-	@Query("select a from Auditor a where a.userAccount.enabled = 0")
+	@Query("select a from Auditor a where a.enabledRole = 0")
 	Collection<Auditor> findPendingDisabledAuditors();
 
 	@Query("select a from Auditor a where a.id = ?1")
