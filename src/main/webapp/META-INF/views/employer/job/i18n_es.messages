@@ -30,5 +30,7 @@ employer.job.form.button.delete = Borrar trabajo
 employer.job.form.button.return = Volver
 acme.validation.yesapps = No se puede borrar un trabajo con solicitudes dependientes.
 acme.validation.spam = Le pedimos que deje de sobrecargar el sistema con trabajos falsos y engañosos, gracias
+employer.job.null.deadline = Por favor ajustese al formato dado
+employer.job.null.salary = Por favor ajustese al formato dado
 
 employer.job.form.button.create-duty = Crear Tarea

@@ -19,7 +19,7 @@
 <acme:form readonly="false">
 
 	<acme:form-hidden path="descriptorId"/>
-	<acme:form-textbox code="employer.job.form.label.reference" path="reference" />
+	<acme:form-textbox code="employer.job.form.label.reference" path="reference" placeholder="EEEE-JJJJ"/>
 	<acme:check-access test="${command != 'create'}">
 		<acme:form-textbox readonly="true" code="employer.application.form.label.oldstatus" path="oldstatus"/>
 		<acme:check-access test="${!finalMode}">

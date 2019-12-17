@@ -32,4 +32,6 @@ employer.job.form.button.return = Return
 employer.job.form.button.create-duty = Create Duty
 acme.validation.yesapps = Can't delete a job with dependant Applications
 acme.validation.spam = Please we ask you to stop trolling and make proper use of the system, thank you
+employer.job.null.deadline = Please fit to the given placeholder
+employer.job.null.salary = Please fit to the given placeholder
 
