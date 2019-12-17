@@ -79,7 +79,8 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 		isSpamEN = this.isSpam(reallyBigString, spamEN, entity);
 		isSpamES = this.isSpam(reallyBigString, spamES, entity);
 
-		errors.state(request, !isSpamEN || !isSpamES, "reference", "acme.validation.spam");
+		errors.state(request, !isSpamEN, "reference", "acme.validation.spam");
+		errors.state(request, !isSpamES, "reference", "acme.validation.spam");
 
 	}
 
