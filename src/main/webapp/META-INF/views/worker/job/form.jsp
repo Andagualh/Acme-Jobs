@@ -16,7 +16,7 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form readonly="false">
-	<acme:form-textbox code="worker.offer.form.label.reference" path="reference" />
+	<acme:form-textbox code="worker.offer.form.label.reference" path="reference" placeholder="EEEE-JJJJ"/>
 	<acme:form-textbox code="worker.offer.form.label.title" path="title" />
 	<acme:form-moment code="worker.offer.form.label.deadline" path="deadline"/>
 	<acme:form-money code="worker.offer.form.label.salary" path="salary"/>

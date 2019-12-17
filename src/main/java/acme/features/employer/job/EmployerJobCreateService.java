@@ -2,6 +2,7 @@
 package acme.features.employer.job;
 
 import java.util.Collection;
+import java.util.regex.Pattern;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -71,11 +72,21 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 		assert errors != null;
 
 		String description = request.getModel().getString("descriptor-description");
+		String deadline = request.getModel().getString("deadline");
+		//		 salary = (Integer) request.getModel().getAttribute("salary");
 		Boolean isSpamEN, isSpamES;
 		String reallyBigString;
 		reallyBigString = request.getModel().getString("title") + " " + request.getModel().getString("moreInfo") + " " + request.getModel().getString("description") + " " + request.getModel().getString("descriptor-description");
 		Spamlist spamEN = this.repository.findSpamLists("EN");
 		Spamlist spamES = this.repository.findSpamLists("ES");
+
+		if (!errors.hasErrors("deadline")) {
+			errors.state(request, Pattern.matches("[0-9]{4}/[0-9]{2}/[0-9]{2} [0-9]{2}:[0-9]{2}", deadline), "deadline", "employer.job.null.deadline");
+		}
+
+		//		if (!errors.hasErrors("salary")) {
+		//			errors.state(request, salary != null, "salary", "employer.job.null.salary");
+		//		}
 
 		if (!errors.hasErrors("descriptor-description")) {
 			errors.state(request, description != "", "descriptor-description", "employer.job.descriptor.blank");
