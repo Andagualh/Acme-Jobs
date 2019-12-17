@@ -36,7 +36,6 @@ public class AuthenticatedAuditorUpdateService implements AbstractUpdateService<
 		assert errors != null;
 
 		request.bind(entity, errors);
-
 	}
 
 	@Override
@@ -47,7 +46,6 @@ public class AuthenticatedAuditorUpdateService implements AbstractUpdateService<
 
 		request.unbind(entity, model, "firm", "statement");
 		request.getModel().setAttribute("id", entity.getId());
-
 	}
 
 	@Override
@@ -71,7 +69,6 @@ public class AuthenticatedAuditorUpdateService implements AbstractUpdateService<
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-
 	}
 
 	@Override
