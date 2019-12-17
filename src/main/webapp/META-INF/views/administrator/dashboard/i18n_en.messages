@@ -28,3 +28,4 @@ administrator.dashboard.form.averageApplicationPerWorker = Average Application P
 administrator.dashboard.form.averageNumberOfApplicationPerEmployer = Average Application Per Employer
 administrator.dashboard.form.title.jobs = <h4>Jobs:</h4>
 administrator.dashboard.form.title.applications = <h4>Applications:</h4>
+administrator.dashboard.form.title.applications4LastWeeks = <h4>Applications in the four last weeks:</h4>

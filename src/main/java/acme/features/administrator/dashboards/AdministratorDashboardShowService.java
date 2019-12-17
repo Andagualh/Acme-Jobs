@@ -24,7 +24,11 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 	public boolean authorise(final Request<Dashboard> request) {
 		assert request != null;
 
-		return true;
+		Integer id = request.getPrincipal().getActiveRoleId();
+
+		Administrator a = this.repository.findOneAdministratorById(id);
+
+		return a != null;
 	}
 
 	@Override
@@ -54,6 +58,10 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		Integer ratioOfRejectedApplications = this.repository.ratioOfRejectedApplications();
 		Integer ratioOfPendingApplications = this.repository.ratioOfPendingApplications();
 
+		Integer ratioOfAcceptedApplicationsInLast4Weeks = this.repository.ratioOfAcceptedApplicationsInLast4Weeks();
+		Integer ratioOfRejectedApplicationsInLast4Weeks = this.repository.ratioOfRejectedApplicationsInLast4Weeks();
+		Integer ratioOfPendingApplicationsInLast4Weeks = this.repository.ratioOfPendingApplicationsInLast4Weeks();
+
 		request.unbind(entity, model, "labels", "numC", "numI");
 
 		model.setAttribute("totalAnnouncements", totalAnnouncements);
@@ -77,6 +85,9 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		model.setAttribute("ratioOfRejectedApplications", ratioOfRejectedApplications);
 		model.setAttribute("ratioOfPendingApplications", ratioOfPendingApplications);
 
+		model.setAttribute("ratioOfAcceptedApplicationsInLast4Weeks", ratioOfAcceptedApplicationsInLast4Weeks);
+		model.setAttribute("ratioOfRejectedApplicationsInLast4Weeks", ratioOfRejectedApplicationsInLast4Weeks);
+		model.setAttribute("ratioOfPendingApplicationsInLast4Weeks", ratioOfPendingApplicationsInLast4Weeks);
 	}
 
 	@Override

@@ -25,3 +25,5 @@ authenticated.message-thread.delete = <h4>Delete User</h4>
 authenticated.message-thread.form.label.user.username = Usermane
 authenticated.message-thread.exist = The user already exist in the thread
 authenticated.message-thread.no-exist = The user doesn´t exist in the thread
+authenticated.message-thread.no-user = The user doesn´t exist
+authenticated.message-thread.same = You have write the same user

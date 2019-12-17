@@ -39,7 +39,6 @@ public class AuditorAuditRecordListMineService implements AbstractListService<Au
 	public Collection<AuditRecord> findMany(final Request<AuditRecord> request) {
 		assert request != null;
 
-		Collection<AuditRecord> result;
 		Collection<AuditRecord> auditRecords;
 
 		int auditorId = request.getPrincipal().getActiveRoleId();

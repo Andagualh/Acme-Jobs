@@ -79,9 +79,12 @@ public class WorkerApplicationsCreateService implements AbstractCreateService<Wo
 		result.setStatus("PENDING");
 
 		Date moment;
+		Date updatedStatusMoment;
 
+		updatedStatusMoment = new Date(System.currentTimeMillis() - 1);
 		moment = new Date(System.currentTimeMillis() - 1);
 		result.setCreationMoment(moment);
+		result.setUpdatedStatusMoment(updatedStatusMoment);
 
 		result.setJustification("");
 
