@@ -10,6 +10,7 @@ import acme.entities.roles.Auditor;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Administrator;
+import acme.framework.entities.UserRole;
 import acme.framework.services.AbstractListService;
 
 @Service
@@ -37,7 +38,15 @@ public class AdministratorAuditorListService implements AbstractListService<Admi
 
 	@Override
 	public Collection<Auditor> findMany(final Request<Auditor> request) {
-		return this.repository.findPendingDisabledAuditors();
+		Collection<Auditor> au = this.repository.findPendingAuditors();
+		for (Auditor a : au) {
+			for (UserRole uR : a.getUserAccount().getRoles()) {
+				if (uR.getAuthorityName().equals("AcceptedAuditor")) {
+					au.remove(a);
+				}
+			}
+		}
+		return au;
 	}
 
 }

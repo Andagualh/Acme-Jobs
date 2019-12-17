@@ -1,4 +1,11 @@
 
+    create table `accepted_auditor` (
+       `id` integer not null,
+        `version` integer not null,
+        `user_account_id` integer,
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `administrator` (
        `id` integer not null,
         `version` integer not null,
@@ -339,6 +346,11 @@ create index IDX2insomc4a40jprju8tmgcvmig on `spamword` (`spamword`);
 
     alter table `user_account` 
        add constraint UK_castjbvpeeus0r8lbpehiu0e4 unique (`username`);
+
+    alter table `accepted_auditor` 
+       add constraint FK_pp83hmdgaolbxl9p2weha53fy 
+       foreign key (`user_account_id`) 
+       references `user_account` (`id`);
 
     alter table `administrator` 
        add constraint FK_2a5vcjo3stlfcwadosjfq49l1 

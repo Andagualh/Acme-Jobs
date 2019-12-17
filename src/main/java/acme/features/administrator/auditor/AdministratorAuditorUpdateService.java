@@ -4,6 +4,7 @@ package acme.features.administrator.auditor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.roles.AcceptedAuditor;
 import acme.entities.roles.Auditor;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
@@ -41,6 +42,7 @@ public class AdministratorAuditorUpdateService implements AbstractUpdateService<
 		assert model != null;
 
 		request.unbind(entity, model, "firm", "statement");
+		model.setAttribute("auditorAccountId", entity.getUserAccount().getId());
 
 	}
 
@@ -68,12 +70,15 @@ public class AdministratorAuditorUpdateService implements AbstractUpdateService<
 		assert request != null;
 		assert entity != null;
 
-		int id = entity.getUserAccount().getId();
+		UserAccount userAccount;
+		AcceptedAuditor acceptedAuditor;
 
-		UserAccount ua = this.repository.findOneUserAccountById(id);
-		ua.setEnabled(true);
-		this.repository.save(ua);
-		this.repository.save(entity);
+		userAccount = this.repository.findOneUserAccountById(request.getModel().getInteger("auditorAccountId"));
+		acceptedAuditor = new AcceptedAuditor();
+		userAccount.addRole(acceptedAuditor);
+		acceptedAuditor.setUserAccount(userAccount);
+		this.repository.save(acceptedAuditor);
+		this.repository.save(userAccount);
 	}
 
 }
