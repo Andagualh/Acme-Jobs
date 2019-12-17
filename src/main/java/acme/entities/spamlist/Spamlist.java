@@ -33,13 +33,16 @@ public class Spamlist extends DomainEntity {
 
 	@Transient
 	public Double getThreshold() {
-		Double result = 0.;
+		Double result;
+		result = 0.01;
+		/*
+		 * while (result < this.spamwordslist.size()) {
+		 * result++;
+		 * }
+		 */
 
-		while (result < this.spamwordslist.size()) {
-			result++;
-		}
-
-		return result / 100;
+		//return result / 100;
+		return result;
 	}
 
 }
