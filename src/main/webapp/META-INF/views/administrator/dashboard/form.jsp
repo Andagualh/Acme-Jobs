@@ -197,3 +197,58 @@
 		});
 	});
 </script>
+
+<acme:message code="administrator.dashboard.form.title.applications4LastWeeks" />
+
+<div>
+	<canvas id="canvas4"></canvas>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		var data = {
+				labels: [
+					"PENDING", "ACCEPTED", "REJECTED"
+				],
+				datasets : [
+					{
+						label: "Aplications",
+						data : [
+							<jstl:out value = "${ratioOfPendingApplicationsInLast4Weeks}" />,
+							<jstl:out value = "${ratioOfAcceptedApplicationsInLast4Weeks}" />,
+							<jstl:out value = "${ratioOfRejectedApplicationsInLast4Weeks}" />
+						],backgroundColor: [
+							"#7FFF00", "#7FFF00", "#7FFF00"
+			            ]	
+						
+					}
+				]		
+		};
+		
+		var options = {
+				scales : {
+					yAxes : [
+						{
+							ticks : {
+								suggestedMin : 0.0,
+								suggestedMax : 10.0
+							}
+						}
+					]
+				},
+				legend : {
+					display : true
+				}
+		};
+		
+		var canvas, context;
+		
+		canvas = document.getElementById("canvas4");
+		context = canvas.getContext("2d");
+		new Chart(context, {
+			type : "bar",
+			data : data,
+			options : options
+		});
+	});
+</script>

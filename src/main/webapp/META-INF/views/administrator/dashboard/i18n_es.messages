@@ -29,3 +29,4 @@ administrator.dashboard.form.averageNumberOfApplicationPerEmployer = Promedio de
 administrator.dashboard.form.averageApplicationPerWorker = Promedia de aplicaciones por trabajadores
 administrator.dashboard.form.title.jobs = <h4>Trabajos:</h4>
 administrator.dashboard.form.title.applications = <h4>Solicitudes:</h4>
+administrator.dashboard.form.title.applications4LastWeeks = <h4>Aplicaciones en las últimas cuatro semanas:</h4>

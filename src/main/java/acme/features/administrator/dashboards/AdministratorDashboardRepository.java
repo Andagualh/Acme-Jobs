@@ -6,10 +6,14 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.framework.entities.Administrator;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
 public interface AdministratorDashboardRepository extends AbstractRepository {
+
+	@Query("select a from Administrator a where a.id = ?1")
+	Administrator findOneAdministratorById(int id);
 
 	@Query("select count(a) from Announcements a")
 	Integer getTotalAnnouncements();
@@ -64,6 +68,15 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 
 	@Query("select count(p) from Application p where p.status = 'REJECTED'")
 	Integer ratioOfRejectedApplications();
+
+	@Query("select count(p) from Application p where p.status = 'PENDING' AND datediff(now(),p.updatedStatusMoment) <= 28")
+	Integer ratioOfPendingApplicationsInLast4Weeks();
+
+	@Query("select count(p) from Application p where p.status = 'ACCEPTED' AND datediff(now(),p.updatedStatusMoment) <= 28")
+	Integer ratioOfAcceptedApplicationsInLast4Weeks();
+
+	@Query("select count(p) from Application p where p.status = 'REJECTED' AND datediff(now(),p.updatedStatusMoment) <= 28")
+	Integer ratioOfRejectedApplicationsInLast4Weeks();
 
 	@Query("select avg(select count(j) from Job j where j.employer.id = e.id) from Employer e")
 	Double averageNumberJobsPerEmployer();

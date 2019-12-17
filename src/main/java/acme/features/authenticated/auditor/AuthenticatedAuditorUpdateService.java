@@ -46,6 +46,7 @@ public class AuthenticatedAuditorUpdateService implements AbstractUpdateService<
 
 		request.unbind(entity, model, "firm", "statement");
 		request.getModel().setAttribute("id", entity.getId());
+
 	}
 
 	@Override

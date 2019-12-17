@@ -54,7 +54,8 @@ public class AuthenticatedMessageThreadUpdateService implements AbstractUpdateSe
 		MessageThread result;
 		int id;
 		id = request.getModel().getInteger("id");
-		result = this.repository.findOneById(id);
+		result = this.repository.findMessageThreadById(id);
+
 		return result;
 	}
 
@@ -75,9 +76,21 @@ public class AuthenticatedMessageThreadUpdateService implements AbstractUpdateSe
 		usernameDelete = request.getModel().getString("usernameDelete");
 		UserAccount userDelete = this.repository.findOneUserAccountByUsername(usernameDelete);
 
+		if (!errors.hasErrors()) {
+			errors.state(request, !usernameAdd.equals(usernameDelete), "usernameAdd", "authenticated.message-thread.same");
+		}
+
+		if (!errors.hasErrors("usernameAdd") && userDelete == null) {
+			errors.state(request, userAdd != null, "usernameAdd", "authenticated.message-thread.no-user");
+		}
+
 		if (!errors.hasErrors("usernameAdd") && userAdd != null) {
 			mtaA = this.repository.findOneMessageThreadAuthenticatedByIds(userAdd.getId(), entity.getId());
 			errors.state(request, mtaA == null, "usernameAdd", "authenticated.message-thread.exist");
+		}
+
+		if (!errors.hasErrors("usernameDelete") && userAdd == null) {
+			errors.state(request, userDelete != null, "usernameDelete", "authenticated.message-thread.no-user");
 		}
 
 		if (!errors.hasErrors("usernameDelete") && userDelete != null) {

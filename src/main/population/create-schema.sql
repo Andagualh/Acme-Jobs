@@ -34,6 +34,7 @@
         `skill` varchar(255),
         `statement` varchar(255),
         `status` varchar(255),
+        `updated_status_moment` datetime(6),
         `job_id` integer not null,
         `worker_id` integer not null,
         primary key (`id`)
