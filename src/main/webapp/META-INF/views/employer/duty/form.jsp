@@ -18,7 +18,7 @@
 <acme:form readonly="false">
 	<acme:form-textbox code="employer.duty.form.label.title" path="title" />
 	<acme:form-textbox code="employer.duty.form.label.description" path="description" />
-	<acme:form-moment code="employer.duty.form.label.percent" path="percent"/>
+	<acme:form-textbox placeholder="0 - 100" code="employer.duty.form.label.percent" path="percent"/>
 	
 	<acme:form-submit test="${command == 'create'}" code="employer.duty.form.button.create" action="/employer/duty/create?id=${id}" />
 
