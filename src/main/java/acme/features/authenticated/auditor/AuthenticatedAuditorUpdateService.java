@@ -6,12 +6,6 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.roles.Auditor;
 import acme.framework.components.Errors;
-
-import acme.framework.components.Model;
-import acme.framework.components.Request;
-import acme.framework.entities.Authenticated;
-import acme.framework.entities.Principal;
-
 import acme.framework.components.HttpMethod;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -19,7 +13,6 @@ import acme.framework.components.Response;
 import acme.framework.entities.Authenticated;
 import acme.framework.entities.Principal;
 import acme.framework.helpers.PrincipalHelper;
-
 import acme.framework.services.AbstractUpdateService;
 
 @Service
@@ -55,7 +48,6 @@ public class AuthenticatedAuditorUpdateService implements AbstractUpdateService<
 		request.unbind(entity, model, "firm", "statement");
 		request.getModel().setAttribute("id", entity.getId());
 
-
 	}
 
 	@Override
@@ -90,7 +82,6 @@ public class AuthenticatedAuditorUpdateService implements AbstractUpdateService<
 		this.repository.save(entity);
 	}
 
-
 	@Override
 	public void onSuccess(final Request<Auditor> request, final Response<Auditor> response) {
 		assert request != null;
@@ -100,6 +91,5 @@ public class AuthenticatedAuditorUpdateService implements AbstractUpdateService<
 			PrincipalHelper.handleUpdate();
 		}
 	}
-
 
 }
