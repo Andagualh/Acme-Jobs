@@ -97,7 +97,8 @@ public class AuthenticatedMessageCreateService implements AbstractCreateService<
 		}
 
 		if (!errors.hasErrors()) {
-			errors.state(request, !spamEN || !spamES, "title", "authenticated.message.spam");
+			errors.state(request, !spamEN, "title", "authenticated.message.spam");
+			errors.state(request, !spamES, "title", "authenticated.message.spam");
 		}
 	}
 
