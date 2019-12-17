@@ -88,8 +88,10 @@ public class SponsorCommercialCreateService implements AbstractCreateService<Spo
 		isSpamEN = this.isSpam(reallyBigString, spamEN, entity);
 		isSpamES = this.isSpam(reallyBigString, spamES, entity);
 
-		errors.state(request, !isSpamEN || !isSpamES, "banner", "acme.validation.spam");
-
+		if (!errors.hasErrors()) {
+			errors.state(request, !isSpamEN, "banner", "acme.validation.spam");
+			errors.state(request, !isSpamES, "banner", "acme.validation.spam");
+		}
 	}
 
 	@Override
