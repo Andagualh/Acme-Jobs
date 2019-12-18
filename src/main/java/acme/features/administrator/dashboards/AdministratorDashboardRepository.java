@@ -89,13 +89,13 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 	@Query("select avg(select count(a) from Application a where " + "exists(select j from Job j where j.employer.id = e.id and a.job.id = j.id)) " + "from Employer e")
 	Double averageNumberOfApplicationPerEmployer();
 
-	@Query("select a.creationMoment, count(a) from Application a where a.status = 'REJECTED' and a.creationMoment >= ?1 group by a.creationMoment")
+	@Query("select a.updatedStatusMoment, count(a) from Application a where a.status = 'REJECTED' and a.updatedStatusMoment >= ?1 group by a.updatedStatusMoment")
 	List<String[]> numberOfRejectedApplications(Date date);
 
-	@Query("select a.creationMoment, count(a) from Application a where a.status = 'ACCEPTED' and a.creationMoment >= ?1 group by a.creationMoment")
+	@Query("select a.updatedStatusMoment, count(a) from Application a where a.status = 'ACCEPTED' and a.updatedStatusMoment >= ?1 group by a.updatedStatusMoment")
 	List<String[]> numberOfAcceptedApplications(Date date);
 
-	@Query("select a.creationMoment, count(a) from Application a where a.status = 'PENDING' and a.creationMoment >= ?1 group by a.creationMoment")
+	@Query("select a.updatedStatusMoment, count(a) from Application a where a.status = 'PENDING' and a.updatedStatusMoment >= ?1 group by a.updatedStatusMoment")
 	List<String[]> numberOfPendingApplications(Date date);
 
 }

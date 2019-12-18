@@ -264,34 +264,31 @@
 		var data = {
 				labels: [
 					<jstl:forEach var="label" items="${labels2}">
-					<jstl:out value="${label}"/>",
+					<jstl:out value="${label}" escapeXml="false"/>,
 					</jstl:forEach>
 				],
 				datasets : [
 					{
 						label: "Rejected",
-						fill = false,
 						data: [
 							<jstl:forEach var = "rejected" items = "${numberOfRejectedApplications}">
-								<jstl:out value="${rejected}"/>,
+								<jstl:out value="${rejected}" escapeXml="false"/>,
 							</jstl:forEach>
 						]
 					},
 					{
 						label: "Accepted",
-						fill = false,
 						data: [
 							<jstl:forEach var = "accepted" items = "${numberOfAcceptedApplications}">
-								<jstl:out value="${accepted}"/>,
+								<jstl:out value="${accepted}" escapeXml="false"/>,
 							</jstl:forEach>
 						]
 					},
 					{
 						label: "Pending",
-						fill = false,
 						data: [
 							<jstl:forEach var = "pending" items = "${numberOfPendingApplications}">
-								<jstl:out value="${pending}"/>,
+								<jstl:out value="${pending}" escapeXml="false"/>,
 							</jstl:forEach>
 						]
 					}
@@ -299,6 +296,21 @@
 				]		
 		};
 		
+		var options = {
+				scales : {
+					yAxes : [
+						{
+							ticks : {
+								suggestedMin : 0.0,
+								suggestedMax : 10.0
+							}
+						}
+					]
+				},
+				legend : {
+					display : true
+				}
+		};
 		
 		var canvas, context;
 		
@@ -307,11 +319,7 @@
 		new Chart(context, {
 			type : "line",
 			data : data,
-			options : {
-				title:{
-					display:true
-				}
-			}
+			options : options
 		});
 	});
 </script>

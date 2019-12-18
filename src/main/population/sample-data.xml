@@ -1181,8 +1181,8 @@
 	<bean name="application1" class = "acme.entities.application.Application">
 		<property name="ref" value="EMPA-JOBB:WORC"/>
 		<property name="creationMoment" value="2018/12/11 23:59"/>
-		<property name="updatedStatusMoment" value="2018/12/11 23:59"/>
-		<property name="status" value="PENDING"/>
+		<property name="updatedStatusMoment" value="2019/12/11 23:59"/>
+		<property name="status" value="ACCEPTED"/>
 		<property name="statement" value="PLACEHOLDER"/>
 		<property name="skill" value="PLACEHOLDER"/>
 		<property name="qualification" value="PLACEHOLDER"/>
