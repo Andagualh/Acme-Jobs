@@ -63,7 +63,7 @@ public class WorkerApplicationsCreateService implements AbstractCreateService<Wo
 		Job j = this.repository.findOneJobById(entity.getJob().getId());
 		model.setAttribute("skill", w.getSkills());
 		model.setAttribute("qualification", w.getQualifications());
-		model.setAttribute("ref", j.getReference() + "-");
+		model.setAttribute("ref", j.getReference() + ":");
 	}
 
 	@Override
