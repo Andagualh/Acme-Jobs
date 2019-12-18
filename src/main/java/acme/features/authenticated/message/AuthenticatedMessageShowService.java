@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.message.Message;
+import acme.entities.messageThread.MessageThread;
+import acme.entities.messageThread.MessageThreadAuthenticated;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
@@ -20,8 +22,16 @@ public class AuthenticatedMessageShowService implements AbstractShowService<Auth
 	@Override
 	public boolean authorise(final Request<Message> request) {
 		assert request != null;
+		Boolean res = false;
+		Integer threadId = Integer.parseInt(request.getServletRequest().getParameter("id"));
+		MessageThread m = this.repository.findOneMessageThreadById(threadId);
+		MessageThreadAuthenticated mt = this.repository.findAuthentication(request.getPrincipal().getAccountId(), m.getId());
 
-		return true;
+		if (mt != null) {
+			res = true;
+		}
+
+		return res;
 	}
 
 	@Override
