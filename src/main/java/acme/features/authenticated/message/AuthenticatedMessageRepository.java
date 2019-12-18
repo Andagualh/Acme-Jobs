@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import acme.entities.message.Message;
 import acme.entities.messageThread.MessageThread;
+import acme.entities.messageThread.MessageThreadAuthenticated;
 import acme.entities.spamlist.Spamlist;
 import acme.framework.repositories.AbstractRepository;
 
@@ -25,5 +26,8 @@ public interface AuthenticatedMessageRepository extends AbstractRepository {
 
 	@Query("select a from Spamlist a where a.idiom = ?1")
 	Spamlist findIdiom(String idiom);
+
+	@Query("select mt from MessageThreadAuthenticated mt where mt.user.id = ?1 and mt.thread.id = ?2")
+	MessageThreadAuthenticated findAuthentication(int id, int threadId);
 
 }

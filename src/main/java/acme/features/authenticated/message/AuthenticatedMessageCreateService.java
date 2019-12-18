@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.message.Message;
 import acme.entities.messageThread.MessageThread;
+import acme.entities.messageThread.MessageThreadAuthenticated;
 import acme.entities.spamlist.Spamlist;
 import acme.entities.spamlist.Spamword;
 import acme.framework.components.Errors;
@@ -27,8 +28,16 @@ public class AuthenticatedMessageCreateService implements AbstractCreateService<
 	@Override
 	public boolean authorise(final Request<Message> request) {
 		assert request != null;
+		Boolean res = false;
+		Integer threadId = Integer.parseInt(request.getServletRequest().getParameter("id"));
+		MessageThread m = this.repository.findOneMessageThreadById(threadId);
+		MessageThreadAuthenticated mt = this.repository.findAuthentication(request.getPrincipal().getAccountId(), m.getId());
 
-		return true;
+		if (mt != null) {
+			res = true;
+		}
+
+		return res;
 	}
 
 	@Override
