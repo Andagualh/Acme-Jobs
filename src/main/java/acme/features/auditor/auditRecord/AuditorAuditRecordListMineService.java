@@ -22,7 +22,12 @@ public class AuditorAuditRecordListMineService implements AbstractListService<Au
 	@Override
 	public boolean authorise(final Request<AuditRecord> request) {
 		assert request != null;
-		return true;
+
+		Integer principalId = request.getPrincipal().getActiveRoleId();
+
+		Auditor a = this.repository.findOneAuditorById(principalId);
+
+		return a != null;
 	}
 
 	@Override
