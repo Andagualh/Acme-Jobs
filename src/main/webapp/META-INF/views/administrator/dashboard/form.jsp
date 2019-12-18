@@ -252,3 +252,68 @@
 		});
 	});
 </script>
+
+<acme:message code="administrator.dashboard.form.title.applications4LastWeeks" />
+
+<div>
+	<canvas id="canvas5"></canvas>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		var data = {
+				labels: [
+					<jstl:forEach var="label" items="${labels2}">
+					<jstl:out value="${label}"/>",
+					</jstl:forEach>
+				],
+				datasets : [
+					{
+						label: "Rejected",
+						fill = false,
+						data: [
+							<jstl:forEach var = "rejected" items = "${numberOfRejectedApplications}">
+								<jstl:out value="${rejected}"/>,
+							</jstl:forEach>
+						]
+					},
+					{
+						label: "Accepted",
+						fill = false,
+						data: [
+							<jstl:forEach var = "accepted" items = "${numberOfAcceptedApplications}">
+								<jstl:out value="${accepted}"/>,
+							</jstl:forEach>
+						]
+					},
+					{
+						label: "Pending",
+						fill = false,
+						data: [
+							<jstl:forEach var = "pending" items = "${numberOfPendingApplications}">
+								<jstl:out value="${pending}"/>,
+							</jstl:forEach>
+						]
+					}
+				
+				]		
+		};
+		
+		
+		var canvas, context;
+		
+		canvas = document.getElementById("canvas5");
+		context = canvas.getContext("2d");
+		new Chart(context, {
+			type : "line",
+			data : data,
+			options : {
+				title:{
+					display:true
+				}
+			}
+		});
+	});
+</script>
+
+

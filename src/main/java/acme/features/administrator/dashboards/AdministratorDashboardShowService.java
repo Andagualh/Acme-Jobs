@@ -1,7 +1,15 @@
 
 package acme.features.administrator.dashboards;
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -88,6 +96,51 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		model.setAttribute("ratioOfAcceptedApplicationsInLast4Weeks", ratioOfAcceptedApplicationsInLast4Weeks);
 		model.setAttribute("ratioOfRejectedApplicationsInLast4Weeks", ratioOfRejectedApplicationsInLast4Weeks);
 		model.setAttribute("ratioOfPendingApplicationsInLast4Weeks", ratioOfPendingApplicationsInLast4Weeks);
+
+		//Deliverable 05
+		Date date = Date.valueOf(LocalDate.now().minusDays(28));
+
+		System.out.println(date);
+
+		List<String[]> rejected = this.repository.numberOfRejectedApplications(date);
+		List<String[]> accepted = this.repository.numberOfAcceptedApplications(date);
+		List<String[]> pending = this.repository.numberOfPendingApplications(date);
+
+		List<LocalDate> allDate = this.sacaFechas(date);
+
+		model.setAttribute("numberOfRejectedApplications", this.sacaDatosDeFecha(rejected, allDate));
+		model.setAttribute("numberOfAcceptedApplications", this.sacaDatosDeFecha(accepted, allDate));
+		model.setAttribute("numberOfPendingApplications", this.sacaDatosDeFecha(pending, allDate));
+
+	}
+
+	private List<Integer> sacaDatosDeFecha(final List<String[]> lista, final List<LocalDate> allDate) {
+		Map<LocalDate, Integer> res = new HashMap<LocalDate, Integer>();
+
+		List<String[]> l = lista;
+		for (LocalDate fecha : allDate) {
+			res.put(fecha, 0);
+		}
+
+		for (int i = 0; i < lista.size(); i++) {
+			LocalDate date = LocalDate.parse(lista.get(i)[0].substring(0, 10));
+			if (res.containsKey(date)) {
+				res.replace(date, 0, Integer.parseInt(l.get(i)[1]));
+			}
+		}
+
+		TreeMap<LocalDate, Integer> result = new TreeMap<>(res);
+
+		List<Integer> result2 = result.values().stream().collect(Collectors.toList());
+
+		return result2;
+	}
+
+	private List<LocalDate> sacaFechas(final Date date) {
+		Date fechaActual = Date.valueOf(LocalDate.now());
+		long numeroDeDias = (fechaActual.getTime() - date.getTime()) / (1000 * 60 * 60 * 24);
+		List<LocalDate> todasFechas = IntStream.iterate(0, x -> x + 1).limit(numeroDeDias).mapToObj(x -> date.toLocalDate().plusDays(x)).collect(Collectors.toList());
+		return todasFechas;
 	}
 
 	@Override
