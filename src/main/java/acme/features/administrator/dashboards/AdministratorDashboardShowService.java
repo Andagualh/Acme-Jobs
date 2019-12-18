@@ -1,7 +1,9 @@
 
 package acme.features.administrator.dashboards;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,6 +64,24 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		Integer ratioOfRejectedApplicationsInLast4Weeks = this.repository.ratioOfRejectedApplicationsInLast4Weeks();
 		Integer ratioOfPendingApplicationsInLast4Weeks = this.repository.ratioOfPendingApplicationsInLast4Weeks();
 
+		List<Integer> dayPending = new ArrayList<Integer>();
+		for (int i = 0; i <= 28; i++) {
+			Integer dayIPending = this.repository.pendingApplicationsInDay(i);
+			dayPending.add(dayIPending);
+		}
+
+		List<Integer> dayAccepted = new ArrayList<Integer>();
+		for (int i = 0; i <= 28; i++) {
+			Integer dayIAccepted = this.repository.acceptedApplicationsInDay(i);
+			dayAccepted.add(dayIAccepted);
+		}
+
+		List<Integer> dayRejected = new ArrayList<Integer>();
+		for (int i = 0; i <= 28; i++) {
+			Integer dayIRejected = this.repository.rejectedApplicationsInDay(i);
+			dayRejected.add(dayIRejected);
+		}
+
 		request.unbind(entity, model, "labels", "numC", "numI");
 
 		model.setAttribute("totalAnnouncements", totalAnnouncements);
@@ -88,6 +108,10 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		model.setAttribute("ratioOfAcceptedApplicationsInLast4Weeks", ratioOfAcceptedApplicationsInLast4Weeks);
 		model.setAttribute("ratioOfRejectedApplicationsInLast4Weeks", ratioOfRejectedApplicationsInLast4Weeks);
 		model.setAttribute("ratioOfPendingApplicationsInLast4Weeks", ratioOfPendingApplicationsInLast4Weeks);
+
+		model.setAttribute("dayPending", dayPending);
+		model.setAttribute("dayAccepted", dayAccepted);
+		model.setAttribute("dayRejected", dayRejected);
 	}
 
 	@Override

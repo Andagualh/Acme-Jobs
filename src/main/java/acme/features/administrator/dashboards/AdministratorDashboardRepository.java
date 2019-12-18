@@ -87,4 +87,13 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 	@Query("select avg(select count(a) from Application a where " + "exists(select j from Job j where j.employer.id = e.id and a.job.id = j.id)) " + "from Employer e")
 	Double averageNumberOfApplicationPerEmployer();
 
+	@Query("select count(p) from Application p where p.status = 'PENDING' AND datediff(now(),p.updatedStatusMoment) = ?1")
+	Integer pendingApplicationsInDay(int i);
+
+	@Query("select count(p) from Application p where p.status = 'ACCEPTED' AND datediff(now(),p.updatedStatusMoment) = ?1")
+	Integer acceptedApplicationsInDay(int i);
+
+	@Query("select count(p) from Application p where p.status = 'REJECTED' AND datediff(now(),p.updatedStatusMoment) = ?1")
+	Integer rejectedApplicationsInDay(int i);
+
 }
