@@ -12,6 +12,7 @@ import acme.framework.components.Request;
 import acme.framework.components.Response;
 import acme.framework.entities.Authenticated;
 import acme.framework.entities.Principal;
+import acme.framework.entities.UserAccount;
 import acme.framework.helpers.PrincipalHelper;
 import acme.framework.services.AbstractUpdateService;
 
@@ -26,7 +27,10 @@ public class AuthenticatedAuditorUpdateService implements AbstractUpdateService<
 	public boolean authorise(final Request<Auditor> request) {
 		assert request != null;
 
-		return true;
+		Principal ppal = request.getPrincipal();
+		UserAccount ua = this.repository.findOneUserAccountById(ppal.getAccountId());
+
+		return ua.hasRole(Authenticated.class);
 	}
 
 	@Override

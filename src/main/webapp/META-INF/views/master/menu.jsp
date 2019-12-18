@@ -106,8 +106,7 @@
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.auditor" access="hasRole('AcceptedAuditor')">
-			<acme:menu-suboption code="master.menu.user-account.auditor" action="/authenticated/auditor/update"
-				access="hasRole('Auditor')" />
+			<acme:menu-suboption code="master.menu.user-account.auditor" action="/authenticated/auditor/update"/>
 			<acme:menu-suboption code="master.menu.auditor.job.list-rec" action="/auditor/job/list_rec"/>
 			<acme:menu-suboption code="master.menu.auditor.job.list-nonrec" action="/auditor/job/list_nonrec"/>
 			<acme:menu-suboption code="master.menu.worker.audit-records.list" action="/auditor/audit-record/list_mine"/>
@@ -140,8 +139,7 @@
 
 			<acme:menu-suboption code="master.menu.user-account.become-auditor" action="/authenticated/auditor/create"
 				access="!hasRole('Auditor')" />
-			<acme:menu-suboption code="master.menu.user-account.auditor" action="/authenticated/auditor/update"
-				access="hasRole('Auditor')" />
+		
 
 
 			<acme:menu-suboption code="master.menu.user-account.become-sponsor" action="/authenticated/sponsor/create"

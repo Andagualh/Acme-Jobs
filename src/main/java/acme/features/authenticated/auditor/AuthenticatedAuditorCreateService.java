@@ -10,11 +10,6 @@ import acme.framework.components.HttpMethod;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.components.Response;
-
-
-import acme.framework.entities.Administrator;
-
-
 import acme.framework.entities.Authenticated;
 import acme.framework.entities.Principal;
 import acme.framework.entities.UserAccount;
@@ -29,11 +24,9 @@ public class AuthenticatedAuditorCreateService implements AbstractCreateService<
 	AuthenticatedAuditorRepository repository;
 
 
-
 	@Override
 	public boolean authorise(final Request<Auditor> request) {
 		assert request != null;
-
 
 		Principal principal = request.getPrincipal();
 		int userId = principal.getAccountId();
@@ -43,7 +36,6 @@ public class AuthenticatedAuditorCreateService implements AbstractCreateService<
 		Auditor e = this.repository.findOneAuditorByUserId(ua.getId());
 
 		return e == null;
-
 
 	}
 
