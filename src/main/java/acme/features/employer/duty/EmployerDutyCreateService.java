@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.descriptor.Descriptor;
 import acme.entities.duty.Duty;
-import acme.entities.job.Job;
 import acme.entities.roles.Employer;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;

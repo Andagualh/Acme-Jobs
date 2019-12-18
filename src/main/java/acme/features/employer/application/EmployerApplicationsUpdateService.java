@@ -44,7 +44,6 @@ public class EmployerApplicationsUpdateService implements AbstractUpdateService<
 		assert model != null;
 
 		request.unbind(entity, model, "status", "justification");
-
 	}
 
 	@Override
@@ -82,9 +81,12 @@ public class EmployerApplicationsUpdateService implements AbstractUpdateService<
 
 		Date updatedStatusMoment;
 
-		updatedStatusMoment = new Date(System.currentTimeMillis() - 1);
+		Boolean change = request.getModel().getString("oldstatus") != request.getModel().getString("status");
 
-		entity.setUpdatedStatusMoment(updatedStatusMoment);
+		if (change) {
+			updatedStatusMoment = new Date(System.currentTimeMillis() - 1);
+			entity.setUpdatedStatusMoment(updatedStatusMoment);
+		}
 
 		this.repository.save(entity);
 
