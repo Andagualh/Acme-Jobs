@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import acme.entities.message.Message;
 import acme.entities.messageThread.MessageThread;
 import acme.entities.messageThread.MessageThreadAuthenticated;
+import acme.framework.entities.Authenticated;
 import acme.framework.entities.UserAccount;
 import acme.framework.repositories.AbstractRepository;
 
@@ -35,4 +36,7 @@ public interface AuthenticatedMessageThreadRepository extends AbstractRepository
 
 	@Query("select ua from UserAccount ua where ua.username = ?1")
 	UserAccount findOneUserAccountByUsername(String username);
+
+	@Query("select a from Authenticated a where a.id = ?1")
+	Authenticated findOneAuthenticatedById(Integer id);
 }

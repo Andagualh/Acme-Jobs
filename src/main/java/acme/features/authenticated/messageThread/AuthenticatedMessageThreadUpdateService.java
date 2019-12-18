@@ -26,7 +26,13 @@ public class AuthenticatedMessageThreadUpdateService implements AbstractUpdateSe
 	public boolean authorise(final Request<MessageThread> request) {
 		assert request != null;
 
-		return true;
+		Integer principalId = request.getPrincipal().getActiveRoleId();
+		Integer idThread = request.getModel().getInteger("id");
+
+		Authenticated a = this.repository.findOneAuthenticatedById(principalId);
+		MessageThread mt = this.repository.findMessageThreadById(idThread);
+
+		return a.getUserAccount() == mt.getAdministrator();
 	}
 
 	@Override

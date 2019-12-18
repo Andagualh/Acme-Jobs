@@ -29,7 +29,11 @@ public class AuthenticatedMessageThreadCreateService implements AbstractCreateSe
 	public boolean authorise(final Request<MessageThread> request) {
 		assert request != null;
 
-		return true;
+		Integer principalId = request.getPrincipal().getActiveRoleId();
+
+		Authenticated a = this.repository.findOneAuthenticatedById(principalId);
+
+		return a != null;
 	}
 
 	@Override
