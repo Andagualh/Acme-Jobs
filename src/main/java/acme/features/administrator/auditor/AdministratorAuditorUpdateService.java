@@ -42,7 +42,6 @@ public class AdministratorAuditorUpdateService implements AbstractUpdateService<
 		assert model != null;
 
 		request.unbind(entity, model, "firm", "statement");
-		model.setAttribute("auditorAccountId", entity.getUserAccount().getId());
 
 	}
 
@@ -72,8 +71,10 @@ public class AdministratorAuditorUpdateService implements AbstractUpdateService<
 
 		UserAccount userAccount;
 		AcceptedAuditor acceptedAuditor;
+		Integer uAId;
 
-		userAccount = this.repository.findOneUserAccountById(request.getModel().getInteger("auditorAccountId"));
+		uAId = this.repository.findUAIdByAuditorId(entity.getId());
+		userAccount = this.repository.findOneUserAccountById(uAId);
 		acceptedAuditor = new AcceptedAuditor();
 		userAccount.addRole(acceptedAuditor);
 		acceptedAuditor.setUserAccount(userAccount);
