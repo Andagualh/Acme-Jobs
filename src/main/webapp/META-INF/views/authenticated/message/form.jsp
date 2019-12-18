@@ -24,8 +24,8 @@
 	<acme:check-access test="${command == 'create'}">
 		<acme:form-checkbox code="authenticated.message.form.label.accepted" path="accepted"/>
 	</acme:check-access>
-	<acme:form-moment code="authenticated.message.form.label.tags" path="tags"/>
-	<acme:form-moment code="authenticated.message.form.label.body" path="body"/>
+	<acme:form-textbox code="authenticated.message.form.label.tags" path="tags"/>
+	<acme:form-textbox code="authenticated.message.form.label.body" path="body"/>
 	
 	<acme:form-submit test="${command == 'create'}"
 	code="authenticated.message-thread.form.button.create" 
