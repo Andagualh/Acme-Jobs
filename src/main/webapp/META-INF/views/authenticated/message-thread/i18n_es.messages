@@ -24,3 +24,4 @@ authenticated.message-thread.exist = El usuario ya existe en el hilo
 authenticated.message-thread.no-exist = El usuario no existe en el hilo
 authenticated.message-thread.no-user = El usuario no existe
 authenticated.message-thread.same = Has escrito el mismo usuario
+authenticated.message-thread.administrator-delete = El administrador no puede ser borrado

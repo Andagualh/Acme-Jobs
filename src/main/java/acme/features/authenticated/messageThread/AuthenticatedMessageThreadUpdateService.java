@@ -86,6 +86,10 @@ public class AuthenticatedMessageThreadUpdateService implements AbstractUpdateSe
 			errors.state(request, !usernameAdd.equals(usernameDelete), "usernameAdd", "authenticated.message-thread.same");
 		}
 
+		if (!errors.hasErrors()) {
+			errors.state(request, !entity.getAdministrator().equals(userDelete), "usernameDelete", "authenticated.message-thread.administrator-delete");
+		}
+
 		if (!errors.hasErrors("usernameAdd") && userDelete == null) {
 			errors.state(request, userAdd != null, "usernameAdd", "authenticated.message-thread.no-user");
 		}
