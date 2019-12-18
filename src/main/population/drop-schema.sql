@@ -1,4 +1,8 @@
 
+    alter table `accepted_auditor` 
+       drop 
+       foreign key FK_pp83hmdgaolbxl9p2weha53fy;
+
     alter table `administrator` 
        drop 
        foreign key FK_2a5vcjo3stlfcwadosjfq49l1;
@@ -98,6 +102,8 @@
     alter table `worker` 
        drop 
        foreign key FK_l5q1f33vs2drypmbdhpdgwfv3;
+
+    drop table if exists `accepted_auditor`;
 
     drop table if exists `administrator`;
 
