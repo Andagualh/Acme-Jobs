@@ -4,6 +4,7 @@ package acme.features.authenticated.job;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.application.Application;
 import acme.entities.job.Job;
 import acme.entities.roles.Worker;
 import acme.framework.components.Model;
@@ -38,9 +39,17 @@ public class AuthenticatedJobShowService implements AbstractShowService<Authenti
 
 		model.setAttribute("descriptorId", entity.getDescriptor().getId());
 		Boolean isWorker;
+		Boolean alreadyApp = false;
 		isWorker = request.getPrincipal().hasRole(Worker.class);
 		model.setAttribute("isWorker", isWorker);
-
+		if (isWorker) {
+			Worker w = this.repository.findWorkerByUserId(request.getPrincipal().getAccountId());
+			Application a = this.repository.findAppByWorkerId(w.getId(), entity.getId());
+			if (a != null) {
+				alreadyApp = true;
+			}
+			model.setAttribute("alreadyApp", alreadyApp);
+		}
 	}
 
 	@Override
