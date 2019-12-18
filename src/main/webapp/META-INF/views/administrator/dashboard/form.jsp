@@ -310,15 +310,7 @@ window.onload = function () {
 		]        
 	});
 	chart1.render();
-  }
-</script>
-
-
-<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-<div id="chartPendingPerDay" style="height: 300px; width: 100%;"></div>
-
-<script type="text/javascript">
-window.onload = function () {
+	
 	var chart2 = new CanvasJS.Chart("chartAcceptedPerDay", {
 		title: {
 			text: "Accepted applications per day"
@@ -370,15 +362,7 @@ window.onload = function () {
 		]        
 	});
 	chart2.render();
-  }
-</script>
-
-<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-<div id="chartAcceptedPerDay" style="height: 300px; width: 100%;"></div>
-
-
-<script type="text/javascript">
-window.onload = function () {
+	
 	var chart3 = new CanvasJS.Chart("chartRejectedPerDay", {
 		title: {
 			text: "Rejected applications per day"
@@ -432,7 +416,9 @@ window.onload = function () {
 	chart3.render();
   }
 </script>
+
+
 <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-
+<div id="chartPendingPerDay" style="height: 300px; width: 100%;"></div>
+<div id="chartAcceptedPerDay" style="height: 300px; width: 100%;"></div>
 <div id="chartRejectedPerDay" style="height: 300px; width: 100%;"></div>
-
