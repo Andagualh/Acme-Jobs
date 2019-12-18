@@ -56,6 +56,10 @@ public class WorkerApplicationsCreateService implements AbstractCreateService<Wo
 		request.unbind(entity, model, "ref", "status", "statement", "skill", "qualification");
 
 		model.setAttribute("id", request.getServletRequest().getParameter("id"));
+		Integer workerId = request.getPrincipal().getActiveRoleId();
+		Worker w = this.repository.findOneWorkerById(workerId);
+		model.setAttribute("skill", w.getSkills());
+		model.setAttribute("qualification", w.getQualifications());
 	}
 
 	@Override

@@ -1166,7 +1166,7 @@
 		<property name="employer" ref="employer2Employer"/>
 		<property name="application">
 			<list>
-			<ref bean="application7"/>
+			<ref bean="application8"/>
 			</list>
 		</property>
 		<property name="auditRecord">
@@ -1251,7 +1251,7 @@
 		<property name="statement" value="PLACEHOLDER"/>
 		<property name="skill" value="PLACEHOLDER"/>
 		<property name="qualification" value="PLACEHOLDER"/>
-		<property name="job" ref="job4"/>
+		<property name="job" ref="job5"/>
 		<property name="worker" ref="worker2Worker"/>
 		<property name="finalMode" value="false"/>
 		</bean>
@@ -1264,7 +1264,7 @@
 		<property name="statement" value="PLACEHOLDER"/>
 		<property name="skill" value="PLACEHOLDER"/>
 		<property name="qualification" value="PLACEHOLDER"/>
-		<property name="job" ref="job4"/>
+		<property name="job" ref="job6"/>
 		<property name="worker" ref="worker4Worker"/>
 		<property name="finalMode" value="false"/>
 		</bean>
@@ -1277,7 +1277,7 @@
 		<property name="statement" value="PLACEHOLDER"/>
 		<property name="skill" value="PLACEHOLDER"/>
 		<property name="qualification" value="PLACEHOLDER"/>
-		<property name="job" ref="job4"/>
+		<property name="job" ref="job7"/>
 		<property name="worker" ref="worker5Worker"/>
 		<property name="finalMode" value="false"/>
 		</bean>
