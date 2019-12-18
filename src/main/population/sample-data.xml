@@ -1038,7 +1038,7 @@
 	
 	<bean name="job2" class = "acme.entities.job.Job">
 		<property name="reference" value="EMPA-JOBB"/>
-		<property name="status" value="PUBLISHED"/>
+		<property name="status" value="DRAFT"/>
 		<property name="title" value="Job 2"/>
 		<property name="deadline" value="2031/12/11 23:59"/>
 		<property name="salary" value="€ 15,000.00"/>
@@ -1053,7 +1053,6 @@
 		</property>
 		<property name="auditRecord">
 			<list>
-			<ref bean="auditRecord3"/>
 			<ref bean="auditRecord2"/>
 			</list>
 		</property>
@@ -1078,7 +1077,6 @@
 		<property name="auditRecord">
 			<list>
 			<ref bean="auditRecord3"/>
-			<ref bean="auditRecord2"/>
 			</list>
 		</property>
 	</bean>
@@ -1100,8 +1098,7 @@
 		</property>
 		<property name="auditRecord">
 			<list>
-			<ref bean="auditRecord3"/>
-			<ref bean="auditRecord1"/>
+			<ref bean="auditRecord4"/>
 			</list>
 		</property>
 	</bean>
@@ -1123,10 +1120,7 @@
 		</property>
 		<property name="auditRecord">
 			<list>
-			<ref bean="auditRecord3"/>
-			<ref bean="auditRecord1"/>
-			<ref bean="auditRecord2"/>
-			
+			<ref bean="auditRecord5"/>			
 			</list>
 		</property>
 	</bean>
@@ -1148,8 +1142,7 @@
 		</property>
 		<property name="auditRecord">
 			<list>
-			<ref bean="auditRecord3"/>
-			<ref bean="auditRecord1"/>
+			<ref bean="auditRecord6"/>
 			</list>
 		</property>
 	</bean>
@@ -1171,7 +1164,7 @@
 		</property>
 		<property name="auditRecord">
 			<list>
-			<ref bean="auditRecord1"/>
+			<ref bean="auditRecord7"/>
 			</list>
 		</property>
 	</bean>
@@ -1180,13 +1173,13 @@
 
 	<bean name="application1" class = "acme.entities.application.Application">
 		<property name="ref" value="EMPA-JOBB:WORC"/>
-		<property name="creationMoment" value="2018/12/11 23:59"/>
-		<property name="updatedStatusMoment" value="2018/12/11 23:59"/>
+		<property name="creationMoment" value="2019/02/11 23:59"/>
+		<property name="updatedStatusMoment" value="2019/02/11 23:59"/>
 		<property name="status" value="PENDING"/>
 		<property name="statement" value="PLACEHOLDER"/>
 		<property name="skill" value="PLACEHOLDER"/>
 		<property name="qualification" value="PLACEHOLDER"/>
-		<property name="job" ref="job1"/>
+		<property name="job" ref="job2"/>
 		<property name="worker" ref="worker3Worker"/>
 		<property name="finalMode" value="false"/>
 	</bean>
@@ -1195,7 +1188,7 @@
 		<property name="ref" value="EMPA-JOBB:WORD"/>
 		<property name="creationMoment" value="2018/12/11 23:59"/>
 		<property name="updatedStatusMoment" value="2018/12/11 23:59"/>
-		<property name="status" value="PENDING"/>
+		<property name="status" value="REJECTED"/>
 		<property name="statement" value="PLACEHOLDER"/>
 		<property name="skill" value="PLACEHOLDER"/>
 		<property name="qualification" value="PLACEHOLDER"/>
@@ -1206,78 +1199,78 @@
 		
 		<bean name="application3" class = "acme.entities.application.Application">
 		<property name="ref" value="EMPA-JOBA:WORA"/>
-		<property name="creationMoment" value="2018/12/11 23:59"/>
-		<property name="updatedStatusMoment" value="2018/12/11 23:59"/>
-		<property name="status" value="PENDING"/>
+		<property name="creationMoment" value="2019/03/11 23:59"/>
+		<property name="updatedStatusMoment" value="2019/03/11 23:59"/>
+		<property name="status" value="ACCEPTED"/>
 		<property name="statement" value="PLACEHOLDER"/>
 		<property name="skill" value="PLACEHOLDER"/>
 		<property name="qualification" value="PLACEHOLDER"/>
-		<property name="job" ref="job3"/>
+		<property name="job" ref="job1"/>
 		<property name="worker" ref="worker1Worker"/>
 		<property name="finalMode" value="false"/>
 		</bean>
 		
 		<bean name="application4" class = "acme.entities.application.Application">
 		<property name="ref" value="EMPA-JOBA:WWWF"/>
-		<property name="creationMoment" value="2018/12/11 23:59"/>
-		<property name="updatedStatusMoment" value="2018/12/11 23:59"/>
+		<property name="creationMoment" value="2018/02/23 23:59"/>
+		<property name="updatedStatusMoment" value="2018/02/23 23:59"/>
 		<property name="status" value="PENDING"/>
 		<property name="statement" value="PLACEHOLDER"/>
 		<property name="skill" value="PLACEHOLDER"/>
 		<property name="qualification" value="PLACEHOLDER"/>
-		<property name="job" ref="job3"/>
+		<property name="job" ref="job1"/>
 		<property name="worker" ref="worker6Worker"/>
 		<property name="finalMode" value="false"/>
 		</bean>
 		
 		<bean name="application5" class = "acme.entities.application.Application">
 		<property name="ref" value="EMPC-JOBC:WORA"/>
-		<property name="creationMoment" value="2018/12/11 23:59"/>
-		<property name="updatedStatusMoment" value="2018/12/11 23:59"/>
-		<property name="status" value="PENDING"/>
+		<property name="creationMoment" value="2019/07/18 23:59"/>
+		<property name="updatedStatusMoment" value="2019/07/18 23:59"/>
+		<property name="status" value="REJECTED"/>
 		<property name="statement" value="PLACEHOLDER"/>
 		<property name="skill" value="PLACEHOLDER"/>
 		<property name="qualification" value="PLACEHOLDER"/>
-		<property name="job" ref="job4"/>
+		<property name="job" ref="job3"/>
 		<property name="worker" ref="worker1Worker"/>
 		<property name="finalMode" value="false"/>
 		</bean>
 		
 		<bean name="application6" class = "acme.entities.application.Application">
 		<property name="ref" value="EMPC-JOBC:WORB"/>
-		<property name="creationMoment" value="2018/12/11 23:59"/>
-		<property name="updatedStatusMoment" value="2018/12/11 23:59"/>
-		<property name="status" value="PENDING"/>
+		<property name="creationMoment" value="2019/10/16 23:59"/>
+		<property name="updatedStatusMoment" value="2019/10/16 23:59"/>
+		<property name="status" value="REJECTED"/>
 		<property name="statement" value="PLACEHOLDER"/>
 		<property name="skill" value="PLACEHOLDER"/>
 		<property name="qualification" value="PLACEHOLDER"/>
-		<property name="job" ref="job5"/>
+		<property name="job" ref="job3"/>
 		<property name="worker" ref="worker2Worker"/>
 		<property name="finalMode" value="false"/>
 		</bean>
 		
 		<bean name="application7" class = "acme.entities.application.Application">
 		<property name="ref" value="EMPD-JOBD:WORD"/>
-		<property name="creationMoment" value="2018/12/11 23:59"/>
-		<property name="updatedStatusMoment" value="2018/12/11 23:59"/>
-		<property name="status" value="PENDING"/>
+		<property name="creationMoment" value="2019/04/23 23:59"/>
+		<property name="updatedStatusMoment" value="2019/04/23 23:59"/>
+		<property name="status" value="ACCEPTED"/>
 		<property name="statement" value="PLACEHOLDER"/>
 		<property name="skill" value="PLACEHOLDER"/>
 		<property name="qualification" value="PLACEHOLDER"/>
-		<property name="job" ref="job6"/>
+		<property name="job" ref="job4"/>
 		<property name="worker" ref="worker4Worker"/>
 		<property name="finalMode" value="false"/>
 		</bean>
 		
 		<bean name="application8" class = "acme.entities.application.Application">
 		<property name="ref" value="EMPD-JOBD:WORE"/>
-		<property name="creationMoment" value="2018/12/11 23:59"/>
-		<property name="updatedStatusMoment" value="2018/12/11 23:59"/>
+		<property name="creationMoment" value="2019/09/09 23:59"/>
+		<property name="updatedStatusMoment" value="2019/09/09 23:59"/>
 		<property name="status" value="PENDING"/>
 		<property name="statement" value="PLACEHOLDER"/>
 		<property name="skill" value="PLACEHOLDER"/>
 		<property name="qualification" value="PLACEHOLDER"/>
-		<property name="job" ref="job7"/>
+		<property name="job" ref="job4"/>
 		<property name="worker" ref="worker5Worker"/>
 		<property name="finalMode" value="false"/>
 		</bean>
@@ -1407,7 +1400,7 @@
 	<bean id="duty6" class="acme.entities.duty.Duty">
 		<property name="title" value="A Simple Title" />
 		<property name="description" value="A simple Description" />
-		<property name="percent" value="80" />
+		<property name="percent" value="50" />
 		<property name="descriptor" ref="descriptor2" />
 	</bean>
 	
@@ -1533,16 +1526,52 @@
 		<property name="status" value="DRAFT"/>
 		<property name="creationMoment" value="2018/11/12 16:30"/>
 		<property name="body" value="This is the body of the second audit record"/>
-		<property name="job" ref="job3"/>
+		<property name="job" ref="job2"/>
 		<property name="auditor" ref="auditor2Auditor"/>
 		</bean>
 		
 		<bean name="auditRecord3" class = "acme.entities.auditRecord.AuditRecord">
 		<property name="title" value="Third Audit Record"/>
 		<property name="status" value="PUBLISHED"/>
-		<property name="creationMoment" value="2017/12/12 22:40"/>
+		<property name="creationMoment" value="2018/12/12 22:40"/>
 		<property name="body" value="This is the body of the third audit record"/>
-		<property name="job" ref="job2"/>
+		<property name="job" ref="job3"/>
+		<property name="auditor" ref="auditor2Auditor"/>
+		</bean>
+		
+		<bean name="auditRecord4" class = "acme.entities.auditRecord.AuditRecord">
+		<property name="title" value="Fourth Audit Record"/>
+		<property name="status" value="DRAFT"/>
+		<property name="creationMoment" value="2018/02/22 22:40"/>
+		<property name="body" value="This is the body of the fourth audit record"/>
+		<property name="job" ref="job4"/>
+		<property name="auditor" ref="auditor1Auditor"/>
+		</bean>
+		
+		<bean name="auditRecord5" class = "acme.entities.auditRecord.AuditRecord">
+		<property name="title" value="Fifth Audit Record"/>
+		<property name="status" value="PUBLISHED"/>
+		<property name="creationMoment" value="2017/12/12 22:40"/>
+		<property name="body" value="This is the body of the fifth audit record"/>
+		<property name="job" ref="job5"/>
+		<property name="auditor" ref="auditor1Auditor"/>
+		</bean>
+		
+		<bean name="auditRecord6" class = "acme.entities.auditRecord.AuditRecord">
+		<property name="title" value="Sixth Audit Record"/>
+		<property name="status" value="DRAFT"/>
+		<property name="creationMoment" value="2019/03/27 22:40"/>
+		<property name="body" value="This is the body of the sixth audit record"/>
+		<property name="job" ref="job6"/>
+		<property name="auditor" ref="auditor1Auditor"/>
+		</bean>
+		
+		<bean name="auditRecord7" class = "acme.entities.auditRecord.AuditRecord">
+		<property name="title" value="Seventh Audit Record"/>
+		<property name="status" value="PUBLISHED"/>
+		<property name="creationMoment" value="2019/05/26 22:40"/>
+		<property name="body" value="This is the body of the seventh audit record"/>
+		<property name="job" ref="job7"/>
 		<property name="auditor" ref="auditor2Auditor"/>
 		</bean>
 
@@ -1874,3 +1903,4 @@
 	</bean>
 
 </beans>
+
