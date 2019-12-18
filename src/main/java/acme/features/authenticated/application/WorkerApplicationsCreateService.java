@@ -29,8 +29,10 @@ public class WorkerApplicationsCreateService implements AbstractCreateService<Wo
 
 		String jobid = request.getServletRequest().getParameter("id");
 
+		Application a = this.repository.findAppByWorkerId(request.getPrincipal().getActiveRoleId(), Integer.parseInt(jobid));
+
 		job = this.repository.findOneJobById(Integer.parseInt(jobid));
-		if (job.getStatus().equals("PUBLISHED")) {
+		if (job.getStatus().equals("PUBLISHED") && a == null) {
 			res = true;
 		}
 
